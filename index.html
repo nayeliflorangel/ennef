@@ -865,39 +865,74 @@
   </section>
 
   <!-- CONTACT -->
-  <section id="contact">
-    <div class="section-header">
-      <div class="section-tag" data-lang="es">Hablemos</div>
-      <div class="section-tag" data-lang="en">Let's talk</div>
-      <h2 class="section-title">
-        <span data-lang="es">Contáctanos</span>
-        <span data-lang="en">Contact Us</span>
-      </h2>
-      <p class="section-desc" data-lang="es">¿Listo para empezar tu proyecto? Cuéntanos lo que necesitas.</p>
-      <p class="section-desc" data-lang="en">Ready to start your project? Tell us what you need.</p>
-    </div>
+   <!-- CONTACT -->
+<section id="contact">
+  <div class="section-header">
+    <div class="section-tag" data-lang="es">Hablemos</div>
+    <div class="section-tag" data-lang="en">Let's talk</div>
+    <h2 class="section-title">
+      <span data-lang="es">Contáctanos</span>
+      <span data-lang="en">Contact Us</span>
+    </h2>
+    <p class="section-desc" data-lang="es">¿Listo para empezar tu proyecto? Cuéntanos lo que necesitas.</p>
+    <p class="section-desc" data-lang="en">Ready to start your project? Tell us what you need.</p>
+  </div>
 
-    <div class="contact-wrapper">
+  <div class="contact-wrapper">
+    <form onsubmit="sendMessage(event)">
+      <div class="form-group">
+        <label data-lang="es" for="inp-name">Nombre</label>
+        <label data-lang="en" for="inp-name">Name</label>
+        <input type="text" id="inp-name" required>
+      </div>
 
-      <form onsubmit="sendWhatsApp(event)"></form>
+      <div class="form-group">
+        <label data-lang="es" for="sel-service">Servicio</label>
+        <label data-lang="en" for="sel-service">Service</label>
+        <select id="sel-service" required>
+          <option value="Creación desde cero">Creación desde cero</option>
+          <option value="Mejora de sitios">Mejora de sitios</option>
+          <option value="Diseño responsivo">Diseño responsivo</option>
+          <option value="Sitios bilingües">Sitios bilingües</option>
+          <option value="Optimización SEO">Optimización SEO</option>
+          <option value="Tiendas en línea">Tiendas en línea</option>
+        </select>
+      </div>
 
-      <script>
-function sendWhatsApp(e) {
-  e.preventDefault();
+      <div class="form-group">
+        <label data-lang="es" for="inp-msg">Mensaje</label>
+        <label data-lang="en" for="inp-msg">Message</label>
+        <textarea id="inp-msg" required></textarea>
+      </div>
 
-  const name = document.getElementById("inp-name").value;
-  const service = document.getElementById("sel-service").value;
-  const message = document.getElementById("inp-msg").value;
+      <button type="submit" class="submit-btn">
+        <span data-lang="es">Enviar Mensaje</span>
+        <span data-lang="en">Send Message</span>
+      </button>
+    </form>
+  </div>
 
-  let text = `Hola, quiero una página web:%0A`;
-  text += `Nombre: ${name}%0A`;
-  text += `Servicio: ${service}%0A`;
-  text += `Mensaje: ${message}`;
+  <script>
+    function sendMessage(e) {
+      e.preventDefault();
 
-  window.open(`https://wa.me/18297471943?text=${text}`, "_blank");
+      const name = document.getElementById("inp-name").value;
+      const service = document.getElementById("sel-service").value;
+      const message = document.getElementById("inp-msg").value;
 
-  // Abrir correo
-    window.location.href = `mailto:nayeliflorangel@gmail.com?subject=Nuevo cliente&body=${text}`;
+      const text = `Hola, quiero una página web:%0ANombre: ${name}%0AServicio: ${service}%0AMensaje: ${message}`;
+
+      // Abre WhatsApp
+      window.open(`https://wa.me/18297471943?text=${text}`, "_blank");
+
+      // Descomenta esto si quieres enviar también un correo
+      // window.location.href = `mailto:nayeliflorangel@gmail.com?subject=Nuevo cliente&body=${text}`;
+    }
+  </script>
+</section>
+    }
+  </script>
+</section>
 
 }
 </script>
