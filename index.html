@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ennef | Creación de Páginas Web</title>
+  <meta name="description" content="Servicios profesionales de creación y mejora de páginas web en español e inglés." />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ===========================
+       VARIABLES — LIGHT MODE
+    =========================== */
+    :root {
+      --primary:    #7c3aed;
+      --secondary:  #ec4899;
+      --accent:     #f59e0b;
+      --gradient:   linear-gradient(135deg, #7c3aed 0%, #ec4899 50%, #f59e0b 100%);
+
+      /* surfaces */
+      --bg:         #f8fafc;
+      --bg-alt:     #ffffff;
+      --bg-hero:    linear-gradient(135deg, #ede9fe 0%, #fce7f3 50%, #fef3c7 100%);
+      --bg-port:    linear-gradient(135deg, #f8f4ff, #fff5fb, #fffbeb);
+      --card-bg:    #ffffff;
+      --nav-bg:     rgba(255,255,255,0.85);
+      --ctrl-bg:    rgba(255,255,255,0.9);
+      --form-bg:    linear-gradient(135deg, #ede9fe 0%, #fce7f3 100%);
+      --input-bg:   #ffffff;
+      --input-border: #e2d9f3;
+      --footer-bg:  #1e1b4b;
+      --footer-txt: #a78bfa;
+
+      /* text */
+      --text:       #1e1b4b;
+      --muted:      #64748b;
+      --card-border:#f0e7ff;
+      --tag-bg:     #ede9fe;
+
+      /* blobs */
+      --blob1: #c4b5fd;
+      --blob2: #fbcfe8;
+      --blob3: #fde68a;
+
+      /* section-tag */
+      --stag-bg: linear-gradient(135deg, #ede9fe, #fce7f3);
+    }
+
+    /* ===========================
+       VARIABLES — DARK MODE
+    =========================== */
+    body.dark {
+      --bg:         #0f0c1d;
+      --bg-alt:     #160f2e;
+      --bg-hero:    linear-gradient(135deg, #1a0f3d 0%, #2d0a2a 50%, #1f1400 100%);
+      --bg-port:    linear-gradient(135deg, #140d2e, #1e0b1e, #1a1000);
+      --card-bg:    #1c1336;
+      --nav-bg:     rgba(15,12,29,0.9);
+      --ctrl-bg:    rgba(28,19,54,0.95);
+      --form-bg:    linear-gradient(135deg, #1c1336 0%, #2d0a2a 100%);
+      --input-bg:   #120c27;
+      --input-border:#3b2d6e;
+      --footer-bg:  #080613;
+      --footer-txt: #a78bfa;
+
+      --text:       #e9e4ff;
+      --muted:      #9d8ec7;
+      --card-border:#2e2060;
+      --tag-bg:     #2a1a5e;
+
+      --blob1: #4c1d95;
+      --blob2: #831843;
+      --blob3: #78350f;
+
+      --stag-bg: linear-gradient(135deg, #2a1a5e, #3d0d2e);
+    }
+
+    /* ===========================
+       RESET
+    =========================== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      transition: background 0.4s, color 0.4s;
+    }
+
+    /* ===========================
+       TOP CONTROLS (lang + dark)
+    =========================== */
+    #top-controls {
+      position: fixed;
+      top: 1rem;
+      right: 1.5rem;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--ctrl-bg);
+      border-radius: 2rem;
+      padding: 0.3rem 0.6rem;
+      box-shadow: 0 4px 20px rgba(124,58,237,0.18);
+      backdrop-filter: blur(10px);
+      transition: background 0.4s;
+    }
+
+    .ctrl-btn {
+      border: none;
+      background: transparent;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 0.3rem 0.8rem;
+      border-radius: 1.5rem;
+      color: var(--muted);
+      transition: all 0.3s;
+    }
+
+    .ctrl-btn.active {
+      background: var(--gradient);
+      color: #fff;
+    }
+
+    .ctrl-divider {
+      width: 1px;
+      height: 18px;
+      background: var(--card-border);
+      margin: 0 0.2rem;
+    }
+
+    /* dark-mode icon button */
+    #dark-btn {
+      font-size: 1rem;
+      padding: 0.25rem 0.55rem;
+      line-height: 1;
+    }
+
+    /* ===========================
+       NAVBAR
+    =========================== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      background: var(--nav-bg);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 20px rgba(124,58,237,0.08);
+      transition: background 0.4s;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 800;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0;
+      width: 0; height: 2px;
+      background: var(--gradient);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:hover { color: var(--primary); }
+
+    /* ===========================
+       HERO
+    =========================== */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: var(--bg-hero);
+      z-index: 0;
+      transition: background 0.4s;
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.5;
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .blob-1 { width: 400px; height: 400px; background: var(--blob1); top: -100px; left: -100px; animation-delay: 0s; }
+    .blob-2 { width: 300px; height: 300px; background: var(--blob2); top: 50%; right: -80px; animation-delay: 3s; }
+    .blob-3 { width: 250px; height: 250px; background: var(--blob3); bottom: -60px; left: 30%; animation-delay: 6s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50%       { transform: translateY(-30px) scale(1.05); }
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 750px; }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--gradient);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.4rem 1.2rem;
+      border-radius: 2rem;
+      margin-bottom: 1.5rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+
+    .btn-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    .btn-primary {
+      background: var(--gradient);
+      color: white;
+      border: none;
+      padding: 0.9rem 2.2rem;
+      border-radius: 3rem;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0 8px 25px rgba(124,58,237,0.35);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 35px rgba(124,58,237,0.45);
+    }
+
+    .btn-secondary {
+      background: var(--bg-alt);
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      padding: 0.9rem 2.2rem;
+      border-radius: 3rem;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s;
+    }
+
+    .btn-secondary:hover { background: var(--primary); color: white; }
+
+    /* ===========================
+       SECTION BASE
+    =========================== */
+    section { padding: 6rem 2rem; }
+
+    .section-header { text-align: center; margin-bottom: 4rem; }
+
+    .section-tag {
+      display: inline-block;
+      background: var(--stag-bg);
+      color: var(--primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.35rem 1rem;
+      border-radius: 2rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .section-desc {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 550px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ===========================
+       SERVICES
+    =========================== */
+    #services { background: var(--bg-alt); transition: background 0.4s; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background: var(--card-bg);
+      border-radius: 1.5rem;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 4px 30px rgba(124,58,237,0.08);
+      border: 1px solid var(--card-border);
+      transition: transform 0.3s, box-shadow 0.3s, background 0.4s, border-color 0.4s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--gradient);
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 50px rgba(124,58,237,0.18);
+    }
+
+    .service-icon { font-size: 2.5rem; margin-bottom: 1.2rem; display: block; }
+
+    .service-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.8rem;
+    }
+
+    .service-card p { color: var(--muted); font-size: 0.92rem; line-height: 1.7; }
+
+    /* ===========================
+       PORTFOLIO
+    =========================== */
+    #portfolio { background: var(--bg-port); transition: background 0.4s; }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .portfolio-card {
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 6px 30px rgba(0,0,0,0.12);
+      transition: transform 0.3s, background 0.4s;
+      background: var(--card-bg);
+    }
+
+    .portfolio-card:hover { transform: translateY(-8px); }
+
+    /* ── browser mockup ── */
+    .mockup {
+      height: 220px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mockup-bar {
+      height: 28px;
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+      gap: 5px;
+      flex-shrink: 0;
+      background: rgba(0,0,0,0.15);
+    }
+
+    .mockup-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.5);
+    }
+
+    .mockup-url {
+      flex: 1;
+      height: 14px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 7px;
+      margin-left: 6px;
+    }
+
+    .mockup-body {
+      flex: 1;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* generic block helpers */
+    .mb { border-radius: 4px; background: rgba(255,255,255,0.25); }
+    .mb.nav  { height: 12px; width: 100%; }
+    .mb.hero { height: 40px; width: 75%; }
+    .mb.sub  { height: 8px;  width: 55%; }
+    .mb.btn  { height: 18px; width: 30%; background: rgba(255,255,255,0.55); border-radius: 9px; }
+    .mb.cards { display: flex; gap: 6px; margin-top: 4px; }
+    .mb.card  { flex: 1; height: 36px; border-radius: 6px; background: rgba(255,255,255,0.2); }
+    .mb.row   { display: flex; gap: 6px; }
+    .mb.col   { flex: 1; height: 10px; border-radius: 3px; background: rgba(255,255,255,0.2); }
+    .mb.img   { height: 50px; width: 100%; border-radius: 6px; background: rgba(255,255,255,0.18); }
+    .mb.line  { height: 7px; background: rgba(255,255,255,0.2); border-radius: 3px; }
+    .mb.half  { width: 60%; }
+
+    /* per-card backgrounds */
+    .mockup.t1 { background: linear-gradient(140deg, #5b21b6, #7c3aed, #a855f7); }
+    .mockup.t2 { background: linear-gradient(140deg, #be185d, #ec4899, #f472b6); }
+    .mockup.t3 { background: linear-gradient(140deg, #b45309, #f59e0b, #fcd34d); }
+
+    .portfolio-info { padding: 1.5rem; }
+
+    .portfolio-info h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.8rem;
+    }
+
+    .portfolio-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+    .tag {
+      background: var(--tag-bg);
+      color: var(--primary);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.25rem 0.7rem;
+      border-radius: 1rem;
+      transition: background 0.4s;
+    }
+
+    /* ===========================
+       CONTACT
+    =========================== */
+    #contact { background: var(--bg-alt); transition: background 0.4s; }
+
+    .contact-wrapper {
+      max-width: 700px;
+      margin: 0 auto;
+      background: var(--form-bg);
+      border-radius: 2rem;
+      padding: 3rem;
+      box-shadow: 0 10px 50px rgba(124,58,237,0.12);
+      transition: background 0.4s;
+    }
+
+    .form-group { margin-bottom: 1.5rem; }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.88rem;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.85rem 1.2rem;
+      border: 2px solid var(--input-border);
+      border-radius: 0.9rem;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.95rem;
+      background: var(--input-bg);
+      color: var(--text);
+      transition: border-color 0.3s, background 0.4s, color 0.4s;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus { border-color: var(--primary); }
+
+    .form-group textarea { height: 130px; resize: vertical; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .submit-btn {
+      width: 100%;
+      padding: 1rem;
+      background: var(--gradient);
+      color: white;
+      border: none;
+      border-radius: 0.9rem;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      margin-top: 0.5rem;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(124,58,237,0.35);
+    }
+
+    /* ===========================
+       FOOTER
+    =========================== */
+    footer {
+      background: var(--footer-bg);
+      color: var(--footer-txt);
+      text-align: center;
+      padding: 2.5rem;
+      font-size: 0.9rem;
+      transition: background 0.4s;
+    }
+
+    footer .brand {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 700;
+    }
+
+    /* ===========================
+       RESPONSIVE
+    =========================== */
+    @media (max-width: 768px) {
+      nav { padding: 1rem; }
+      .nav-links { display: none; }
+      .form-row { grid-template-columns: 1fr; }
+      .contact-wrapper { padding: 2rem 1.5rem; }
+    }
+
+    /* ===========================
+       LANG VISIBILITY
+    =========================== */
+    [data-lang="en"] { display: none; }
+    body.lang-en [data-lang="es"] { display: none; }
+    body.lang-en [data-lang="en"] { display: unset; }
+  </style>
+</head>
+<body>
+
+  <!-- Top controls: idioma + modo oscuro -->
+  <div id="top-controls">
+    <button class="ctrl-btn active" onclick="setLang('es')">ES</button>
+    <button class="ctrl-btn" onclick="setLang('en')">EN</button>
+    <div class="ctrl-divider"></div>
+    <button class="ctrl-btn" id="dark-btn" onclick="toggleDark()" title="Modo oscuro">🌙</button>
+  </div>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">Ennef✨</div>
+    <ul class="nav-links">
+      <li><a href="#services" data-lang="es">Servicios</a><a href="#services" data-lang="en">Services</a></li>
+      <li><a href="#portfolio" data-lang="es">Portafolio</a><a href="#portfolio" data-lang="en">Portfolio</a></li>
+      <li><a href="#contact" data-lang="es">Contáctanos</a><a href="#contact" data-lang="en">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge" data-lang="es">✨ Servicios Web Profesionales</div>
+      <div class="hero-badge" data-lang="en">✨ Professional Web Services</div>
+
+      <h1 class="hero-title">
+        <span data-lang="es">Tu presencia digital,<br/>hecha realidad</span>
+        <span data-lang="en">Your digital presence,<br/>brought to life</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        <span data-lang="es">Diseñamos páginas web modernas, rápidas y atractivas para impulsar tu negocio. Disponible en español e inglés.</span>
+        <span data-lang="en">We design modern, fast, and beautiful websites to boost your business. Available in Spanish and English.</span>
+      </p>
+
+      <div class="btn-group">
+        <a href="#services" class="btn-primary">
+          <span data-lang="es">Ver Servicios</span>
+          <span data-lang="en">View Services</span>
+        </a>
+        <a href="#contact" class="btn-secondary">
+          <span data-lang="es">Contáctanos</span>
+          <span data-lang="en">Contact Us</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-header">
+      <div class="section-tag" data-lang="es">Lo que hacemos</div>
+      <div class="section-tag" data-lang="en">What we do</div>
+      <h2 class="section-title">
+        <span data-lang="es">Servicios</span>
+        <span data-lang="en">Services</span>
+      </h2>
+      <p class="section-desc" data-lang="es">Todo lo que necesitas para tener una presencia digital profesional y efectiva.</p>
+      <p class="section-desc" data-lang="en">Everything you need for a professional and effective digital presence.</p>
+    </div>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <span class="service-icon">🚀</span>
+        <h3>
+          <span data-lang="es">Creación desde Cero</span>
+          <span data-lang="en">Build from Scratch</span>
+        </h3>
+        <p>
+          <span data-lang="es">Diseñamos y desarrollamos tu sitio web completamente nuevo, adaptado a tu marca y objetivos de negocio.</span>
+          <span data-lang="en">We design and build your brand-new website, tailored to your brand and business goals.</span>
+        </p>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">✨</span>
+        <h3>
+          <span data-lang="es">Mejora de Sitios</span>
+          <span data-lang="en">Site Improvement</span>
+        </h3>
+        <p>
+          <span data-lang="es">Modernizamos y optimizamos tu página existente: diseño, velocidad, SEO y experiencia de usuario.</span>
+          <span data-lang="en">We modernize and optimize your existing page: design, speed, SEO, and user experience.</span>
+        </p>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">📱</span>
+        <h3>
+          <span data-lang="es">Diseño Responsivo</span>
+          <span data-lang="en">Responsive Design</span>
+        </h3>
+        <p>
+          <span data-lang="es">Nos aseguramos de que tu sitio se vea perfecto en cualquier dispositivo: celular, tablet o computadora.</span>
+          <span data-lang="en">We make sure your site looks perfect on any device: phone, tablet, or desktop.</span>
+        </p>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">🌐</span>
+        <h3>
+          <span data-lang="es">Sitios Bilingües</span>
+          <span data-lang="en">Bilingual Sites</span>
+        </h3>
+        <p>
+          <span data-lang="es">Desarrollamos páginas web en español e inglés para que llegues a más clientes.</span>
+          <span data-lang="en">We build websites in Spanish and English so you can reach more customers.</span>
+        </p>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">⚡</span>
+        <h3>
+          <span data-lang="es">Optimización SEO</span>
+          <span data-lang="en">SEO Optimization</span>
+        </h3>
+        <p>
+          <span data-lang="es">Mejoramos el posicionamiento de tu sitio en Google para que más personas te encuentren.</span>
+          <span data-lang="en">We improve your site's ranking on Google so more people can find you.</span>
+        </p>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">🛒</span>
+        <h3>
+          <span data-lang="es">Tiendas en Línea</span>
+          <span data-lang="en">Online Stores</span>
+        </h3>
+        <p>
+          <span data-lang="es">Creamos tu tienda virtual con carrito de compras, pagos y gestión de productos.</span>
+          <span data-lang="en">We create your online store with shopping cart, payments, and product management.</span>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <div class="section-header">
+      <div class="section-tag" data-lang="es">Nuestros trabajos</div>
+      <div class="section-tag" data-lang="en">Our work</div>
+      <h2 class="section-title">
+        <span data-lang="es">Portafolio</span>
+        <span data-lang="en">Portfolio</span>
+      </h2>
+      <p class="section-desc" data-lang="es">Algunos proyectos que muestran lo que podemos crear para ti.</p>
+      <p class="section-desc" data-lang="en">Sample projects that show what we can build for you.</p>
+    </div>
+
+    <div class="portfolio-grid">
+
+      <!-- Card 1: Corporate -->
+      <div class="portfolio-card">
+        <div class="mockup t1">
+          <div class="mockup-bar">
+            <div class="mockup-dot"></div>
+            <div class="mockup-dot"></div>
+            <div class="mockup-dot"></div>
+            <div class="mockup-url"></div>
+          </div>
+          <div class="mockup-body">
+            <div class="mb nav"></div>
+            <div class="mb hero"></div>
+            <div class="mb sub"></div>
+            <div class="mb btn"></div>
+            <div class="mb cards">
+              <div class="mb card"></div>
+              <div class="mb card"></div>
+              <div class="mb card"></div>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <h3>
+            <span data-lang="es">Sitio Corporativo</span>
+            <span data-lang="en">Corporate Website</span>
+          </h3>
+          <div class="portfolio-tags">
+            <span class="tag">HTML/CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">SEO</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: E-commerce -->
+      <div class="portfolio-card">
+        <div class="mockup t2">
+          <div class="mockup-bar">
+            <div class="mockup-dot"></div>
+            <div class="mockup-dot"></div>
+            <div class="mockup-dot"></div>
+            <div class="mockup-url"></div>
+          </div>
+          <div class="mockup-body">
+            <div class="mb nav"></div>
+            <div class="mb img"></div>
+            <div class="mb cards">
+              <div class="mb card"></div>
+              <div class="mb card"></div>
+            </div>
+            <div class="mb row">
+              <div class="mb col"></div>
+              <div class="mb col half"></div>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <h3>
+            <span data-lang="es">Tienda en Línea</span>
+            <span data-lang="en">Online Store</span>
+          </h3>
+          <div class="portfolio-tags">
+            <span class="tag">E-commerce</span>
+            <span class="tag">HTML/CSS</span>
+            <span class="tag" data-lang="es">Bilingüe</span>
+            <span class="tag" data-lang="en">Bilingual</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Portfolio -->
+      <div class="portfolio-card">
+        <div class="mockup t3">
+          <div class="mockup-bar">
+            <div class="mockup-dot"></div>
+            <div class="mockup-dot"></div>
+            <div class="mockup-dot"></div>
+            <div class="mockup-url"></div>
+          </div>
+          <div class="mockup-body">
+            <div class="mb nav"></div>
+            <div class="mb hero"></div>
+            <div class="mb sub"></div>
+            <div class="mb row" style="margin-top:4px">
+              <div class="mb col"></div>
+              <div class="mb col"></div>
+              <div class="mb col"></div>
+            </div>
+            <div class="mb line half"></div>
+            <div class="mb line" style="width:80%"></div>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <h3>
+            <span data-lang="es">Portafolio Personal</span>
+            <span data-lang="en">Personal Portfolio</span>
+          </h3>
+          <div class="portfolio-tags">
+            <span class="tag">HTML/CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag" data-lang="es">Responsivo</span>
+            <span class="tag" data-lang="en">Responsive</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-header">
+      <div class="section-tag" data-lang="es">Hablemos</div>
+      <div class="section-tag" data-lang="en">Let's talk</div>
+      <h2 class="section-title">
+        <span data-lang="es">Contáctanos</span>
+        <span data-lang="en">Contact Us</span>
+      </h2>
+      <p class="section-desc" data-lang="es">¿Listo para empezar tu proyecto? Cuéntanos lo que necesitas.</p>
+      <p class="section-desc" data-lang="en">Ready to start your project? Tell us what you need.</p>
+    </div>
+
+    <div class="contact-wrapper">
+      <!-- ⚠️ FORMSPREE: reemplaza TU_ID con tu código de Formspree (ej. xpwzqkab) -->
+      <form id="contact-form" action="https://formspree.io/f/TU_ID" method="POST" onsubmit="handleSubmit(event)">
+
+        <!-- campo oculto: idioma del visitante -->
+        <input type="hidden" name="_language" id="hidden-lang" value="es" />
+        <!-- redirige a la misma página tras el envío -->
+        <input type="hidden" name="_next" value="https://ennef.com/#contact" />
+
+        <div class="form-row">
+          <div class="form-group">
+            <label><span data-lang="es">Nombre</span><span data-lang="en">Name</span></label>
+            <input type="text" id="inp-name" name="name" placeholder="Tu nombre" required />
+          </div>
+          <div class="form-group">
+            <label><span data-lang="es">Correo electrónico</span><span data-lang="en">Email address</span></label>
+            <input type="email" name="email" placeholder="tu@correo.com" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label><span data-lang="es">Servicio de interés</span><span data-lang="en">Service of interest</span></label>
+          <select id="sel-service" name="service">
+            <option value="es-1" class="opt-es">Creación de página desde cero</option>
+            <option value="es-2" class="opt-es">Mejora de sitio existente</option>
+            <option value="es-3" class="opt-es">Tienda en línea</option>
+            <option value="es-4" class="opt-es">Otro</option>
+            <option value="en-1" class="opt-en" style="display:none">Build a new website</option>
+            <option value="en-2" class="opt-en" style="display:none">Improve existing site</option>
+            <option value="en-3" class="opt-en" style="display:none">Online store</option>
+            <option value="en-4" class="opt-en" style="display:none">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label><span data-lang="es">Mensaje</span><span data-lang="en">Message</span></label>
+          <textarea id="inp-msg" name="message" placeholder="Cuéntanos sobre tu proyecto..." required></textarea>
+        </div>
+
+        <!-- estado del envío -->
+        <div id="form-status" style="display:none; margin-bottom:1rem; padding:0.8rem 1rem; border-radius:0.8rem; font-weight:600; font-size:0.9rem;"></div>
+
+        <button type="submit" class="submit-btn" id="submit-btn">
+          <span data-lang="es">Enviar Mensaje ✨</span>
+          <span data-lang="en">Send Message ✨</span>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      <span data-lang="es">© 2024 <span class="brand">Ennef</span> · Hecho con ❤️ · Diseño Web Profesional</span>
+      <span data-lang="en">© 2024 <span class="brand">Ennef</span> · Made with ❤️ · Professional Web Design</span>
+    </p>
+  </footer>
+
+  <script>
+    /* ── DARK MODE ── */
+    function toggleDark() {
+      const isDark = document.body.classList.toggle('dark');
+      document.getElementById('dark-btn').textContent = isDark ? '☀️' : '🌙';
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    }
+
+    // Restore saved preference
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark');
+      document.getElementById('dark-btn').textContent = '☀️';
+    }
+
+    /* ── LANGUAGE ── */
+    function setLang(lang) {
+      const isEn = lang === 'en';
+      document.body.classList.toggle('lang-en', isEn);
+
+      document.querySelectorAll('.ctrl-btn').forEach(b => b.classList.remove('active'));
+      document.querySelector(`.ctrl-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+
+      // Placeholders
+      const nameInp = document.getElementById('inp-name');
+      const msgInp  = document.getElementById('inp-msg');
+      if (nameInp) nameInp.placeholder = isEn ? 'Your name'                   : 'Tu nombre';
+      if (msgInp)  msgInp.placeholder  = isEn ? 'Tell us about your project...' : 'Cuéntanos sobre tu proyecto...';
+
+      // Select options
+      document.querySelectorAll('.opt-es').forEach(o => o.style.display = isEn ? 'none' : '');
+      document.querySelectorAll('.opt-en').forEach(o => o.style.display = isEn ? ''     : 'none');
+      const sel = document.getElementById('sel-service');
+      if (sel) sel.selectedIndex = 0;
+
+      localStorage.setItem('lang', lang);
+      const hl = document.getElementById('hidden-lang');
+      if (hl) hl.value = lang;
+    }
+
+    // Restore saved language
+    const savedLang = localStorage.getItem('lang');
+    if (savedLang === 'en') setLang('en');
+
+    /* ── FORM (Formspree) ── */
+    async function handleSubmit(e) {
+      e.preventDefault();
+      const form   = e.target;
+      const btn    = document.getElementById('submit-btn');
+      const status = document.getElementById('form-status');
+      const isEn   = document.body.classList.contains('lang-en');
+
+      btn.disabled = true;
+      btn.style.opacity = '0.7';
+      btn.innerHTML = isEn ? 'Sending…' : 'Enviando…';
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          status.style.display = 'block';
+          status.style.background = 'rgba(34,197,94,0.15)';
+          status.style.color = '#16a34a';
+          status.textContent = isEn
+            ? '✅ Message sent! We will contact you soon.'
+            : '✅ ¡Mensaje enviado! Nos pondremos en contacto pronto.';
+          form.reset();
+        } else {
+          throw new Error('error');
+        }
+      } catch {
+        status.style.display = 'block';
+        status.style.background = 'rgba(239,68,68,0.12)';
+        status.style.color = '#dc2626';
+        status.textContent = isEn
+          ? '❌ Something went wrong. Please try again.'
+          : '❌ Ocurrió un error. Por favor intenta de nuevo.';
+      }
+
+      btn.disabled = false;
+      btn.style.opacity = '1';
+      btn.innerHTML = isEn
+        ? '<span data-lang="en">Send Message ✨</span>'
+        : '<span data-lang="es">Enviar Mensaje ✨</span>';
+
+      setTimeout(() => { status.style.display = 'none'; }, 6000);
+    }
+
+    /* ── SMOOTH SCROLL ── */
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) t.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
+                        
