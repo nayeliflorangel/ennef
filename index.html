@@ -878,8 +878,29 @@
     </div>
 
     <div class="contact-wrapper">
-      <!-- ⚠️ FORMSPREE: reemplaza TU_ID con tu código de Formspree (ej. xpwzqkab) -->
-      <form id="contact-form" action="https://formspree.io/f/TU_ID" method="POST" onsubmit="handleSubmit(event)">
+
+      <form onsubmit="sendWhatsApp(event)"></form>
+
+      <script>
+function sendWhatsApp(e) {
+  e.preventDefault();
+
+  const name = document.getElementById("inp-name").value;
+  const service = document.getElementById("sel-service").value;
+  const message = document.getElementById("inp-msg").value;
+
+  let text = `Hola, quiero una página web:%0A`;
+  text += `Nombre: ${name}%0A`;
+  text += `Servicio: ${service}%0A`;
+  text += `Mensaje: ${message}`;
+
+  window.open(`https://wa.me/18297471943?text=${text}`, "_blank");
+
+  // Abrir correo
+    window.location.href = `mailto:nayeliflorangel@gmail.com?subject=Nuevo cliente&body=${text}`;
+
+}
+</script>
 
         <!-- campo oculto: idioma del visitante -->
         <input type="hidden" name="_language" id="hidden-lang" value="es" />
