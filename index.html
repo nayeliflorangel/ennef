@@ -354,6 +354,62 @@ section { padding: 96px 64px; }
 .p-chart { grid-column:1/-1; background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 11px; display: flex; align-items: flex-end; gap: 3px; height: 52px; }
 .p-bar { flex: 1; border-radius: 2px 2px 0 0; }
 
+/* PRICING */
+#pricing { background: var(--bg); }
+.price-group { margin-bottom: 48px; }
+.price-group-title {
+  font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 20px;
+  display: flex; align-items: center; gap: 12px;
+}
+.price-group-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.price-grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
+.price-grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+.price-card {
+  background: var(--bg2); border: 1px solid var(--border); border-radius: 16px;
+  padding: 28px 24px; position: relative; overflow: hidden;
+  transition: box-shadow .3s, transform .3s;
+}
+.price-card:hover { box-shadow: 0 10px 32px rgba(15,28,53,.09); transform: translateY(-2px); }
+.price-card.popular { background: var(--accent); border-color: var(--accent); }
+
+/* Para activar oferta en una tarjeta:
+   1. Cambia style="display:none" del offer-banner a style="display:block"
+   2. Edita el texto del precio directamente */
+.offer-banner {
+  position: absolute; top: 14px; right: -22px;
+  background: #EF4444; color: #fff; font-size: 9px; font-weight: 800;
+  letter-spacing: .08em; padding: 4px 32px;
+  transform: rotate(35deg); display: none;
+}
+.price-plan { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+.price-card.popular .price-plan { color: rgba(255,255,255,.6); }
+.price-amount { font-size: 34px; font-weight: 800; color: var(--heading); letter-spacing: -.03em; line-height: 1; margin-bottom: 3px; }
+.price-amount span { font-size: 13px; font-weight: 500; }
+.price-card.popular .price-amount { color: #fff; }
+.price-dop { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+.price-card.popular .price-dop { color: rgba(255,255,255,.55); }
+.price-type { font-size: 11px; font-weight: 600; color: var(--muted); margin-bottom: 16px; }
+.price-card.popular .price-type { color: rgba(255,255,255,.6); }
+.price-divider { height: 1px; background: var(--border); margin-bottom: 16px; }
+.price-card.popular .price-divider { background: rgba(255,255,255,.2); }
+.price-feats { display: flex; flex-direction: column; gap: 8px; margin-bottom: 22px; }
+.price-feat { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--body); }
+.price-card.popular .price-feat { color: rgba(255,255,255,.88); }
+.pf-dot { width: 16px; height: 16px; border-radius: 50%; background: var(--accent-bg); color: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 9px; flex-shrink: 0; }
+.price-card.popular .pf-dot { background: rgba(255,255,255,.2); color: #fff; }
+.price-btn {
+  display: block; text-align: center; width: 100%; box-sizing: border-box;
+  font-family: var(--font); font-size: 13px; font-weight: 700;
+  border-radius: 8px; padding: 10px; cursor: pointer; border: none;
+  text-decoration: none; transition: all .2s;
+  background: var(--accent-bg); color: var(--accent);
+}
+.price-btn:hover { background: var(--accent); color: #fff; }
+.price-card.popular .price-btn { background: #fff; color: var(--accent); }
+.price-card.popular .price-btn:hover { background: rgba(255,255,255,.88); }
+.price-note { font-size: 13px; color: var(--muted); text-align: center; margin-top: -28px; margin-bottom: 48px; }
+
 /* TRUST */
 #trust { background: var(--bg2); }
 
@@ -502,6 +558,7 @@ footer {
   .h-stat { border-right: none; margin-right: 0; min-width: 44%; }
   .srv-grid { grid-template-columns: 1fr; }
   .prod-grid { grid-template-columns: 1fr; }
+  .price-grid-4, .price-grid-3 { grid-template-columns: 1fr 1fr; }
   .trust-grid { grid-template-columns: 1fr 1fr; }
   .contact-wrap { grid-template-columns: 1fr; padding: 32px 24px; gap: 36px; }
   .form-row { grid-template-columns: 1fr; }
@@ -517,6 +574,7 @@ footer {
     <li><a href="#services" data-i18n="nav-services">Servicios</a></li>
     <li><a href="#products" data-i18n="nav-products">Productos</a></li>
     <li><a href="#process" data-i18n="nav-process">Proceso</a></li>
+    <li><a href="#pricing" data-i18n="nav-pricing">Precios</a></li>
     <li><a href="#trust" data-i18n="nav-why">¿Por qué nosotros?</a></li>
     <li><a href="#contact" class="nav-cta" data-i18n="nav-cta">Empezar Proyecto</a></li>
   </ul>
@@ -729,6 +787,145 @@ footer {
   </div>
 </section>
 
+<!-- PRICING -->
+<section id="pricing">
+  <div class="container">
+    <div class="eyebrow reveal" data-i18n="price-eyebrow">Precios</div>
+    <h2 class="s-title reveal" data-i18n="price-title">Planes transparentes.</h2>
+    <p class="s-desc reveal" data-i18n="price-desc">Sin letra pequeña ni sorpresas. Elige el plan que se adapta a tu negocio.</p>
+
+    <!-- Inventario -->
+    <div class="price-group reveal">
+      <div class="price-group-title" data-i18n="price-grp1">Sistemas de Inventario · Mensual</div>
+      <div class="price-grid-4">
+
+        <div class="price-card">
+          <div class="offer-banner" style="display:none">OFERTA</div>
+          <div class="price-plan">Ennef Stock</div>
+          <div class="price-amount">$25<span>/mes</span></div>
+          <div class="price-dop">$1,500 DOP/mes</div>
+          <div class="price-type" data-i18n="price-starter">Plan Starter</div>
+          <div class="price-divider"></div>
+          <div class="price-feats">
+            <div class="price-feat"><div class="pf-dot">✓</div><span data-i18n="pf-s1">2 usuarios</span></div>
+            <div class="price-feat"><div class="pf-dot">✓</div><span data-i18n="pf-s2">1 sucursal</span></div>
+            <div class="price-feat"><div class="pf-dot">✓</div><span data-i18n="pf-s3">300 productos</span></div>
+            <div class="price-feat"><div class="pf-dot">✓</div><span data-i18n="pf-s4">Soporte incluido</span></div>
+          </div>
+          <a href="#contact" class="price-btn" data-i18n="price-cta">Empezar →</a>
+        </div>
+
+        <div class="price-card popular">
+          <div class="offer-banner" style="display:none">OFERTA</div>
+          <div class="price-plan">Ennef Stock</div>
+          <div class="price-amount">$45<span>/mes</span></div>
+          <div class="price-dop">$2,700 DOP/mes</div>
+          <div class="price-type" data-i18n="price-grow">Plan Grow</div>
+          <div class="price-divider"></div>
+          <div class="price-feats">
+            <div class="price-feat"><div class="pf-dot">✓</div><span data-i18n="pf-g1">5 usuarios</span></div>
+            <div class="price-feat"><div class="pf-dot">✓</div><span data-i18n="pf-g2">2 sucursales</span></div>
+            <div class="price-feat"><div class="pf-dot">✓</div><span data-i18n="pf-g3">1,000 productos</span></div>
+            <div class="price-feat"><div class="pf-dot">✓</div><span data-i18n="pf-g4">Soporte prioritario</span></div>
+          </div>
+          <a href="#contact" class="price-btn" data-i18n="price-cta">Empezar →</a>
+        </div>
+
+        <div class="price-card">
+          <div class="offer-banner" style="display:none">OFERTA</div>
+          <div class="price-plan">Ennef Noir</div>
+          <div class="price-amount">$20<span>/mes</span></div>
+          <div class="price-dop">$1,200 DOP/mes</div>
+          <div class="price-type" data-i18n="price-bar">Plan Bar</div>
+          <div class="price-divider"></div>
+          <div class="price-feats">
+            <div class="price-feat"><div class="pf-dot">✓</div><span data-i18n="pf-b1">2 usuarios</span></div>
+            <div class="price-feat"><div class="pf-dot">✓</div><span data-i18n="pf-b2">1 bar</span></div>
+            <div class="price-feat"><div class="pf-dot">✓</div><span data-i18n="pf-b3">Control de botellas</span></div>
+            <div class="price-feat"><div class="pf-dot">✓</div><span data-i18n="pf-b4">Soporte incluido</span></div>
+          </div>
+          <a href="#contact" class="price-btn" data-i18n="price-cta">Empezar →</a>
+        </div>
+
+        <div class="price-card">
+          <div class="offer-banner" style="display:none">OFERTA</div>
+          <div class="price-plan">Ennef Noir</div>
+          <div class="price-amount">$35<span>/mes</span></div>
+          <div class="price-dop">$2,100 DOP/mes</div>
+          <div class="price-type" data-i18n="price-barpro">Plan Bar Pro</div>
+          <div class="price-divider"></div>
+          <div class="price-feats">
+            <div class="price-feat"><div class="pf-dot">✓</div><span data-i18n="pf-bp1">5 usuarios</span></div>
+            <div class="price-feat"><div class="pf-dot">✓</div><span data-i18n="pf-bp2">Múltiples turnos</span></div>
+            <div class="price-feat"><div class="pf-dot">✓</div><span data-i18n="pf-bp3">Reportes avanzados</span></div>
+            <div class="price-feat"><div class="pf-dot">✓</div><span data-i18n="pf-bp4">Soporte prioritario</span></div>
+          </div>
+          <a href="#contact" class="price-btn" data-i18n="price-cta">Empezar →</a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Páginas Web -->
+    <div class="price-group reveal">
+      <div class="price-group-title" data-i18n="price-grp2">Páginas Web · Pago único</div>
+      <div class="price-grid-3">
+
+        <div class="price-card">
+          <div class="offer-banner" style="display:none">OFERTA</div>
+          <div class="price-plan" data-i18n="web-landing">Landing Page</div>
+          <div class="price-amount">$150<span> USD</span></div>
+          <div class="price-dop">$9,000 DOP</div>
+          <div class="price-type" data-i18n="web-onetime">Pago único</div>
+          <div class="price-divider"></div>
+          <div class="price-feats">
+            <div class="price-feat"><div class="pf-dot">✓</div><span data-i18n="wf-l1">Diseño moderno</span></div>
+            <div class="price-feat"><div class="pf-dot">✓</div><span data-i18n="wf-l2">1 página optimizada</span></div>
+            <div class="price-feat"><div class="pf-dot">✓</div><span data-i18n="wf-l3">Formulario de contacto</span></div>
+            <div class="price-feat"><div class="pf-dot">✓</div><span data-i18n="wf-l4">Entrega en 5 días</span></div>
+          </div>
+          <a href="#contact" class="price-btn" data-i18n="price-quote">Solicitar →</a>
+        </div>
+
+        <div class="price-card popular">
+          <div class="offer-banner" style="display:none">OFERTA</div>
+          <div class="price-plan" data-i18n="web-corp">Web Corporativa</div>
+          <div class="price-amount">$450<span> USD</span></div>
+          <div class="price-dop">$27,000 DOP</div>
+          <div class="price-type" data-i18n="web-onetime">Pago único</div>
+          <div class="price-divider"></div>
+          <div class="price-feats">
+            <div class="price-feat"><div class="pf-dot">✓</div><span data-i18n="wf-c1">Hasta 5 páginas</span></div>
+            <div class="price-feat"><div class="pf-dot">✓</div><span data-i18n="wf-c2">Diseño bilingüe</span></div>
+            <div class="price-feat"><div class="pf-dot">✓</div><span data-i18n="wf-c3">SEO incluido</span></div>
+            <div class="price-feat"><div class="pf-dot">✓</div><span data-i18n="wf-c4">Entrega en 2 semanas</span></div>
+          </div>
+          <a href="#contact" class="price-btn" data-i18n="price-quote">Solicitar →</a>
+        </div>
+
+        <div class="price-card">
+          <div class="offer-banner" style="display:none">OFERTA</div>
+          <div class="price-plan">E-commerce</div>
+          <div class="price-amount">$850<span> USD</span></div>
+          <div class="price-dop">$51,000 DOP</div>
+          <div class="price-type" data-i18n="web-onetime">Pago único</div>
+          <div class="price-divider"></div>
+          <div class="price-feats">
+            <div class="price-feat"><div class="pf-dot">✓</div><span data-i18n="wf-e1">Tienda online completa</span></div>
+            <div class="price-feat"><div class="pf-dot">✓</div><span data-i18n="wf-e2">Pasarela de pagos</span></div>
+            <div class="price-feat"><div class="pf-dot">✓</div><span data-i18n="wf-e3">Panel de administración</span></div>
+            <div class="price-feat"><div class="pf-dot">✓</div><span data-i18n="wf-e4">Entrega en 3-4 semanas</span></div>
+          </div>
+          <a href="#contact" class="price-btn" data-i18n="price-quote">Solicitar →</a>
+        </div>
+
+      </div>
+      <p class="price-note" data-i18n="price-maint">+ Mantenimiento mensual disponible desde $30 USD / $1,800 DOP</p>
+    </div>
+
+  </div>
+</section>
+
 <!-- TRUST -->
 <section id="trust">
   <div class="container">
@@ -830,7 +1027,7 @@ footer {
           <div class="ct-ch-ico">📷</div>
           <div>
             <div class="ct-ch-lbl">Instagram</div>
-            <div class="ct-ch-val">@ennefrd</div>
+            <div class="ct-ch-val">@ennef.rd</div>
           </div>
         </div>
         <a href="mailto:nayeliflorangel@gmail.com" style="text-decoration:none;color:inherit;">
@@ -1012,6 +1209,20 @@ const t = {
     'opt4': 'Solución Tech a Medida',
     'opt5': 'No sé exactamente — necesito orientación',
     'footer-copy': '© 2025 Ennef · Santo Domingo, República Dominicana',
+    'nav-pricing':'Precios',
+    'price-eyebrow':'Precios','price-title':'Planes transparentes.','price-desc':'Sin letra pequeña ni sorpresas. Elige el plan que se adapta a tu negocio.',
+    'price-grp1':'Sistemas de Inventario · Mensual','price-grp2':'Páginas Web · Pago único',
+    'price-starter':'Plan Starter','price-grow':'Plan Grow','price-bar':'Plan Bar','price-barpro':'Plan Bar Pro',
+    'price-cta':'Empezar →','price-quote':'Solicitar →',
+    'pf-s1':'2 usuarios','pf-s2':'1 sucursal','pf-s3':'300 productos','pf-s4':'Soporte incluido',
+    'pf-g1':'5 usuarios','pf-g2':'2 sucursales','pf-g3':'1,000 productos','pf-g4':'Soporte prioritario',
+    'pf-b1':'2 usuarios','pf-b2':'1 bar','pf-b3':'Control de botellas','pf-b4':'Soporte incluido',
+    'pf-bp1':'5 usuarios','pf-bp2':'Múltiples turnos','pf-bp3':'Reportes avanzados','pf-bp4':'Soporte prioritario',
+    'web-landing':'Landing Page','web-corp':'Web Corporativa','web-onetime':'Pago único',
+    'wf-l1':'Diseño moderno','wf-l2':'1 página optimizada','wf-l3':'Formulario de contacto','wf-l4':'Entrega en 5 días',
+    'wf-c1':'Hasta 5 páginas','wf-c2':'Diseño bilingüe','wf-c3':'SEO incluido','wf-c4':'Entrega en 2 semanas',
+    'wf-e1':'Tienda online completa','wf-e2':'Pasarela de pagos','wf-e3':'Panel de administración','wf-e4':'Entrega en 3-4 semanas',
+    'price-maint':'+ Mantenimiento mensual disponible desde $30 USD / $1,800 DOP',
   },
   en: {
     'nav-services': 'Services',
@@ -1126,6 +1337,20 @@ const t = {
     'opt4': 'Custom Tech Solution',
     'opt5': "I'm not sure — I need guidance",
     'footer-copy': '© 2025 Ennef · Santo Domingo, Dominican Republic',
+    'nav-pricing':'Pricing',
+    'price-eyebrow':'Pricing','price-title':'Transparent plans.','price-desc':'No fine print, no surprises. Choose the plan that fits your business.',
+    'price-grp1':'Inventory Systems · Monthly','price-grp2':'Websites · One-time payment',
+    'price-starter':'Starter Plan','price-grow':'Grow Plan','price-bar':'Bar Plan','price-barpro':'Bar Pro Plan',
+    'price-cta':'Get started →','price-quote':'Request →',
+    'pf-s1':'2 users','pf-s2':'1 branch','pf-s3':'300 products','pf-s4':'Support included',
+    'pf-g1':'5 users','pf-g2':'2 branches','pf-g3':'1,000 products','pf-g4':'Priority support',
+    'pf-b1':'2 users','pf-b2':'1 bar','pf-b3':'Bottle control','pf-b4':'Support included',
+    'pf-bp1':'5 users','pf-bp2':'Multiple shifts','pf-bp3':'Advanced reports','pf-bp4':'Priority support',
+    'web-landing':'Landing Page','web-corp':'Corporate Website','web-onetime':'One-time payment',
+    'wf-l1':'Modern design','wf-l2':'1 optimized page','wf-l3':'Contact form','wf-l4':'Delivery in 5 days',
+    'wf-c1':'Up to 5 pages','wf-c2':'Bilingual design','wf-c3':'SEO included','wf-c4':'Delivery in 2 weeks',
+    'wf-e1':'Full online store','wf-e2':'Payment gateway','wf-e3':'Admin panel','wf-e4':'Delivery in 3-4 weeks',
+    'price-maint':'+ Monthly maintenance available from $30 USD / $1,800 DOP',
   }
 };
 
