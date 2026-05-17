@@ -276,6 +276,17 @@ section { padding: 96px 64px; }
 .prod-card.stock .fc { background: var(--green-bg); color: var(--green); }
 .prod-card.noir  .fc { background: var(--amber-bg); color: var(--amber); }
 
+.prod-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 700; font-family: var(--font);
+  border-radius: 10px; padding: 12px 24px;
+  text-decoration: none; border: none; cursor: pointer; transition: all .2s;
+}
+.prod-card.stock .prod-btn { background: var(--green); color: #fff; }
+.prod-card.stock .prod-btn:hover { background: #047857; box-shadow: 0 6px 18px rgba(5,150,105,.28); }
+.prod-card.noir  .prod-btn { background: var(--amber); color: #fff; }
+.prod-card.noir  .prod-btn:hover { background: #B45309; box-shadow: 0 6px 18px rgba(217,119,6,.28); }
+
 /* mini dash */
 .p-dash { margin-top: 28px; background: var(--bg); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
 .p-dash-top {
@@ -437,23 +448,28 @@ footer {
   <button class="lang-toggle" id="langToggle">EN</button>
 </nav>
 
+<!-- HERO -->
 <div class="hero">
   <div class="hero-inner">
     <div class="hero-badge">
       <div class="badge-dot"></div>
       <span data-i18n="hero-badge">Disponibles para nuevos proyectos</span>
     </div>
+
     <h1 class="hero-h1">
       <span data-i18n="hero-h1-line1">Tecnología que</span><br>
       <span class="blue" data-i18n="hero-h1-line2">impulsa tu negocio.</span>
     </h1>
+
     <p class="hero-p" data-i18n-html="hero-p">
       Construimos <strong>sistemas de inventario</strong>, <strong>páginas web profesionales</strong> y <strong>soluciones tech a medida</strong> para empresas en República Dominicana y el Caribe.
     </p>
+
     <div class="hero-btns">
       <a href="#services" class="btn-p" data-i18n="hero-btn1">Ver Servicios →</a>
       <a href="#contact" class="btn-g" data-i18n="hero-btn2">Hablar con el equipo</a>
     </div>
+
     <div class="hero-stats">
       <div class="h-stat">
         <div class="h-stat-n"><span class="count" data-target="47">0</span><span class="a">+</span></div>
@@ -473,6 +489,8 @@ footer {
       </div>
     </div>
   </div>
+
+  <!-- floating UI cards -->
   <div class="hero-cards">
     <div class="hc">
       <div class="hc-label" data-i18n="card1-label">Ennef Stock · Inventario</div>
@@ -484,9 +502,12 @@ footer {
         <div class="hc-val">248</div>
       </div>
       <div class="mini-bars">
-        <div class="mb" style="height:42%"></div><div class="mb" style="height:62%"></div>
-        <div class="mb a" style="height:78%"></div><div class="mb a" style="height:54%"></div>
-        <div class="mb a" style="height:88%"></div><div class="mb a" style="height:68%"></div>
+        <div class="mb" style="height:42%"></div>
+        <div class="mb" style="height:62%"></div>
+        <div class="mb a" style="height:78%"></div>
+        <div class="mb a" style="height:54%"></div>
+        <div class="mb a" style="height:88%"></div>
+        <div class="mb a" style="height:68%"></div>
         <div class="mb g" style="height:100%"></div>
       </div>
     </div>
@@ -511,6 +532,7 @@ footer {
   </div>
 </div>
 
+<!-- SERVICES -->
 <section id="services">
   <div class="container">
     <div class="eyebrow reveal" data-i18n="srv-eyebrow">Servicios</div>
@@ -518,19 +540,22 @@ footer {
     <p class="s-desc reveal" data-i18n="srv-desc">Tres especialidades, un solo equipo. Todo lo que tu negocio necesita en tecnología.</p>
     <div class="srv-grid">
       <div class="srv-card feat reveal">
-        <div class="srv-num">01</div><div class="srv-ico">📦</div>
+        <div class="srv-num">01</div>
+        <div class="srv-ico">📦</div>
         <div class="srv-name" data-i18n="srv1-name">Sistemas de Inventario</div>
         <p class="srv-desc" data-i18n="srv1-desc">Control de stock en tiempo real, alertas automáticas, reportes y dashboards. Para retail, bares, restaurantes y más.</p>
         <a href="#products" class="srv-link" data-i18n="srv1-link">Ver productos →</a>
       </div>
       <div class="srv-card reveal d1">
-        <div class="srv-num">02</div><div class="srv-ico">🌐</div>
+        <div class="srv-num">02</div>
+        <div class="srv-ico">🌐</div>
         <div class="srv-name" data-i18n="srv2-name">Páginas Web Profesionales</div>
         <p class="srv-desc" data-i18n="srv2-desc">Sitios rápidos, modernos y orientados a convertir. Corporativos, e-commerce, portafolios. Bilingüe si lo necesitas.</p>
         <a href="#contact" class="srv-link" data-i18n="srv2-link">Solicitar cotización →</a>
       </div>
       <div class="srv-card reveal d2">
-        <div class="srv-num">03</div><div class="srv-ico">⚙️</div>
+        <div class="srv-num">03</div>
+        <div class="srv-ico">⚙️</div>
         <div class="srv-name" data-i18n="srv3-name">Soluciones Tech a Medida</div>
         <p class="srv-desc" data-i18n="srv3-desc">Automatizaciones, dashboards, integraciones con APIs y herramientas internas. Si tienes un problema técnico, lo resolvemos.</p>
         <a href="#contact" class="srv-link" data-i18n="srv3-link">Cuéntanos tu proyecto →</a>
@@ -539,12 +564,14 @@ footer {
   </div>
 </section>
 
+<!-- PRODUCTS -->
 <section id="products">
   <div class="container">
     <div class="eyebrow reveal" data-i18n="prod-eyebrow">Productos Propios</div>
     <h2 class="s-title reveal" data-i18n="prod-title">Nuestro ecosistema</h2>
     <p class="s-desc reveal" data-i18n="prod-desc">Dos sistemas construidos por nosotros, listos para tu negocio hoy mismo.</p>
     <div class="prod-grid">
+
       <div class="prod-card stock reveal">
         <div class="prod-tag">✦ Ennef Stock</div>
         <div class="prod-name" data-i18n="stock-name">Control de Inventario</div>
@@ -559,7 +586,9 @@ footer {
         </div>
         <div class="p-dash">
           <div class="p-dash-top">
-            <div class="pd" style="background:#FF5F57"></div><div class="pd" style="background:#FFBD2E"></div><div class="pd" style="background:#28C840"></div>
+            <div class="pd" style="background:#FF5F57"></div>
+            <div class="pd" style="background:#FFBD2E"></div>
+            <div class="pd" style="background:#28C840"></div>
             <div class="pd-ttl">ennef-stock · dashboard</div>
           </div>
           <div class="p-dash-body">
@@ -567,15 +596,21 @@ footer {
             <div class="p-stat"><div class="p-stat-n" style="color:var(--accent)">$94k</div><div class="p-stat-l" data-i18n="dash-value">Valor Stock</div></div>
             <div class="p-stat"><div class="p-stat-n" style="color:var(--amber)">14</div><div class="p-stat-l" data-i18n="dash-low">Stock Bajo</div></div>
             <div class="p-chart">
-              <div class="p-bar" style="height:42%;background:#EDE6F8"></div><div class="p-bar" style="height:65%;background:#C9B8EE"></div>
-              <div class="p-bar" style="height:50%;background:#EDE6F8"></div><div class="p-bar" style="height:88%;background:var(--accent)"></div>
-              <div class="p-bar" style="height:60%;background:#C9B8EE"></div><div class="p-bar" style="height:92%;background:var(--accent)"></div>
-              <div class="p-bar" style="height:70%;background:#C9B8EE"></div><div class="p-bar" style="height:55%;background:#EDE6F8"></div>
-              <div class="p-bar" style="height:80%;background:var(--accent)"></div><div class="p-bar" style="height:100%;background:var(--green)"></div>
+              <div class="p-bar" style="height:42%;background:#EDE6F8"></div>
+              <div class="p-bar" style="height:65%;background:#C9B8EE"></div>
+              <div class="p-bar" style="height:50%;background:#EDE6F8"></div>
+              <div class="p-bar" style="height:88%;background:var(--accent)"></div>
+              <div class="p-bar" style="height:60%;background:#C9B8EE"></div>
+              <div class="p-bar" style="height:92%;background:var(--accent)"></div>
+              <div class="p-bar" style="height:70%;background:#C9B8EE"></div>
+              <div class="p-bar" style="height:55%;background:#EDE6F8"></div>
+              <div class="p-bar" style="height:80%;background:var(--accent)"></div>
+              <div class="p-bar" style="height:100%;background:var(--green)"></div>
             </div>
           </div>
         </div>
       </div>
+
       <div class="prod-card noir reveal d1">
         <div class="prod-tag">✦ Ennef Noir</div>
         <div class="prod-name" data-i18n="noir-name">Inventario para Bares</div>
@@ -590,7 +625,9 @@ footer {
         </div>
         <div class="p-dash">
           <div class="p-dash-top">
-            <div class="pd" style="background:#FF5F57"></div><div class="pd" style="background:#FFBD2E"></div><div class="pd" style="background:#28C840"></div>
+            <div class="pd" style="background:#FF5F57"></div>
+            <div class="pd" style="background:#FFBD2E"></div>
+            <div class="pd" style="background:#28C840"></div>
             <div class="pd-ttl">ennef-noir · bar dashboard</div>
           </div>
           <div class="p-dash-body">
@@ -598,33 +635,57 @@ footer {
             <div class="p-stat"><div class="p-stat-n" style="color:var(--heading)">8</div><div class="p-stat-l" data-i18n="dash-restock">Reponer</div></div>
             <div class="p-stat"><div class="p-stat-n" style="color:#EF4444">3</div><div class="p-stat-l" data-i18n="dash-out">Agotado</div></div>
             <div class="p-chart">
-              <div class="p-bar" style="height:55%;background:#FEF3C7"></div><div class="p-bar" style="height:80%;background:var(--amber)"></div>
-              <div class="p-bar" style="height:40%;background:#FEF3C7"></div><div class="p-bar" style="height:95%;background:var(--amber)"></div>
-              <div class="p-bar" style="height:60%;background:#FEF3C7"></div><div class="p-bar" style="height:75%;background:var(--amber)"></div>
-              <div class="p-bar" style="height:50%;background:#FEF3C7"></div><div class="p-bar" style="height:88%;background:var(--amber)"></div>
-              <div class="p-bar" style="height:65%;background:#FEF3C7"></div><div class="p-bar" style="height:100%;background:var(--green)"></div>
+              <div class="p-bar" style="height:55%;background:#FEF3C7"></div>
+              <div class="p-bar" style="height:80%;background:var(--amber)"></div>
+              <div class="p-bar" style="height:40%;background:#FEF3C7"></div>
+              <div class="p-bar" style="height:95%;background:var(--amber)"></div>
+              <div class="p-bar" style="height:60%;background:#FEF3C7"></div>
+              <div class="p-bar" style="height:75%;background:var(--amber)"></div>
+              <div class="p-bar" style="height:50%;background:#FEF3C7"></div>
+              <div class="p-bar" style="height:88%;background:var(--amber)"></div>
+              <div class="p-bar" style="height:65%;background:#FEF3C7"></div>
+              <div class="p-bar" style="height:100%;background:var(--green)"></div>
             </div>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
+<!-- TRUST -->
 <section id="trust">
   <div class="container">
     <div class="eyebrow reveal" data-i18n="trust-eyebrow">¿Por qué Ennef?</div>
     <h2 class="s-title reveal" data-i18n="trust-title">Construido para generar confianza.</h2>
     <p class="s-desc reveal" data-i18n="trust-desc">No somos una agencia genérica. Somos un equipo especializado en soluciones reales para negocios reales.</p>
     <div class="trust-grid">
-      <div class="trust-card reveal"><span class="trust-ico">🔒</span><div class="trust-t" data-i18n="trust1-t">Datos seguros</div><p class="trust-d" data-i18n="trust1-d">Tu información siempre protegida con los más altos estándares de seguridad.</p></div>
-      <div class="trust-card reveal d1"><span class="trust-ico">⚡</span><div class="trust-t" data-i18n="trust2-t">Respuesta en 24h</div><p class="trust-d" data-i18n="trust2-d">Soporte humano, sin bots. Respondemos rápido porque tu tiempo vale.</p></div>
-      <div class="trust-card reveal d2"><span class="trust-ico">🇩🇴</span><div class="trust-t" data-i18n="trust3-t">Hecho en RD</div><p class="trust-d" data-i18n="trust3-d">Equipo local que entiende el contexto dominicano. Precios justos, sin sorpresas.</p></div>
-      <div class="trust-card reveal d3"><span class="trust-ico">🔄</span><div class="trust-t" data-i18n="trust4-t">Soporte continuo</div><p class="trust-d" data-i18n="trust4-d">No desaparecemos al entregar. Acompañamos tu proyecto a largo plazo.</p></div>
+      <div class="trust-card reveal">
+        <span class="trust-ico">🔒</span>
+        <div class="trust-t" data-i18n="trust1-t">Datos seguros</div>
+        <p class="trust-d" data-i18n="trust1-d">Tu información siempre protegida con los más altos estándares de seguridad.</p>
+      </div>
+      <div class="trust-card reveal d1">
+        <span class="trust-ico">⚡</span>
+        <div class="trust-t" data-i18n="trust2-t">Respuesta en 24h</div>
+        <p class="trust-d" data-i18n="trust2-d">Soporte humano, sin bots. Respondemos rápido porque tu tiempo vale.</p>
+      </div>
+      <div class="trust-card reveal d2">
+        <span class="trust-ico">🇩🇴</span>
+        <div class="trust-t" data-i18n="trust3-t">Hecho en RD</div>
+        <p class="trust-d" data-i18n="trust3-d">Equipo local que entiende el contexto dominicano. Precios justos, sin sorpresas.</p>
+      </div>
+      <div class="trust-card reveal d3">
+        <span class="trust-ico">🔄</span>
+        <div class="trust-t" data-i18n="trust4-t">Soporte continuo</div>
+        <p class="trust-d" data-i18n="trust4-d">No desaparecemos al entregar. Acompañamos tu proyecto a largo plazo.</p>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- PROCESS -->
 <section id="process">
   <div class="container">
     <div class="eyebrow reveal" data-i18n="proc-eyebrow">Proceso</div>
@@ -633,28 +694,41 @@ footer {
     <div class="proc-list reveal">
       <div class="proc-item">
         <div class="proc-num">01</div>
-        <div><div class="proc-name" data-i18n="proc1-name">Conversación inicial</div><div class="proc-desc" data-i18n="proc1-desc">Nos cuentas qué necesitas. Sin compromisos. Analizamos el problema juntos.</div></div>
+        <div>
+          <div class="proc-name" data-i18n="proc1-name">Conversación inicial</div>
+          <div class="proc-desc" data-i18n="proc1-desc">Nos cuentas qué necesitas. Sin compromisos. Analizamos el problema juntos.</div>
+        </div>
         <div class="proc-dur" data-i18n="proc1-dur">Día 1</div>
       </div>
       <div class="proc-item">
         <div class="proc-num">02</div>
-        <div><div class="proc-name" data-i18n="proc2-name">Propuesta y cotización</div><div class="proc-desc" data-i18n="proc2-desc">Te enviamos una propuesta detallada con alcance, tiempo y precio. Sin letra pequeña.</div></div>
+        <div>
+          <div class="proc-name" data-i18n="proc2-name">Propuesta y cotización</div>
+          <div class="proc-desc" data-i18n="proc2-desc">Te enviamos una propuesta detallada con alcance, tiempo y precio. Sin letra pequeña.</div>
+        </div>
         <div class="proc-dur" data-i18n="proc2-dur">1–2 días</div>
       </div>
       <div class="proc-item">
         <div class="proc-num">03</div>
-        <div><div class="proc-name" data-i18n="proc3-name">Diseño y desarrollo</div><div class="proc-desc" data-i18n="proc3-desc">Construimos con actualizaciones constantes. Tú apruebas cada etapa antes de continuar.</div></div>
+        <div>
+          <div class="proc-name" data-i18n="proc3-name">Diseño y desarrollo</div>
+          <div class="proc-desc" data-i18n="proc3-desc">Construimos con actualizaciones constantes. Tú apruebas cada etapa antes de continuar.</div>
+        </div>
         <div class="proc-dur" data-i18n="proc3-dur">Semana 1–4</div>
       </div>
       <div class="proc-item">
         <div class="proc-num">04</div>
-        <div><div class="proc-name" data-i18n="proc4-name">Entrega y soporte</div><div class="proc-desc" data-i18n="proc4-desc">Lanzamos, te capacitamos y nos quedamos disponibles. Soporte incluido siempre.</div></div>
+        <div>
+          <div class="proc-name" data-i18n="proc4-name">Entrega y soporte</div>
+          <div class="proc-desc" data-i18n="proc4-desc">Lanzamos, te capacitamos y nos quedamos disponibles. Soporte incluido siempre.</div>
+        </div>
         <div class="proc-dur">Ongoing</div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact">
   <div class="container">
     <div class="contact-wrap reveal">
@@ -668,18 +742,47 @@ footer {
           <div class="ct-chip" data-i18n="chip3">⚙️ Solución Tech</div>
           <div class="ct-chip" data-i18n="chip4">🍸 Inventario para Bar</div>
         </div>
-        <div class="ct-ch"><div class="ct-ch-ico">💬</div><div><div class="ct-ch-lbl">WhatsApp</div><div class="ct-ch-val" data-i18n="ct-wa">Escríbenos directo</div></div></div>
-        <div class="ct-ch"><div class="ct-ch-ico">📷</div><div><div class="ct-ch-lbl">Instagram</div><div class="ct-ch-val">@ennefrd</div></div></div>
-        <div class="ct-ch"><div class="ct-ch-ico">✉️</div><div><div class="ct-ch-lbl">Email</div><div class="ct-ch-val">hola@ennefrd.com</div></div></div>
+        <a href="https://wa.me/18297471943" target="_blank" style="text-decoration:none;color:inherit;">
+          <div class="ct-ch">
+            <div class="ct-ch-ico">💬</div>
+            <div>
+              <div class="ct-ch-lbl">WhatsApp</div>
+              <div class="ct-ch-val" data-i18n="ct-wa">Escríbenos directo</div>
+            </div>
+          </div>
+        </a>
+        <div class="ct-ch">
+          <div class="ct-ch-ico">📷</div>
+          <div>
+            <div class="ct-ch-lbl">Instagram</div>
+            <div class="ct-ch-val">@ennefrd</div>
+          </div>
+        </div>
+        <a href="mailto:nayeliflorangel@gmail.com" style="text-decoration:none;color:inherit;">
+          <div class="ct-ch">
+            <div class="ct-ch-ico">✉️</div>
+            <div>
+              <div class="ct-ch-lbl">Email</div>
+              <div class="ct-ch-val">nayeliflorangel@gmail.com</div>
+            </div>
+          </div>
+        </a>
       </div>
-      <div class="form">
+
+      <form class="form" id="contactForm" onsubmit="submitForm(event)">
         <div class="form-row">
-          <div><label data-i18n="form-name">Nombre</label><input type="text" data-i18n-placeholder="form-name-ph" placeholder="Tu nombre completo" /></div>
-          <div><label data-i18n="form-email">Correo electrónico</label><input type="email" data-i18n-placeholder="form-email-ph" placeholder="tu@correo.com" /></div>
+          <div>
+            <label data-i18n="form-name">Nombre</label>
+            <input id="f-name" type="text" data-i18n-placeholder="form-name-ph" placeholder="Tu nombre completo" required />
+          </div>
+          <div>
+            <label data-i18n="form-email">Correo electrónico</label>
+            <input id="f-email" type="email" data-i18n-placeholder="form-email-ph" placeholder="tu@correo.com" required />
+          </div>
         </div>
         <div>
           <label data-i18n="form-service">¿Qué necesitas?</label>
-          <select>
+          <select id="f-service" required>
             <option value="" data-i18n="opt0">Selecciona un servicio</option>
             <option data-i18n="opt1">Sistema de Inventario (Ennef Stock)</option>
             <option data-i18n="opt2">Inventario para Bar (Ennef Noir)</option>
@@ -690,11 +793,11 @@ footer {
         </div>
         <div>
           <label data-i18n="form-project">Cuéntanos tu proyecto</label>
-          <textarea data-i18n-placeholder="form-project-ph" placeholder="Describe brevemente lo que necesitas. Mientras más detalles, mejor podemos ayudarte."></textarea>
+          <textarea id="f-msg" data-i18n-placeholder="form-project-ph" placeholder="Describe brevemente lo que necesitas. Mientras más detalles, mejor podemos ayudarte." required></textarea>
         </div>
-        <button class="form-btn" data-i18n="form-btn">Enviar mensaje →</button>
+        <button type="submit" class="form-btn" data-i18n="form-btn">Enviar mensaje →</button>
         <p class="form-note" data-i18n="form-note">🔒 Tu información es privada y no será compartida con terceros.</p>
-      </div>
+      </form>
     </div>
   </div>
 </section>
@@ -712,108 +815,304 @@ footer {
 <script>
 const t = {
   es: {
-    'nav-services':'Servicios','nav-products':'Productos','nav-process':'Proceso','nav-why':'¿Por qué nosotros?','nav-cta':'Empezar Proyecto',
-    'hero-badge':'Disponibles para nuevos proyectos','hero-h1-line1':'Tecnología que','hero-h1-line2':'impulsa tu negocio.',
-    'hero-p':'Construimos <strong>sistemas de inventario</strong>, <strong>páginas web profesionales</strong> y <strong>soluciones tech a medida</strong> para empresas en República Dominicana y el Caribe.',
-    'hero-btn1':'Ver Servicios →','hero-btn2':'Hablar con el equipo',
-    'stat1':'Proyectos entregados','stat2':'Años de experiencia','stat3':'Productos propios activos','stat4':'Tiempo de respuesta',
-    'card1-label':'Ennef Stock · Inventario','card1-title':'Total de Productos','card1-sub':'Actualizado hace 2 min',
-    'card2-label':'Alerta de Inventario','card2-badge':'Stock bajo','card2-sub':'3 unidades restantes · Reponer pronto',
-    'card3-label':'Ennef Noir · Turno Noche','card3-sub':'63 productos bajo control','card3-badge':'● Activo',
-    'srv-eyebrow':'Servicios','srv-title':'¿En qué te ayudamos?','srv-desc':'Tres especialidades, un solo equipo. Todo lo que tu negocio necesita en tecnología.',
-    'srv1-name':'Sistemas de Inventario','srv1-desc':'Control de stock en tiempo real, alertas automáticas, reportes y dashboards. Para retail, bares, restaurantes y más.','srv1-link':'Ver productos →',
-    'srv2-name':'Páginas Web Profesionales','srv2-desc':'Sitios rápidos, modernos y orientados a convertir. Corporativos, e-commerce, portafolios. Bilingüe si lo necesitas.','srv2-link':'Solicitar cotización →',
-    'srv3-name':'Soluciones Tech a Medida','srv3-desc':'Automatizaciones, dashboards, integraciones con APIs y herramientas internas. Si tienes un problema técnico, lo resolvemos.','srv3-link':'Cuéntanos tu proyecto →',
-    'prod-eyebrow':'Productos Propios','prod-title':'Nuestro ecosistema','prod-desc':'Dos sistemas construidos por nosotros, listos para tu negocio hoy mismo.',
-    'stock-name':'Control de Inventario','stock-sub':'Para negocios con productos físicos','stock-desc':'Sistema completo de gestión de inventario. Fácil de usar, potente en datos, accesible desde cualquier dispositivo.',
-    'stock-f1':'Stock en tiempo real','stock-f2':'Alertas automáticas de inventario bajo','stock-f3':'Dashboard de estadísticas y reportes','stock-f4':'Acceso desde celular, tablet o PC','stock-f5':'Multi-usuario y multi-sucursal',
-    'dash-products':'Productos','dash-value':'Valor Stock','dash-low':'Stock Bajo','dash-bottles':'Botellas','dash-restock':'Reponer','dash-out':'Agotado',
-    'noir-name':'Inventario para Bares','noir-sub':'Especializado para la industria nocturna','noir-desc':'Control de inventario diseñado para bares, licorerías y establecimientos nocturnos. Botellas, tragos y mermas bajo control.',
-    'noir-f1':'Gestión de botellas y licores','noir-f2':'Control de mermas y desperdicios','noir-f3':'Turnos de noche integrados','noir-f4':'Alertas de reposición urgente','noir-f5':'Historial de consumo por fecha',
-    'trust-eyebrow':'¿Por qué Ennef?','trust-title':'Construido para generar confianza.','trust-desc':'No somos una agencia genérica. Somos un equipo especializado en soluciones reales para negocios reales.',
-    'trust1-t':'Datos seguros','trust1-d':'Tu información siempre protegida con los más altos estándares de seguridad.',
-    'trust2-t':'Respuesta en 24h','trust2-d':'Soporte humano, sin bots. Respondemos rápido porque tu tiempo vale.',
-    'trust3-t':'Hecho en RD','trust3-d':'Equipo local que entiende el contexto dominicano. Precios justos, sin sorpresas.',
-    'trust4-t':'Soporte continuo','trust4-d':'No desaparecemos al entregar. Acompañamos tu proyecto a largo plazo.',
-    'proc-eyebrow':'Proceso','proc-title':'Así trabajamos juntos','proc-desc':'Simple, transparente y sin sorpresas.',
-    'proc1-name':'Conversación inicial','proc1-desc':'Nos cuentas qué necesitas. Sin compromisos. Analizamos el problema juntos.','proc1-dur':'Día 1',
-    'proc2-name':'Propuesta y cotización','proc2-desc':'Te enviamos una propuesta detallada con alcance, tiempo y precio. Sin letra pequeña.','proc2-dur':'1–2 días',
-    'proc3-name':'Diseño y desarrollo','proc3-desc':'Construimos con actualizaciones constantes. Tú apruebas cada etapa antes de continuar.','proc3-dur':'Semana 1–4',
-    'proc4-name':'Entrega y soporte','proc4-desc':'Lanzamos, te capacitamos y nos quedamos disponibles. Soporte incluido siempre.',
-    'ct-eyebrow':'Contacto','ct-title':'¿Tienes un proyecto en mente?','ct-desc':'Cuéntanos qué necesitas y te respondemos con una propuesta concreta en menos de 24 horas.',
-    'chip1':'📦 Sistema de Inventario','chip2':'🌐 Página Web','chip3':'⚙️ Solución Tech','chip4':'🍸 Inventario para Bar',
-    'ct-wa':'Escríbenos directo',
-    'form-name':'Nombre','form-name-ph':'Tu nombre completo','form-email':'Correo electrónico','form-email-ph':'tu@correo.com',
-    'form-service':'¿Qué necesitas?','form-project':'Cuéntanos tu proyecto','form-project-ph':'Describe brevemente lo que necesitas. Mientras más detalles, mejor podemos ayudarte.',
-    'form-btn':'Enviar mensaje →','form-note':'🔒 Tu información es privada y no será compartida con terceros.',
-    'opt0':'Selecciona un servicio','opt1':'Sistema de Inventario (Ennef Stock)','opt2':'Inventario para Bar (Ennef Noir)','opt3':'Página Web','opt4':'Solución Tech a Medida','opt5':'No sé exactamente — necesito orientación',
-    'footer-copy':'© 2025 Ennef · Santo Domingo, República Dominicana'
+    'nav-services': 'Servicios',
+    'nav-products': 'Productos',
+    'nav-process':  'Proceso',
+    'nav-why':      '¿Por qué nosotros?',
+    'nav-cta':      'Empezar Proyecto',
+    'hero-badge':   'Disponibles para nuevos proyectos',
+    'hero-h1-line1':'Tecnología que',
+    'hero-h1-line2':'impulsa tu negocio.',
+    'hero-p':       'Construimos <strong>sistemas de inventario</strong>, <strong>páginas web profesionales</strong> y <strong>soluciones tech a medida</strong> para empresas en República Dominicana y el Caribe.',
+    'hero-btn1':    'Ver Servicios →',
+    'hero-btn2':    'Hablar con el equipo',
+    'stat1': 'Proyectos entregados',
+    'stat2': 'Años de experiencia',
+    'stat3': 'Productos propios activos',
+    'stat4': 'Tiempo de respuesta',
+    'card1-label': 'Ennef Stock · Inventario',
+    'card1-title': 'Total de Productos',
+    'card1-sub':   'Actualizado hace 2 min',
+    'card2-label': 'Alerta de Inventario',
+    'card2-badge': 'Stock bajo',
+    'card2-sub':   '3 unidades restantes · Reponer pronto',
+    'card3-label': 'Ennef Noir · Turno Noche',
+    'card3-sub':   '63 productos bajo control',
+    'card3-badge': '● Activo',
+    'srv-eyebrow': 'Servicios',
+    'srv-title':   '¿En qué te ayudamos?',
+    'srv-desc':    'Tres especialidades, un solo equipo. Todo lo que tu negocio necesita en tecnología.',
+    'srv1-name':   'Sistemas de Inventario',
+    'srv1-desc':   'Control de stock en tiempo real, alertas automáticas, reportes y dashboards. Para retail, bares, restaurantes y más.',
+    'srv1-link':   'Ver productos →',
+    'srv2-name':   'Páginas Web Profesionales',
+    'srv2-desc':   'Sitios rápidos, modernos y orientados a convertir. Corporativos, e-commerce, portafolios. Bilingüe si lo necesitas.',
+    'srv2-link':   'Solicitar cotización →',
+    'srv3-name':   'Soluciones Tech a Medida',
+    'srv3-desc':   'Automatizaciones, dashboards, integraciones con APIs y herramientas internas. Si tienes un problema técnico, lo resolvemos.',
+    'srv3-link':   'Cuéntanos tu proyecto →',
+    'prod-eyebrow':'Productos Propios',
+    'prod-title':  'Nuestro ecosistema',
+    'prod-desc':   'Dos sistemas construidos por nosotros, listos para tu negocio hoy mismo.',
+    'stock-name':  'Control de Inventario',
+    'stock-sub':   'Para negocios con productos físicos',
+    'stock-desc':  'Sistema completo de gestión de inventario. Fácil de usar, potente en datos, accesible desde cualquier dispositivo.',
+    'stock-f1': 'Stock en tiempo real',
+    'stock-f2': 'Alertas automáticas de inventario bajo',
+    'stock-f3': 'Dashboard de estadísticas y reportes',
+    'stock-f4': 'Acceso desde celular, tablet o PC',
+    'stock-f5': 'Multi-usuario y multi-sucursal',
+    'prod-demo':  'Solicitar demo gratuita →',
+    'prod-demo2': 'Solicitar demo gratuita →',
+    'dash-products': 'Productos',
+    'dash-value':    'Valor Stock',
+    'dash-low':      'Stock Bajo',
+    'dash-bottles':  'Botellas',
+    'dash-restock':  'Reponer',
+    'dash-out':      'Agotado',
+    'noir-name':  'Inventario para Bares',
+    'noir-sub':   'Especializado para la industria nocturna',
+    'noir-desc':  'Control de inventario diseñado para bares, licorerías y establecimientos nocturnos. Botellas, tragos y mermas bajo control.',
+    'noir-f1': 'Gestión de botellas y licores',
+    'noir-f2': 'Control de mermas y desperdicios',
+    'noir-f3': 'Turnos de noche integrados',
+    'noir-f4': 'Alertas de reposición urgente',
+    'noir-f5': 'Historial de consumo por fecha',
+    'trust-eyebrow': '¿Por qué Ennef?',
+    'trust-title':   'Construido para generar confianza.',
+    'trust-desc':    'No somos una agencia genérica. Somos un equipo especializado en soluciones reales para negocios reales.',
+    'trust1-t': 'Datos seguros',
+    'trust1-d': 'Tu información siempre protegida con los más altos estándares de seguridad.',
+    'trust2-t': 'Respuesta en 24h',
+    'trust2-d': 'Soporte humano, sin bots. Respondemos rápido porque tu tiempo vale.',
+    'trust3-t': 'Hecho en RD',
+    'trust3-d': 'Equipo local que entiende el contexto dominicano. Precios justos, sin sorpresas.',
+    'trust4-t': 'Soporte continuo',
+    'trust4-d': 'No desaparecemos al entregar. Acompañamos tu proyecto a largo plazo.',
+    'proc-eyebrow': 'Proceso',
+    'proc-title':   'Así trabajamos juntos',
+    'proc-desc':    'Simple, transparente y sin sorpresas.',
+    'proc1-name': 'Conversación inicial',
+    'proc1-desc': 'Nos cuentas qué necesitas. Sin compromisos. Analizamos el problema juntos.',
+    'proc1-dur':  'Día 1',
+    'proc2-name': 'Propuesta y cotización',
+    'proc2-desc': 'Te enviamos una propuesta detallada con alcance, tiempo y precio. Sin letra pequeña.',
+    'proc2-dur':  '1–2 días',
+    'proc3-name': 'Diseño y desarrollo',
+    'proc3-desc': 'Construimos con actualizaciones constantes. Tú apruebas cada etapa antes de continuar.',
+    'proc3-dur':  'Semana 1–4',
+    'proc4-name': 'Entrega y soporte',
+    'proc4-desc': 'Lanzamos, te capacitamos y nos quedamos disponibles. Soporte incluido siempre.',
+    'ct-eyebrow': 'Contacto',
+    'ct-title':   '¿Tienes un proyecto en mente?',
+    'ct-desc':    'Cuéntanos qué necesitas y te respondemos con una propuesta concreta en menos de 24 horas.',
+    'chip1': '📦 Sistema de Inventario',
+    'chip2': '🌐 Página Web',
+    'chip3': '⚙️ Solución Tech',
+    'chip4': '🍸 Inventario para Bar',
+    'ct-wa': 'Escríbenos directo',
+    'form-name':       'Nombre',
+    'form-name-ph':    'Tu nombre completo',
+    'form-email':      'Correo electrónico',
+    'form-email-ph':   'tu@correo.com',
+    'form-service':    '¿Qué necesitas?',
+    'form-project':    'Cuéntanos tu proyecto',
+    'form-project-ph': 'Describe brevemente lo que necesitas. Mientras más detalles, mejor podemos ayudarte.',
+    'form-btn':  'Enviar mensaje →',
+    'form-note': '🔒 Tu información es privada y no será compartida con terceros.',
+    'opt0': 'Selecciona un servicio',
+    'opt1': 'Sistema de Inventario (Ennef Stock)',
+    'opt2': 'Inventario para Bar (Ennef Noir)',
+    'opt3': 'Página Web',
+    'opt4': 'Solución Tech a Medida',
+    'opt5': 'No sé exactamente — necesito orientación',
+    'footer-copy': '© 2025 Ennef · Santo Domingo, República Dominicana',
   },
   en: {
-    'nav-services':'Services','nav-products':'Products','nav-process':'Process','nav-why':'Why us?','nav-cta':'Start Project',
-    'hero-badge':'Available for new projects','hero-h1-line1':'Technology that','hero-h1-line2':'drives your business.',
-    'hero-p':'We build <strong>inventory systems</strong>, <strong>professional websites</strong> and <strong>custom tech solutions</strong> for businesses in the Dominican Republic and the Caribbean.',
-    'hero-btn1':'View Services →','hero-btn2':'Talk to the team',
-    'stat1':'Projects delivered','stat2':'Years of experience','stat3':'Active own products','stat4':'Response time',
-    'card1-label':'Ennef Stock · Inventory','card1-title':'Total Products','card1-sub':'Updated 2 min ago',
-    'card2-label':'Inventory Alert','card2-badge':'Low stock','card2-sub':'3 units remaining · Restock soon',
-    'card3-label':'Ennef Noir · Night Shift','card3-sub':'63 products under control','card3-badge':'● Active',
-    'srv-eyebrow':'Services','srv-title':'How can we help you?','srv-desc':'Three specialties, one team. Everything your business needs in technology.',
-    'srv1-name':'Inventory Systems','srv1-desc':'Real-time stock control, automatic alerts, reports and dashboards. For retail, bars, restaurants and more.','srv1-link':'View products →',
-    'srv2-name':'Professional Websites','srv2-desc':'Fast, modern, conversion-focused websites. Corporate, e-commerce, portfolios. Bilingual if you need it.','srv2-link':'Request a quote →',
-    'srv3-name':'Custom Tech Solutions','srv3-desc':'Automations, dashboards, API integrations and internal tools. If you have a technical problem, we solve it.','srv3-link':'Tell us about your project →',
-    'prod-eyebrow':'Our Products','prod-title':'Our ecosystem','prod-desc':'Two systems built by us, ready for your business today.',
-    'stock-name':'Inventory Control','stock-sub':'For businesses with physical products','stock-desc':'Complete inventory management system. Easy to use, powerful in data, accessible from any device.',
-    'stock-f1':'Real-time stock','stock-f2':'Automatic low inventory alerts','stock-f3':'Statistics and reports dashboard','stock-f4':'Access from mobile, tablet or PC','stock-f5':'Multi-user and multi-branch',
-    'dash-products':'Products','dash-value':'Stock Value','dash-low':'Low Stock','dash-bottles':'Bottles','dash-restock':'Restock','dash-out':'Out',
-    'noir-name':'Bar Inventory','noir-sub':'Specialized for the nightlife industry','noir-desc':'Inventory control designed for bars, liquor stores and nightlife establishments. Bottles, drinks and waste under control.',
-    'noir-f1':'Bottle and liquor management','noir-f2':'Waste and spoilage control','noir-f3':'Integrated night shifts','noir-f4':'Urgent restocking alerts','noir-f5':'Consumption history by date',
-    'trust-eyebrow':'Why Ennef?','trust-title':'Built to generate trust.','trust-desc':"We're not a generic agency. We're a specialized team with real solutions for real businesses.",
-    'trust1-t':'Secure data','trust1-d':'Your information always protected with the highest security standards.',
-    'trust2-t':'24h Response','trust2-d':'Human support, no bots. We respond fast because your time matters.',
-    'trust3-t':'Made in DR','trust3-d':'Local team that understands the Dominican context. Fair prices, no surprises.',
-    'trust4-t':'Ongoing support','trust4-d':"We don't disappear after delivery. We accompany your project long-term.",
-    'proc-eyebrow':'Process','proc-title':'How we work together','proc-desc':'Simple, transparent and no surprises.',
-    'proc1-name':'Initial conversation','proc1-desc':'You tell us what you need. No commitments. We analyze the problem together.','proc1-dur':'Day 1',
-    'proc2-name':'Proposal and quote','proc2-desc':'We send you a detailed proposal with scope, timeline and price. No fine print.','proc2-dur':'1–2 days',
-    'proc3-name':'Design and development','proc3-desc':'We build with constant updates. You approve each stage before we continue.','proc3-dur':'Week 1–4',
-    'proc4-name':'Delivery and support','proc4-desc':'We launch, train you and stay available. Support always included.',
-    'ct-eyebrow':'Contact','ct-title':'Have a project in mind?','ct-desc':"Tell us what you need and we'll get back to you with a concrete proposal in less than 24 hours.",
-    'chip1':'📦 Inventory System','chip2':'🌐 Website','chip3':'⚙️ Tech Solution','chip4':'🍸 Bar Inventory',
-    'ct-wa':'Write us directly',
-    'form-name':'Name','form-name-ph':'Your full name','form-email':'Email','form-email-ph':'you@email.com',
-    'form-service':'What do you need?','form-project':'Tell us about your project','form-project-ph':'Briefly describe what you need. The more details, the better we can help you.',
-    'form-btn':'Send message →','form-note':'🔒 Your information is private and will not be shared with third parties.',
-    'opt0':'Select a service','opt1':'Inventory System (Ennef Stock)','opt2':'Bar Inventory (Ennef Noir)','opt3':'Website','opt4':'Custom Tech Solution','opt5':"I'm not sure — I need guidance",
-    'footer-copy':'© 2025 Ennef · Santo Domingo, Dominican Republic'
+    'nav-services': 'Services',
+    'nav-products': 'Products',
+    'nav-process':  'Process',
+    'nav-why':      'Why us?',
+    'nav-cta':      'Start Project',
+    'hero-badge':   'Available for new projects',
+    'hero-h1-line1':'Technology that',
+    'hero-h1-line2':'drives your business.',
+    'hero-p':       'We build <strong>inventory systems</strong>, <strong>professional websites</strong> and <strong>custom tech solutions</strong> for businesses in the Dominican Republic and the Caribbean.',
+    'hero-btn1':    'View Services →',
+    'hero-btn2':    'Talk to the team',
+    'stat1': 'Projects delivered',
+    'stat2': 'Years of experience',
+    'stat3': 'Active own products',
+    'stat4': 'Response time',
+    'card1-label': 'Ennef Stock · Inventory',
+    'card1-title': 'Total Products',
+    'card1-sub':   'Updated 2 min ago',
+    'card2-label': 'Inventory Alert',
+    'card2-badge': 'Low stock',
+    'card2-sub':   '3 units remaining · Restock soon',
+    'card3-label': 'Ennef Noir · Night Shift',
+    'card3-sub':   '63 products under control',
+    'card3-badge': '● Active',
+    'srv-eyebrow': 'Services',
+    'srv-title':   'How can we help you?',
+    'srv-desc':    'Three specialties, one team. Everything your business needs in technology.',
+    'srv1-name':   'Inventory Systems',
+    'srv1-desc':   'Real-time stock control, automatic alerts, reports and dashboards. For retail, bars, restaurants and more.',
+    'srv1-link':   'View products →',
+    'srv2-name':   'Professional Websites',
+    'srv2-desc':   'Fast, modern, conversion-focused websites. Corporate, e-commerce, portfolios. Bilingual if you need it.',
+    'srv2-link':   'Request a quote →',
+    'srv3-name':   'Custom Tech Solutions',
+    'srv3-desc':   'Automations, dashboards, API integrations and internal tools. If you have a technical problem, we solve it.',
+    'srv3-link':   'Tell us about your project →',
+    'prod-eyebrow':'Our Products',
+    'prod-title':  'Our ecosystem',
+    'prod-desc':   'Two systems built by us, ready for your business today.',
+    'stock-name':  'Inventory Control',
+    'stock-sub':   'For businesses with physical products',
+    'stock-desc':  'Complete inventory management system. Easy to use, powerful in data, accessible from any device.',
+    'stock-f1': 'Real-time stock',
+    'stock-f2': 'Automatic low inventory alerts',
+    'stock-f3': 'Statistics and reports dashboard',
+    'stock-f4': 'Access from mobile, tablet or PC',
+    'stock-f5': 'Multi-user and multi-branch',
+    'prod-demo':  'Request free demo →',
+    'prod-demo2': 'Request free demo →',
+    'dash-products': 'Products',
+    'dash-value':    'Stock Value',
+    'dash-low':      'Low Stock',
+    'dash-bottles':  'Bottles',
+    'dash-restock':  'Restock',
+    'dash-out':      'Out',
+    'noir-name':  'Bar Inventory',
+    'noir-sub':   'Specialized for the nightlife industry',
+    'noir-desc':  'Inventory control designed for bars, liquor stores and nightlife establishments. Bottles, drinks and waste under control.',
+    'noir-f1': 'Bottle and liquor management',
+    'noir-f2': 'Waste and spoilage control',
+    'noir-f3': 'Integrated night shifts',
+    'noir-f4': 'Urgent restocking alerts',
+    'noir-f5': 'Consumption history by date',
+    'trust-eyebrow': 'Why Ennef?',
+    'trust-title':   'Built to generate trust.',
+    'trust-desc':    "We're not a generic agency. We're a specialized team with real solutions for real businesses.",
+    'trust1-t': 'Secure data',
+    'trust1-d': 'Your information always protected with the highest security standards.',
+    'trust2-t': '24h Response',
+    'trust2-d': 'Human support, no bots. We respond fast because your time matters.',
+    'trust3-t': 'Made in DR',
+    'trust3-d': 'Local team that understands the Dominican context. Fair prices, no surprises.',
+    'trust4-t': 'Ongoing support',
+    'trust4-d': "We don't disappear after delivery. We accompany your project long-term.",
+    'proc-eyebrow': 'Process',
+    'proc-title':   'How we work together',
+    'proc-desc':    'Simple, transparent and no surprises.',
+    'proc1-name': 'Initial conversation',
+    'proc1-desc': 'You tell us what you need. No commitments. We analyze the problem together.',
+    'proc1-dur':  'Day 1',
+    'proc2-name': 'Proposal and quote',
+    'proc2-desc': 'We send you a detailed proposal with scope, timeline and price. No fine print.',
+    'proc2-dur':  '1–2 days',
+    'proc3-name': 'Design and development',
+    'proc3-desc': 'We build with constant updates. You approve each stage before we continue.',
+    'proc3-dur':  'Week 1–4',
+    'proc4-name': 'Delivery and support',
+    'proc4-desc': 'We launch, train you and stay available. Support always included.',
+    'ct-eyebrow': 'Contact',
+    'ct-title':   'Have a project in mind?',
+    'ct-desc':    "Tell us what you need and we'll get back to you with a concrete proposal in less than 24 hours.",
+    'chip1': '📦 Inventory System',
+    'chip2': '🌐 Website',
+    'chip3': '⚙️ Tech Solution',
+    'chip4': '🍸 Bar Inventory',
+    'ct-wa': 'Write us directly',
+    'form-name':       'Name',
+    'form-name-ph':    'Your full name',
+    'form-email':      'Email',
+    'form-email-ph':   'you@email.com',
+    'form-service':    'What do you need?',
+    'form-project':    'Tell us about your project',
+    'form-project-ph': 'Briefly describe what you need. The more details, the better we can help you.',
+    'form-btn':  'Send message →',
+    'form-note': '🔒 Your information is private and will not be shared with third parties.',
+    'opt0': 'Select a service',
+    'opt1': 'Inventory System (Ennef Stock)',
+    'opt2': 'Bar Inventory (Ennef Noir)',
+    'opt3': 'Website',
+    'opt4': 'Custom Tech Solution',
+    'opt5': "I'm not sure — I need guidance",
+    'footer-copy': '© 2025 Ennef · Santo Domingo, Dominican Republic',
   }
 };
 
+function submitForm(e) {
+  e.preventDefault();
+  const name    = document.getElementById('f-name').value.trim();
+  const email   = document.getElementById('f-email').value.trim();
+  const service = document.getElementById('f-service').value.trim();
+  const msg     = document.getElementById('f-msg').value.trim();
+  const text = `Hola Ennef! 👋\n\n*Nombre:* ${name}\n*Correo:* ${email}\n*Servicio:* ${service}\n*Mensaje:* ${msg}`;
+  window.open('https://wa.me/18297471943?text=' + encodeURIComponent(text), '_blank');
+}
+
 let lang = 'es';
+
 function setLang(l) {
   lang = l;
   document.documentElement.lang = l;
   document.getElementById('langToggle').textContent = l === 'es' ? 'EN' : 'ES';
-  document.querySelectorAll('[data-i18n]').forEach(el => { const k = el.getAttribute('data-i18n'); if (t[l][k] !== undefined) el.textContent = t[l][k]; });
-  document.querySelectorAll('[data-i18n-html]').forEach(el => { const k = el.getAttribute('data-i18n-html'); if (t[l][k] !== undefined) el.innerHTML = t[l][k]; });
-  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => { const k = el.getAttribute('data-i18n-placeholder'); if (t[l][k] !== undefined) el.placeholder = t[l][k]; });
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[l][key] !== undefined) el.textContent = t[l][key];
+  });
+
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.getAttribute('data-i18n-html');
+    if (t[l][key] !== undefined) el.innerHTML = t[l][key];
+  });
+
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if (t[l][key] !== undefined) el.placeholder = t[l][key];
+  });
 }
-document.getElementById('langToggle').addEventListener('click', () => setLang(lang === 'es' ? 'en' : 'es'));
 
-window.addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20));
+document.getElementById('langToggle').addEventListener('click', () => {
+  setLang(lang === 'es' ? 'en' : 'es');
+});
 
+/* NAV scroll */
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+});
+
+/* Reveal on scroll */
 const io = new IntersectionObserver(entries => {
-  entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 65); io.unobserve(e.target); } });
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 65);
+      io.unobserve(e.target);
+    }
+  });
 }, { threshold: 0.08 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
+/* Count up */
 function countUp(el, target) {
   let start = null;
-  const step = ts => { if (!start) start = ts; const p = Math.min((ts - start) / 1500, 1); el.textContent = Math.floor(p * target); if (p < 1) requestAnimationFrame(step); else el.textContent = target; };
+  const step = ts => {
+    if (!start) start = ts;
+    const p = Math.min((ts - start) / 1500, 1);
+    el.textContent = Math.floor(p * target);
+    if (p < 1) requestAnimationFrame(step);
+    else el.textContent = target;
+  };
   requestAnimationFrame(step);
 }
 const cio = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { countUp(e.target, +e.target.dataset.target); cio.unobserve(e.target); } });
+  entries.forEach(e => {
+    if (e.isIntersecting) { countUp(e.target, +e.target.dataset.target); cio.unobserve(e.target); }
+  });
 }, { threshold: 1 });
 document.querySelectorAll('.count').forEach(el => cio.observe(el));
 </script>
