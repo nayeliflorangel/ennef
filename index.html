@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ennef — Sistemas de Inventario & Soluciones Tech | República Dominicana</title>
-<meta name="description" content="Ennef es una empresa tech dominicana que construye sistemas de inventario, páginas web profesionales y soluciones digitales a medida. Ennef Stock, Ennef Noir. Santo Domingo, RD.">
+<title>Ennef | Sistemas de Inventario, Websites y Tech para negocios en República Dominicana</title>
+<meta name="description" content="Ennef es la empresa tech dominicana que construye sistemas de inventario, páginas web y soluciones digitales para negocios en República Dominicana. EnnefStock, Ennef Noir y más.">
 <meta name="keywords" content="Ennef, ennefrd, sistemas de inventario República Dominicana, inventario para bares RD, páginas web Santo Domingo, soluciones tech dominicana, Ennef Stock, Ennef Noir">
 <meta name="author" content="Ennef">
 <meta name="robots" content="index, follow">
@@ -13,15 +13,15 @@
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ennefrd.com">
-<meta property="og:title" content="Ennef — Sistemas Tech & Soluciones Digitales · RD">
-<meta property="og:description" content="Construimos sistemas de inventario, páginas web y soluciones tech para empresas en República Dominicana y el Caribe.">
+<meta property="og:title" content="Ennef | Inventario, Websites y Tech para negocios en RD">
+<meta property="og:description" content="Empresa tech dominicana. Construimos sistemas de inventario (EnnefStock), páginas web profesionales y soluciones tech a medida para negocios en República Dominicana.">
 <meta property="og:locale" content="es_DO">
 <meta property="og:site_name" content="Ennef">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ennef — Sistemas Tech & Soluciones Digitales · RD">
-<meta name="twitter:description" content="Construimos sistemas de inventario, páginas web y soluciones tech para empresas en República Dominicana y el Caribe.">
+<meta name="twitter:title" content="Ennef | Inventario, Websites y Tech para negocios en RD">
+<meta name="twitter:description" content="Empresa tech dominicana. Construimos sistemas de inventario (EnnefStock), páginas web profesionales y soluciones tech a medida para negocios en República Dominicana.">
 
 <!-- JSON-LD Structured Data -->
 <script type="application/ld+json">
@@ -33,7 +33,7 @@
   "url": "https://ennefrd.com",
   "logo": "https://ennefrd.com/logo.png",
   "description": "Empresa tech dominicana especializada en sistemas de inventario, desarrollo web y soluciones digitales a medida.",
-  "email": "nayeliflorangel@gmail.com",
+  "email": "ventas@ennefrd.com",
   "telephone": "+18297471943",
   "address": {
     "@type": "PostalAddress",
@@ -538,6 +538,154 @@ footer {
 .f-links a { font-size: 13px; font-weight: 500; color: rgba(255,255,255,.45); text-decoration: none; transition: color .2s; }
 .f-links a:hover { color: #fff; }
 
+/* HERO TAGS */
+.hero-tags {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-top: 28px;
+  opacity: 0; animation: fadeUp .7s .5s ease forwards;
+}
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--bg3); border: 1px solid var(--border);
+  border-radius: 100px; padding: 7px 14px;
+  font-size: 13px; font-weight: 600; color: var(--body);
+}
+.ht-dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; flex-shrink: 0; }
+
+/* SCREENSHOTS */
+#screenshots { background: var(--bg3); }
+.mock-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+}
+.mock-card {
+  background: var(--bg2); border: 1px solid var(--border); border-radius: 14px;
+  overflow: hidden; transition: box-shadow .3s, transform .3s;
+}
+.mock-card:hover { box-shadow: 0 10px 32px rgba(15,28,53,.1); transform: translateY(-3px); }
+.mock-card.wide { grid-column: span 2; }
+.mock-header {
+  background: var(--bg3); border-bottom: 1px solid var(--border);
+  padding: 10px 14px; display: flex; align-items: center; gap: 5px;
+}
+.mc-dot { width: 8px; height: 8px; border-radius: 50%; }
+.mc-ttl { font-family: var(--mono); font-size: 9px; color: var(--muted); margin-left: auto; }
+.mock-body {
+  padding: 24px 20px; min-height: 160px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+  background: linear-gradient(135deg, var(--bg) 0%, var(--bg3) 100%);
+}
+.mock-label { font-size: 13px; font-weight: 600; color: var(--muted); text-align: center; }
+.mock-sublabel { font-size: 11px; color: var(--border2); text-align: center; }
+.mock-caption { padding: 12px 16px; font-size: 13px; font-weight: 600; color: var(--body); border-top: 1px solid var(--border); }
+
+/* VIDEO DEMO */
+#videodemo { background: var(--heading); }
+#videodemo .eyebrow { color: #C4AAED; }
+#videodemo .eyebrow::before { background: #C4AAED; }
+#videodemo .s-title { color: #fff; }
+#videodemo .s-desc { color: rgba(255,255,255,.62); margin-bottom: 36px; }
+.video-placeholder {
+  border-radius: 18px; overflow: hidden;
+  border: 2px solid rgba(255,255,255,.1);
+  background: rgba(255,255,255,.05);
+  aspect-ratio: 16/9; max-width: 780px; margin: 0 auto 32px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;
+  cursor: pointer; transition: border-color .3s, background .3s;
+}
+.video-placeholder:hover { border-color: rgba(196,170,237,.45); background: rgba(255,255,255,.08); }
+.video-play { width: 72px; height: 72px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 26px; box-shadow: 0 8px 28px rgba(124,92,191,.4); }
+.video-note { font-size: 14px; color: rgba(255,255,255,.4); font-weight: 500; }
+.video-cta { text-align: center; }
+
+/* BENEFITS */
+#benefits { background: var(--bg2); }
+.ben-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.ben-card {
+  background: var(--bg); border: 1px solid var(--border); border-radius: 14px;
+  padding: 26px 22px; transition: box-shadow .3s, transform .3s, border-color .3s;
+}
+.ben-card:hover { box-shadow: 0 8px 28px rgba(15,28,53,.08); transform: translateY(-2px); border-color: var(--border2); }
+.ben-ico { font-size: 28px; margin-bottom: 12px; display: block; }
+.ben-t { font-size: 15px; font-weight: 700; color: var(--heading); margin-bottom: 6px; letter-spacing: -.01em; }
+.ben-d { font-size: 13px; color: var(--text); line-height: 1.6; }
+
+/* INDUSTRIES */
+#industries { background: var(--bg3); }
+.ind-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.ind-card {
+  background: var(--bg2); border: 1px solid var(--border); border-radius: 14px;
+  padding: 28px 24px; display: flex; align-items: flex-start; gap: 16px;
+  transition: box-shadow .3s, border-color .3s;
+}
+.ind-card:hover { box-shadow: 0 8px 24px rgba(15,28,53,.08); border-color: var(--border2); }
+.ind-ico { width: 46px; height: 46px; border-radius: 12px; background: var(--accent-bg); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+.ind-t { font-size: 15px; font-weight: 700; color: var(--heading); margin-bottom: 5px; letter-spacing: -.01em; }
+.ind-d { font-size: 13px; color: var(--text); line-height: 1.6; }
+
+/* SOCIAL PROOF */
+#social-proof { background: var(--bg); }
+.testim-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.testim-card {
+  background: var(--bg2); border: 1px solid var(--border); border-radius: 16px;
+  padding: 30px 26px; transition: box-shadow .3s;
+}
+.testim-card:hover { box-shadow: 0 8px 26px rgba(15,28,53,.08); }
+.testim-stars { color: #F59E0B; font-size: 15px; margin-bottom: 14px; letter-spacing: 2px; }
+.testim-q { font-size: 14px; color: var(--body); line-height: 1.7; margin-bottom: 18px; font-style: italic; }
+.testim-author { display: flex; align-items: center; gap: 10px; }
+.testim-avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-bg); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+.testim-name { font-size: 13px; font-weight: 700; color: var(--heading); }
+.testim-biz { font-size: 12px; color: var(--muted); }
+.proof-soon { text-align: center; padding: 48px 32px; background: var(--bg3); border: 1.5px dashed var(--border2); border-radius: 16px; }
+.proof-soon-t { font-size: 16px; font-weight: 700; color: var(--muted); margin-bottom: 8px; }
+.proof-soon-d { font-size: 14px; color: var(--muted); }
+
+/* PLAN BADGES */
+.plan-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 10px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase;
+  border-radius: 100px; padding: 3px 11px; margin-bottom: 8px;
+}
+.plan-badge.launch { background: linear-gradient(135deg,#7C5CBF,#6245A8); color: #fff; }
+.plan-badge.best   { background: linear-gradient(135deg,#059669,#047857); color: #fff; }
+
+/* FINAL CTA */
+#final-cta { background: var(--accent); padding: 96px 64px; text-align: center; }
+#final-cta .s-title { color: #fff; max-width: 640px; margin: 0 auto 14px; }
+#final-cta .s-desc  { color: rgba(255,255,255,.72); margin: 0 auto 36px; text-align: center; }
+.fcta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.btn-white {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #fff; color: var(--accent);
+  font-size: 15px; font-weight: 700; font-family: var(--font);
+  padding: 14px 28px; border-radius: 10px;
+  text-decoration: none; border: none; cursor: pointer;
+  transition: background .2s, box-shadow .2s, transform .15s;
+}
+.btn-white:hover { background: rgba(255,255,255,.9); box-shadow: 0 8px 24px rgba(0,0,0,.14); transform: translateY(-1px); }
+.btn-outline-white {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent; color: #fff;
+  font-size: 15px; font-weight: 700; font-family: var(--font);
+  padding: 14px 28px; border-radius: 10px;
+  text-decoration: none; border: 1.5px solid rgba(255,255,255,.38); cursor: pointer;
+  transition: border-color .2s, background .2s;
+}
+.btn-outline-white:hover { border-color: #fff; background: rgba(255,255,255,.1); }
+
+/* WA FLOAT */
+.wa-float {
+  position: fixed; bottom: 28px; right: 28px; z-index: 950;
+  display: flex; align-items: center; gap: 10px;
+  background: #25D366; color: #fff;
+  font-size: 14px; font-weight: 700; font-family: var(--font);
+  padding: 13px 20px; border-radius: 100px;
+  text-decoration: none; box-shadow: 0 6px 24px rgba(37,211,102,.38);
+  transition: transform .2s, box-shadow .2s;
+}
+.wa-float:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(37,211,102,.46); }
+.wa-float-ico { font-size: 20px; line-height: 1; }
+
 /* ANIMATIONS */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(18px); }
@@ -558,11 +706,19 @@ footer {
   .h-stat { border-right: none; margin-right: 0; min-width: 44%; }
   .srv-grid { grid-template-columns: 1fr; }
   .prod-grid { grid-template-columns: 1fr; }
+  .mock-grid { grid-template-columns: 1fr; }
+  .mock-card.wide { grid-column: span 1; }
+  .ben-grid { grid-template-columns: 1fr 1fr; }
+  .ind-grid { grid-template-columns: 1fr; }
+  .testim-grid { grid-template-columns: 1fr; }
   .price-grid-4, .price-grid-3 { grid-template-columns: 1fr 1fr; }
   .trust-grid { grid-template-columns: 1fr 1fr; }
   .contact-wrap { grid-template-columns: 1fr; padding: 32px 24px; gap: 36px; }
   .form-row { grid-template-columns: 1fr; }
   footer { flex-direction: column; gap: 16px; text-align: center; }
+  #final-cta { padding: 68px 20px; }
+  .wa-float .wa-float-label { display: none; }
+  .wa-float { padding: 14px; border-radius: 50%; }
 }
 </style>
 </head>
@@ -586,83 +742,32 @@ footer {
   <div class="hero-inner">
     <div class="hero-badge">
       <div class="badge-dot"></div>
-      <span data-i18n="hero-badge">Disponibles para nuevos proyectos</span>
+      <span data-i18n="hero-badge">Empresa Tech · Santo Domingo, RD</span>
     </div>
 
     <h1 class="hero-h1">
-      <span data-i18n="hero-h1-line1">Tecnología que</span><br>
-      <span class="blue" data-i18n="hero-h1-line2">impulsa tu negocio.</span>
+      <span data-i18n="hero-h1-line1">Construimos la tecnología</span><br>
+      <span class="blue" data-i18n="hero-h1-line2">que hace crecer tu negocio.</span>
     </h1>
 
     <p class="hero-p" data-i18n-html="hero-p">
-      Construimos <strong>sistemas de inventario</strong>, <strong>páginas web profesionales</strong> y <strong>soluciones tech a medida</strong> para empresas en República Dominicana y el Caribe.
+      Sistemas de <strong>inventario y POS</strong>, <strong>páginas web profesionales</strong> y <strong>soluciones tech a medida</strong> para negocios en República Dominicana.
     </p>
 
     <div class="hero-btns">
-      <a href="#services" class="btn-p" data-i18n="hero-btn1">Ver Servicios →</a>
-      <a href="#contact" class="btn-g" data-i18n="hero-btn2">Hablar con el equipo</a>
+      <a href="#services" class="btn-p" data-i18n="hero-btn1">Ver servicios</a>
+      <a href="https://wa.me/18297471943?text=Hola,%20quiero%20saber%20más%20sobre%20los%20servicios%20de%20Ennef." target="_blank" class="btn-g" data-i18n="hero-btn2">💬 Hablar con el equipo</a>
     </div>
 
-    <div class="hero-stats">
-      <div class="h-stat">
-        <div class="h-stat-n"><span class="count" data-target="47">0</span><span class="a">+</span></div>
-        <div class="h-stat-l" data-i18n="stat1">Proyectos entregados</div>
-      </div>
-      <div class="h-stat">
-        <div class="h-stat-n"><span class="count" data-target="3">0</span></div>
-        <div class="h-stat-l" data-i18n="stat2">Años de experiencia</div>
-      </div>
-      <div class="h-stat">
-        <div class="h-stat-n"><span class="count" data-target="2">0</span></div>
-        <div class="h-stat-l" data-i18n="stat3">Productos propios activos</div>
-      </div>
-      <div class="h-stat">
-        <div class="h-stat-n"><span class="a">24h</span></div>
-        <div class="h-stat-l" data-i18n="stat4">Tiempo de respuesta</div>
-      </div>
+    <div class="hero-tags">
+      <span class="hero-tag"><span class="ht-dot"></span><span data-i18n="htag1">Inventario & POS</span></span>
+      <span class="hero-tag"><span class="ht-dot"></span><span data-i18n="htag2">Páginas web</span></span>
+      <span class="hero-tag"><span class="ht-dot"></span><span data-i18n="htag3">Tech a medida</span></span>
+      <span class="hero-tag"><span class="ht-dot"></span><span data-i18n="htag4">Soporte incluido</span></span>
     </div>
+
   </div>
 
-  <!-- floating UI cards -->
-  <div class="hero-cards">
-    <div class="hc">
-      <div class="hc-label" data-i18n="card1-label">Ennef Stock · Inventario</div>
-      <div class="hc-row">
-        <div>
-          <div class="hc-title" data-i18n="card1-title">Total de Productos</div>
-          <div class="hc-sub" data-i18n="card1-sub">Actualizado hace 2 min</div>
-        </div>
-        <div class="hc-val">248</div>
-      </div>
-      <div class="mini-bars">
-        <div class="mb" style="height:42%"></div>
-        <div class="mb" style="height:62%"></div>
-        <div class="mb a" style="height:78%"></div>
-        <div class="mb a" style="height:54%"></div>
-        <div class="mb a" style="height:88%"></div>
-        <div class="mb a" style="height:68%"></div>
-        <div class="mb g" style="height:100%"></div>
-      </div>
-    </div>
-    <div class="hc" style="margin-left:28px;">
-      <div class="hc-label" data-i18n="card2-label">Alerta de Inventario</div>
-      <div class="hc-row">
-        <span style="font-size:14px;font-weight:600;color:var(--body)">Vodka Premium 750ml</span>
-        <span class="badge ba" data-i18n="card2-badge">Stock bajo</span>
-      </div>
-      <div class="hc-sub" data-i18n="card2-sub">3 unidades restantes · Reponer pronto</div>
-    </div>
-    <div class="hc" style="margin-left:14px;">
-      <div class="hc-label" data-i18n="card3-label">Ennef Noir · Turno Noche</div>
-      <div class="hc-row">
-        <div>
-          <div class="hc-title">Bar El Rincón</div>
-          <div class="hc-sub" data-i18n="card3-sub">63 productos bajo control</div>
-        </div>
-        <span class="badge bg" data-i18n="card3-badge">● Activo</span>
-      </div>
-    </div>
-  </div>
 </div>
 
 <!-- SERVICES -->
@@ -717,31 +822,6 @@ footer {
           <div class="prod-feat"><div class="fc">✓</div><span data-i18n="stock-f4">Acceso desde celular, tablet o PC</span></div>
           <div class="prod-feat"><div class="fc">✓</div><span data-i18n="stock-f5">Multi-usuario y multi-sucursal</span></div>
         </div>
-        <div class="p-dash">
-          <div class="p-dash-top">
-            <div class="pd" style="background:#FF5F57"></div>
-            <div class="pd" style="background:#FFBD2E"></div>
-            <div class="pd" style="background:#28C840"></div>
-            <div class="pd-ttl">ennef-stock · dashboard</div>
-          </div>
-          <div class="p-dash-body">
-            <div class="p-stat"><div class="p-stat-n" style="color:var(--green)">248</div><div class="p-stat-l" data-i18n="dash-products">Productos</div></div>
-            <div class="p-stat"><div class="p-stat-n" style="color:var(--accent)">$94k</div><div class="p-stat-l" data-i18n="dash-value">Valor Stock</div></div>
-            <div class="p-stat"><div class="p-stat-n" style="color:var(--amber)">14</div><div class="p-stat-l" data-i18n="dash-low">Stock Bajo</div></div>
-            <div class="p-chart">
-              <div class="p-bar" style="height:42%;background:#EDE6F8"></div>
-              <div class="p-bar" style="height:65%;background:#C9B8EE"></div>
-              <div class="p-bar" style="height:50%;background:#EDE6F8"></div>
-              <div class="p-bar" style="height:88%;background:var(--accent)"></div>
-              <div class="p-bar" style="height:60%;background:#C9B8EE"></div>
-              <div class="p-bar" style="height:92%;background:var(--accent)"></div>
-              <div class="p-bar" style="height:70%;background:#C9B8EE"></div>
-              <div class="p-bar" style="height:55%;background:#EDE6F8"></div>
-              <div class="p-bar" style="height:80%;background:var(--accent)"></div>
-              <div class="p-bar" style="height:100%;background:var(--green)"></div>
-            </div>
-          </div>
-        </div>
       </div>
 
       <div class="prod-card noir reveal d1">
@@ -756,36 +836,117 @@ footer {
           <div class="prod-feat"><div class="fc">✓</div><span data-i18n="noir-f4">Alertas de reposición urgente</span></div>
           <div class="prod-feat"><div class="fc">✓</div><span data-i18n="noir-f5">Historial de consumo por fecha</span></div>
         </div>
-        <div class="p-dash">
-          <div class="p-dash-top">
-            <div class="pd" style="background:#FF5F57"></div>
-            <div class="pd" style="background:#FFBD2E"></div>
-            <div class="pd" style="background:#28C840"></div>
-            <div class="pd-ttl">ennef-noir · bar dashboard</div>
-          </div>
-          <div class="p-dash-body">
-            <div class="p-stat"><div class="p-stat-n" style="color:var(--amber)">63</div><div class="p-stat-l" data-i18n="dash-bottles">Botellas</div></div>
-            <div class="p-stat"><div class="p-stat-n" style="color:var(--heading)">8</div><div class="p-stat-l" data-i18n="dash-restock">Reponer</div></div>
-            <div class="p-stat"><div class="p-stat-n" style="color:#EF4444">3</div><div class="p-stat-l" data-i18n="dash-out">Agotado</div></div>
-            <div class="p-chart">
-              <div class="p-bar" style="height:55%;background:#FEF3C7"></div>
-              <div class="p-bar" style="height:80%;background:var(--amber)"></div>
-              <div class="p-bar" style="height:40%;background:#FEF3C7"></div>
-              <div class="p-bar" style="height:95%;background:var(--amber)"></div>
-              <div class="p-bar" style="height:60%;background:#FEF3C7"></div>
-              <div class="p-bar" style="height:75%;background:var(--amber)"></div>
-              <div class="p-bar" style="height:50%;background:#FEF3C7"></div>
-              <div class="p-bar" style="height:88%;background:var(--amber)"></div>
-              <div class="p-bar" style="height:65%;background:#FEF3C7"></div>
-              <div class="p-bar" style="height:100%;background:var(--green)"></div>
-            </div>
-          </div>
-        </div>
       </div>
 
     </div>
   </div>
 </section>
+
+
+<!-- INDUSTRIES -->
+<section id="industries">
+  <div class="container">
+    <div class="eyebrow reveal" data-i18n="ind-eyebrow">Industrias</div>
+    <h2 class="s-title reveal" data-i18n="ind-title">Diseñado para negocios reales</h2>
+    <p class="s-desc reveal" data-i18n="ind-desc">Si vendes productos o manejas inventario, EnnefStock es para ti.</p>
+    <div class="ind-grid">
+      <div class="ind-card reveal">
+        <div class="ind-ico">🏪</div>
+        <div>
+          <div class="ind-t" data-i18n="ind1-t">Tiendas y colmados</div>
+          <div class="ind-d" data-i18n="ind1-d">Control de stock, caja diaria y ventas rápidas para negocios de barrio.</div>
+        </div>
+      </div>
+      <div class="ind-card reveal d1">
+        <div class="ind-ico">🍸</div>
+        <div>
+          <div class="ind-t" data-i18n="ind2-t">Bares y licorerías</div>
+          <div class="ind-d" data-i18n="ind2-d">Gestión de botellas, mermas y turnos nocturnos con Ennef Noir.</div>
+        </div>
+      </div>
+      <div class="ind-card reveal d2">
+        <div class="ind-ico">🍕</div>
+        <div>
+          <div class="ind-t" data-i18n="ind3-t">Restaurantes y cafés</div>
+          <div class="ind-d" data-i18n="ind3-d">POS en mesa o mostrador con control de ingredientes e insumos.</div>
+        </div>
+      </div>
+      <div class="ind-card reveal">
+        <div class="ind-ico">💇</div>
+        <div>
+          <div class="ind-t" data-i18n="ind4-t">Salones y spas</div>
+          <div class="ind-d" data-i18n="ind4-d">Inventario de productos, citas y cobros en un solo lugar.</div>
+        </div>
+      </div>
+      <div class="ind-card reveal d1">
+        <div class="ind-ico">🏋️</div>
+        <div>
+          <div class="ind-t" data-i18n="ind5-t">Gimnasios y deportes</div>
+          <div class="ind-d" data-i18n="ind5-d">Control de membresías, productos y pagos mensuales.</div>
+        </div>
+      </div>
+      <div class="ind-card reveal d2">
+        <div class="ind-ico">🛍️</div>
+        <div>
+          <div class="ind-t" data-i18n="ind6-t">Retail y boutiques</div>
+          <div class="ind-d" data-i18n="ind6-d">Tallas, variantes, múltiples sucursales y reportes de temporada.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section id="benefits">
+  <div class="container">
+    <div class="eyebrow reveal" data-i18n="ben-eyebrow">Beneficios</div>
+    <h2 class="s-title reveal" data-i18n="ben-title">Todo lo que necesitas para operar sin caos</h2>
+    <p class="s-desc reveal" data-i18n="ben-desc">Un sistema pensado para que tú ganes tiempo, dinero y control.</p>
+    <div class="ben-grid">
+      <div class="ben-card reveal">
+        <span class="ben-ico">⚡</span>
+        <div class="ben-t" data-i18n="ben1-t">Velocidad real</div>
+        <div class="ben-d" data-i18n="ben1-d">Cobra en segundos. Sin pantallas lentas ni cierres de sesión a cada rato.</div>
+      </div>
+      <div class="ben-card reveal d1">
+        <span class="ben-ico">📱</span>
+        <div class="ben-t" data-i18n="ben2-t">Desde el celular</div>
+        <div class="ben-d" data-i18n="ben2-d">Revisa ventas, stock y reportes desde donde estés, sin instalar nada.</div>
+      </div>
+      <div class="ben-card reveal d2">
+        <span class="ben-ico">🔔</span>
+        <div class="ben-t" data-i18n="ben3-t">Alertas automáticas</div>
+        <div class="ben-d" data-i18n="ben3-d">Te avisamos cuando un producto está por agotarse antes de que sea problema.</div>
+      </div>
+      <div class="ben-card reveal d3">
+        <span class="ben-ico">📊</span>
+        <div class="ben-t" data-i18n="ben4-t">Reportes claros</div>
+        <div class="ben-d" data-i18n="ben4-d">Ve qué vende más, qué días son mejores y cuánto ganaste al final del día.</div>
+      </div>
+      <div class="ben-card reveal">
+        <span class="ben-ico">👥</span>
+        <div class="ben-t" data-i18n="ben5-t">Multi-usuario</div>
+        <div class="ben-d" data-i18n="ben5-d">Cada empleado con su acceso. Tú controlas quién ve qué.</div>
+      </div>
+      <div class="ben-card reveal d1">
+        <span class="ben-ico">🔒</span>
+        <div class="ben-t" data-i18n="ben6-t">Datos seguros</div>
+        <div class="ben-d" data-i18n="ben6-d">Tu información en la nube, respaldada y accesible solo para ti.</div>
+      </div>
+      <div class="ben-card reveal d2">
+        <span class="ben-ico">🇩🇴</span>
+        <div class="ben-t" data-i18n="ben7-t">Hecho para RD</div>
+        <div class="ben-d" data-i18n="ben7-d">Precios en DOP y USD. Soporte local. Equipo que entiende tu mercado.</div>
+      </div>
+      <div class="ben-card reveal d3">
+        <span class="ben-ico">💬</span>
+        <div class="ben-t" data-i18n="ben8-t">Soporte humano</div>
+        <div class="ben-d" data-i18n="ben8-d">Sin bots. Alguien real te responde por WhatsApp en menos de 24h.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <!-- PRICING -->
 <section id="pricing">
@@ -801,6 +962,7 @@ footer {
 
         <div class="price-card">
           <div class="offer-banner" style="display:none">OFERTA</div>
+          <div class="plan-badge launch" data-i18n="badge-launch">🚀 Oferta de lanzamiento</div>
           <div class="price-plan">Ennef Stock</div>
           <div class="price-amount">$25<span>/mes</span></div>
           <div class="price-dop">$1,500 DOP/mes</div>
@@ -812,11 +974,12 @@ footer {
             <div class="price-feat"><div class="pf-dot">✓</div><span data-i18n="pf-s3">300 productos</span></div>
             <div class="price-feat"><div class="pf-dot">✓</div><span data-i18n="pf-s4">Soporte incluido</span></div>
           </div>
-          <a href="#contact" class="price-btn" data-i18n="price-cta">Empezar →</a>
+          <a href="https://wa.me/18297471943?text=Hola,%20quiero%20contratar%20EnnefStock%20Plan%20Starter%20($25/mes)." target="_blank" class="price-btn" data-i18n="price-cta-wa">💬 Empezar por WhatsApp</a>
         </div>
 
         <div class="price-card popular">
           <div class="offer-banner" style="display:none">OFERTA</div>
+          <div class="plan-badge best" data-i18n="badge-best">⭐ Más vendido</div>
           <div class="price-plan">Ennef Stock</div>
           <div class="price-amount">$45<span>/mes</span></div>
           <div class="price-dop">$2,700 DOP/mes</div>
@@ -828,11 +991,12 @@ footer {
             <div class="price-feat"><div class="pf-dot">✓</div><span data-i18n="pf-g3">1,000 productos</span></div>
             <div class="price-feat"><div class="pf-dot">✓</div><span data-i18n="pf-g4">Soporte prioritario</span></div>
           </div>
-          <a href="#contact" class="price-btn" data-i18n="price-cta">Empezar →</a>
+          <a href="https://wa.me/18297471943?text=Hola,%20quiero%20contratar%20EnnefStock%20Plan%20Grow%20($45/mes)." target="_blank" class="price-btn" data-i18n="price-cta-wa">💬 Empezar por WhatsApp</a>
         </div>
 
         <div class="price-card">
           <div class="offer-banner" style="display:none">OFERTA</div>
+          <div class="plan-badge launch" data-i18n="badge-launch">🚀 Oferta de lanzamiento</div>
           <div class="price-plan">Ennef Noir</div>
           <div class="price-amount">$20<span>/mes</span></div>
           <div class="price-dop">$1,200 DOP/mes</div>
@@ -844,7 +1008,7 @@ footer {
             <div class="price-feat"><div class="pf-dot">✓</div><span data-i18n="pf-b3">Control de botellas</span></div>
             <div class="price-feat"><div class="pf-dot">✓</div><span data-i18n="pf-b4">Soporte incluido</span></div>
           </div>
-          <a href="#contact" class="price-btn" data-i18n="price-cta">Empezar →</a>
+          <a href="https://wa.me/18297471943?text=Hola,%20quiero%20contratar%20Ennef%20Noir%20Plan%20Bar%20($20/mes)." target="_blank" class="price-btn" data-i18n="price-cta-wa">💬 Empezar por WhatsApp</a>
         </div>
 
         <div class="price-card">
@@ -860,7 +1024,7 @@ footer {
             <div class="price-feat"><div class="pf-dot">✓</div><span data-i18n="pf-bp3">Reportes avanzados</span></div>
             <div class="price-feat"><div class="pf-dot">✓</div><span data-i18n="pf-bp4">Soporte prioritario</span></div>
           </div>
-          <a href="#contact" class="price-btn" data-i18n="price-cta">Empezar →</a>
+          <a href="https://wa.me/18297471943?text=Hola,%20quiero%20contratar%20Ennef%20Noir%20Plan%20Bar%20Pro%20($35/mes)." target="_blank" class="price-btn" data-i18n="price-cta-wa">💬 Empezar por WhatsApp</a>
         </div>
 
       </div>
@@ -884,7 +1048,7 @@ footer {
             <div class="price-feat"><div class="pf-dot">✓</div><span data-i18n="wf-l3">Formulario de contacto</span></div>
             <div class="price-feat"><div class="pf-dot">✓</div><span data-i18n="wf-l4">Entrega en 5 días</span></div>
           </div>
-          <a href="#contact" class="price-btn" data-i18n="price-quote">Solicitar →</a>
+          <a href="https://wa.me/18297471943?text=Hola,%20quiero%20cotizar%20una%20Landing%20Page%20($150%20USD)." target="_blank" class="price-btn" data-i18n="price-cta-wa">💬 Cotizar por WhatsApp</a>
         </div>
 
         <div class="price-card popular">
@@ -900,7 +1064,7 @@ footer {
             <div class="price-feat"><div class="pf-dot">✓</div><span data-i18n="wf-c3">SEO incluido</span></div>
             <div class="price-feat"><div class="pf-dot">✓</div><span data-i18n="wf-c4">Entrega en 2 semanas</span></div>
           </div>
-          <a href="#contact" class="price-btn" data-i18n="price-quote">Solicitar →</a>
+          <a href="https://wa.me/18297471943?text=Hola,%20quiero%20cotizar%20una%20Web%20Corporativa%20($450%20USD)." target="_blank" class="price-btn" data-i18n="price-cta-wa">💬 Cotizar por WhatsApp</a>
         </div>
 
         <div class="price-card">
@@ -916,7 +1080,7 @@ footer {
             <div class="price-feat"><div class="pf-dot">✓</div><span data-i18n="wf-e3">Panel de administración</span></div>
             <div class="price-feat"><div class="pf-dot">✓</div><span data-i18n="wf-e4">Entrega en 3-4 semanas</span></div>
           </div>
-          <a href="#contact" class="price-btn" data-i18n="price-quote">Solicitar →</a>
+          <a href="https://wa.me/18297471943?text=Hola,%20quiero%20cotizar%20un%20E-commerce%20($850%20USD)." target="_blank" class="price-btn" data-i18n="price-cta-wa">💬 Cotizar por WhatsApp</a>
         </div>
 
       </div>
@@ -1030,12 +1194,12 @@ footer {
             <div class="ct-ch-val">@ennef.rd</div>
           </div>
         </div>
-        <a href="mailto:nayeliflorangel@gmail.com" style="text-decoration:none;color:inherit;">
+        <a href="mailto:ventas@ennefrd.com" style="text-decoration:none;color:inherit;">
           <div class="ct-ch">
             <div class="ct-ch-ico">✉️</div>
             <div>
               <div class="ct-ch-lbl">Email</div>
-              <div class="ct-ch-val">nayeliflorangel@gmail.com</div>
+              <div class="ct-ch-val">ventas@ennefrd.com</div>
             </div>
           </div>
         </a>
@@ -1084,6 +1248,24 @@ footer {
   </div>
 </div>
 
+<!-- FINAL CTA -->
+<section id="final-cta">
+  <div class="container">
+    <h2 class="s-title reveal" data-i18n-html="fcta-title">Tu negocio no necesita más desorden.<br>Necesita control.</h2>
+    <p class="s-desc reveal" data-i18n="fcta-desc">Software para vender más, controlar mejor y operar sin caos. Empieza hoy mismo.</p>
+    <div class="fcta-btns reveal">
+      <a href="https://wa.me/18297471943?text=Hola,%20quiero%20empezar%20un%20proyecto%20con%20Ennef." target="_blank" class="btn-white" data-i18n="fcta-btn1">💬 Empieza tu proyecto hoy</a>
+      <a href="#services" class="btn-outline-white" data-i18n="fcta-btn2">Ver servicios</a>
+    </div>
+  </div>
+</section>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/18297471943?text=Hola,%20quiero%20empezar%20un%20proyecto%20con%20Ennef." target="_blank" class="wa-float">
+  <span class="wa-float-ico">💬</span>
+  <span class="wa-float-label" data-i18n="wa-float">Cotiza tu sistema</span>
+</a>
+
 <footer>
   <div class="f-logo">ennef<span>.</span></div>
   <div class="f-copy" data-i18n="footer-copy">© 2025 Ennef · Santo Domingo, República Dominicana</div>
@@ -1102,12 +1284,13 @@ const t = {
     'nav-process':  'Proceso',
     'nav-why':      '¿Por qué nosotros?',
     'nav-cta':      'Empezar Proyecto',
-    'hero-badge':   'Disponibles para nuevos proyectos',
-    'hero-h1-line1':'Tecnología que',
-    'hero-h1-line2':'impulsa tu negocio.',
-    'hero-p':       'Construimos <strong>sistemas de inventario</strong>, <strong>páginas web profesionales</strong> y <strong>soluciones tech a medida</strong> para empresas en República Dominicana y el Caribe.',
-    'hero-btn1':    'Ver Servicios →',
-    'hero-btn2':    'Hablar con el equipo',
+    'hero-badge':   'Empresa Tech · Santo Domingo, RD',
+    'hero-h1-line1':'Construimos la tecnología',
+    'hero-h1-line2':'que hace crecer tu negocio.',
+    'hero-p':       'Sistemas de <strong>inventario y POS</strong>, <strong>páginas web profesionales</strong> y <strong>soluciones tech a medida</strong> para negocios en República Dominicana.',
+    'hero-btn1':    'Ver servicios',
+    'hero-btn2':    '💬 Hablar con el equipo',
+    'htag1':'Inventario & POS','htag2':'Páginas web','htag3':'Tech a medida','htag4':'Soporte incluido',
     'stat1': 'Proyectos entregados',
     'stat2': 'Años de experiencia',
     'stat3': 'Productos propios activos',
@@ -1208,6 +1391,39 @@ const t = {
     'opt3': 'Página Web',
     'opt4': 'Solución Tech a Medida',
     'opt5': 'No sé exactamente — necesito orientación',
+    'ss-eyebrow':'Nuestros productos','ss-title':'Así se ve EnnefStock en acción','ss-desc':'Uno de nuestros productos estrella. Rápido, claro y listo para tu negocio desde el primer día.',
+    'mock-ventas':'Ventas hoy','mock-productos':'Productos','mock-alertas':'Alertas',
+    'mock-cap1':'Dashboard principal — ventas, stock y alertas en tiempo real',
+    'mock-cap2-label':'Pantalla de cobro','mock-cap2-sub':'Rápido y táctil','mock-cap2':'Punto de venta · POS táctil',
+    'mock-cap3-label':'Lista de productos','mock-cap3-sub':'Con búsqueda y filtros','mock-cap3':'Inventario · Gestión de productos',
+    'mock-cap4-label':'Reportes de ventas','mock-cap4-sub':'Por día, semana o mes','mock-cap4':'Reportes · Análisis de negocio',
+    'mock-cap5-label':'Control de empleados','mock-cap5-sub':'Turnos y permisos','mock-cap5':'Empleados · Usuarios y turnos',
+    'vd-eyebrow':'Demo','vd-title':'Mira cómo funciona EnnefStock en menos de 1 minuto','vd-desc':'Sin complicaciones. Uno de los productos de Ennef, explicado en segundos.',
+    'vd-soon':'Video demo próximamente','vd-cta':'💬 Hablar con el equipo por WhatsApp',
+    'ind-eyebrow':'¿A quién ayudamos?','ind-title':'Tecnología para negocios reales en RD','ind-desc':'Trabajamos con todo tipo de negocio. Si tienes un reto tech, Ennef lo resuelve.',
+    'ind1-t':'Tiendas y colmados','ind1-d':'Control de stock, caja diaria y ventas rápidas para negocios de barrio.',
+    'ind2-t':'Bares y licorerías','ind2-d':'Gestión de botellas, mermas y turnos nocturnos con Ennef Noir.',
+    'ind3-t':'Restaurantes y cafés','ind3-d':'POS en mesa o mostrador con control de ingredientes e insumos.',
+    'ind4-t':'Salones y spas','ind4-d':'Inventario de productos, citas y cobros en un solo lugar.',
+    'ind5-t':'Gimnasios y deportes','ind5-d':'Control de membresías, productos y pagos mensuales.',
+    'ind6-t':'Retail y boutiques','ind6-d':'Tallas, variantes, múltiples sucursales y reportes de temporada.',
+    'ben-eyebrow':'Por qué Ennef','ben-title':'Todo lo que tu negocio necesita, en un solo equipo','ben-desc':'No somos una agencia genérica. Somos un equipo tech dominicano que entiende tu negocio.',
+    'ben1-t':'Velocidad real','ben1-d':'Cobra en segundos. Sin pantallas lentas ni cierres de sesión a cada rato.',
+    'ben2-t':'Desde el celular','ben2-d':'Revisa ventas, stock y reportes desde donde estés, sin instalar nada.',
+    'ben3-t':'Alertas automáticas','ben3-d':'Te avisamos cuando un producto está por agotarse antes de que sea problema.',
+    'ben4-t':'Reportes claros','ben4-d':'Ve qué vende más, qué días son mejores y cuánto ganaste al final del día.',
+    'ben5-t':'Multi-usuario','ben5-d':'Cada empleado con su acceso. Tú controlas quién ve qué.',
+    'ben6-t':'Datos seguros','ben6-d':'Tu información en la nube, respaldada y accesible solo para ti.',
+    'ben7-t':'Hecho para RD','ben7-d':'Precios en DOP y USD. Soporte local. Equipo que entiende tu mercado.',
+    'ben8-t':'Soporte humano','ben8-d':'Sin bots. Alguien real te responde por WhatsApp en menos de 24h.',
+    'sp-eyebrow':'Testimonios','sp-title':'Lo que dicen nuestros clientes','sp-desc':'Negocios reales en República Dominicana confiando en Ennef.',
+    'sp-soon-t':'🌟 Testimonios en camino','sp-soon-d':'Estamos recopilando las historias de nuestros primeros clientes. Vuelve pronto.',
+    'badge-launch':'🚀 Oferta de lanzamiento','badge-best':'⭐ Más vendido',
+    'price-cta-wa':'💬 Empezar por WhatsApp',
+    'fcta-title':'Tu negocio merece tecnología de verdad.',
+    'fcta-desc':'Inventario, websites, soluciones tech. Un solo equipo dominicano para todo lo que necesitas.',
+    'fcta-btn1':'💬 Empieza tu proyecto hoy','fcta-btn2':'Ver servicios',
+    'wa-float':'Inicia tu proyecto',
     'footer-copy': '© 2025 Ennef · Santo Domingo, República Dominicana',
     'nav-pricing':'Precios',
     'price-eyebrow':'Precios','price-title':'Planes transparentes.','price-desc':'Sin letra pequeña ni sorpresas. Elige el plan que se adapta a tu negocio.',
@@ -1230,12 +1446,13 @@ const t = {
     'nav-process':  'Process',
     'nav-why':      'Why us?',
     'nav-cta':      'Start Project',
-    'hero-badge':   'Available for new projects',
-    'hero-h1-line1':'Technology that',
-    'hero-h1-line2':'drives your business.',
-    'hero-p':       'We build <strong>inventory systems</strong>, <strong>professional websites</strong> and <strong>custom tech solutions</strong> for businesses in the Dominican Republic and the Caribbean.',
-    'hero-btn1':    'View Services →',
-    'hero-btn2':    'Talk to the team',
+    'hero-badge':   'Tech Company · Santo Domingo, DR',
+    'hero-h1-line1':'We build the technology',
+    'hero-h1-line2':'that grows your business.',
+    'hero-p':       '<strong>Inventory & POS systems</strong>, <strong>professional websites</strong> and <strong>custom tech solutions</strong> for businesses in the Dominican Republic.',
+    'hero-btn1':    'View services',
+    'hero-btn2':    '💬 Talk to the team',
+    'htag1':'Inventory & POS','htag2':'Websites','htag3':'Custom tech','htag4':'Support included',
     'stat1': 'Projects delivered',
     'stat2': 'Years of experience',
     'stat3': 'Active own products',
@@ -1336,6 +1553,39 @@ const t = {
     'opt3': 'Website',
     'opt4': 'Custom Tech Solution',
     'opt5': "I'm not sure — I need guidance",
+    'ss-eyebrow':'Our products','ss-title':'EnnefStock in action','ss-desc':'One of our flagship products. Fast, clear and ready for your business from day one.',
+    'mock-ventas':'Sales today','mock-productos':'Products','mock-alertas':'Alerts',
+    'mock-cap1':'Main dashboard — sales, stock and alerts in real time',
+    'mock-cap2-label':'Checkout screen','mock-cap2-sub':'Fast and touch-friendly','mock-cap2':'Point of sale · Touch POS',
+    'mock-cap3-label':'Product list','mock-cap3-sub':'With search and filters','mock-cap3':'Inventory · Product management',
+    'mock-cap4-label':'Sales reports','mock-cap4-sub':'By day, week or month','mock-cap4':'Reports · Business analytics',
+    'mock-cap5-label':'Staff control','mock-cap5-sub':'Shifts and permissions','mock-cap5':'Staff · Users and shifts',
+    'vd-eyebrow':'Demo','vd-title':'See EnnefStock in under 1 minute','vd-desc':'No complications. One of our products, explained in seconds.',
+    'vd-soon':'Video demo coming soon','vd-cta':'💬 Talk to the team on WhatsApp',
+    'ind-eyebrow':'Who we help','ind-title':'Technology for real businesses in DR','ind-desc':'We work with all kinds of businesses. If you have a tech challenge, Ennef solves it.',
+    'ind1-t':'Stores & shops','ind1-d':'Stock control, daily cash and fast sales for neighborhood businesses.',
+    'ind2-t':'Bars & liquor stores','ind2-d':'Bottle management, waste tracking and night shifts with Ennef Noir.',
+    'ind3-t':'Restaurants & cafés','ind3-d':'Table or counter POS with ingredient and supply control.',
+    'ind4-t':'Salons & spas','ind4-d':'Product inventory, appointments and billing all in one place.',
+    'ind5-t':'Gyms & sports','ind5-d':'Membership control, products and monthly payment tracking.',
+    'ind6-t':'Retail & boutiques','ind6-d':'Sizes, variants, multiple branches and seasonal reports.',
+    'ben-eyebrow':'Why Ennef','ben-title':'Everything your business needs, one team','ben-desc':"We're not a generic agency. We're a Dominican tech team that understands your business.",
+    'ben1-t':'Real speed','ben1-d':'Charge in seconds. No slow screens or constant logouts.',
+    'ben2-t':'From your phone','ben2-d':'Check sales, stock and reports from anywhere, no installation needed.',
+    'ben3-t':'Automatic alerts','ben3-d':'We notify you when a product is running low before it becomes a problem.',
+    'ben4-t':'Clear reports','ben4-d':'See what sells most, your best days, and how much you made today.',
+    'ben5-t':'Multi-user','ben5-d':'Each employee has their own access. You control who sees what.',
+    'ben6-t':'Secure data','ben6-d':'Your information in the cloud, backed up and accessible only to you.',
+    'ben7-t':'Made for DR','ben7-d':'Prices in DOP and USD. Local support. Team that understands your market.',
+    'ben8-t':'Human support','ben8-d':'No bots. A real person answers you on WhatsApp in under 24h.',
+    'sp-eyebrow':'Testimonials','sp-title':'What our clients say','sp-desc':'Real businesses in the Dominican Republic trusting Ennef.',
+    'sp-soon-t':'🌟 Testimonials coming soon','sp-soon-d':'We are collecting stories from our first clients. Check back soon.',
+    'badge-launch':'🚀 Launch offer','badge-best':'⭐ Best seller',
+    'price-cta-wa':'💬 Start on WhatsApp',
+    'fcta-title':'Your business deserves real technology.',
+    'fcta-desc':'Inventory, websites, tech solutions. One Dominican team for everything you need.',
+    'fcta-btn1':'💬 Start your project today','fcta-btn2':'View services',
+    'wa-float':'Start your project',
     'footer-copy': '© 2025 Ennef · Santo Domingo, Dominican Republic',
     'nav-pricing':'Pricing',
     'price-eyebrow':'Pricing','price-title':'Transparent plans.','price-desc':'No fine print, no surprises. Choose the plan that fits your business.',
