@@ -1,1122 +1,1516 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ennef · Inventario, Websites y Soluciones Tech para negocios en República Dominicana</title>
-<meta name="description" content="Empresa tech dominicana. Construimos sistemas de inventario (Ennef Stock, Ennef Noir), páginas web profesionales y soluciones digitales a medida para negocios en República Dominicana.">
-<meta name="keywords" content="Ennef, ennefrd, sistemas de inventario República Dominicana, inventario para bares RD, páginas web Santo Domingo, soluciones tech dominicana, Ennef Stock, Ennef Noir, POS RD">
-<meta name="author" content="Ennef">
-<meta name="robots" content="index, follow">
-<meta name="theme-color" content="#0B0F14">
-<link rel="canonical" href="https://ennefrd.com">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ennef - Tecnología para tu negocio</title>
+  <meta name="description" content="Sistemas de inventario, páginas web profesionales y soluciones tech para negocios en República Dominicana.">
+  <style>
+    :root {
+      --ink: #121018;
+      --muted: #6f6a7a;
+      --soft: #f6f2ff;
+      --soft-2: #eee8ff;
+      --line: #e7e0f7;
+      --violet: #6c4cff;
+      --violet-2: #9b84ff;
+      --violet-3: #d9d0ff;
+      --white: #ffffff;
+      --success: #23b26d;
+      --warning: #f2a93b;
+      --danger: #e75555;
+      --shadow: 0 18px 42px rgba(95, 70, 180, .14);
+      --max: 1120px;
+    }
 
-<!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://ennefrd.com">
-<meta property="og:title" content="Ennef · Inventario, Websites y Soluciones Tech para RD">
-<meta property="og:description" content="Empresa tech dominicana. Sistemas de inventario, páginas web profesionales y soluciones tech a medida para negocios en República Dominicana.">
-<meta property="og:locale" content="es_DO">
-<meta property="og:site_name" content="Ennef">
+    * {
+      box-sizing: border-box;
+    }
 
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ennef · Inventario, Websites y Soluciones Tech para RD">
-<meta name="twitter:description" content="Empresa tech dominicana. Sistemas de inventario, páginas web y soluciones digitales a medida.">
+    html {
+      scroll-behavior: smooth;
+    }
 
-<!-- Structured Data -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org","@type":"Organization",
-  "name":"Ennef","alternateName":"ennefrd","url":"https://ennefrd.com",
-  "logo":"https://ennefrd.com/logo.png",
-  "description":"Empresa tech dominicana especializada en sistemas de inventario, desarrollo web y soluciones digitales a medida.",
-  "email":"ventas@ennefrd.com","telephone":"+18297471943",
-  "address":{"@type":"PostalAddress","addressLocality":"Santo Domingo","addressCountry":"DO"},
-  "sameAs":["https://instagram.com/ennefrd"],"foundingDate":"2022",
-  "areaServed":["República Dominicana","Caribbean"]
-}
-</script>
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(197, 187, 255, .34), transparent 30rem),
+        linear-gradient(180deg, #f0eef8 0%, #ffffff 44rem);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.5;
+    }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="premium.css">
-<script>
-window.TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-  "accent": "#E25B3A",
-  "bgStyle": "mesh",
-  "motion": "lively",
-  "shapes": true,
-  "cursor": true
-}/*EDITMODE-END*/;
-</script>
+    .page {
+      width: min(100%, 1240px);
+      margin: 64px auto;
+      background: var(--white);
+      box-shadow: 0 30px 90px rgba(32, 23, 68, .12);
+      overflow: hidden;
+    }
+
+    .shell {
+      width: min(calc(100% - 48px), var(--max));
+      margin-inline: auto;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 72px;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: -.01em;
+    }
+
+    .brand-logo {
+      display: block;
+      width: 168px;
+      height: auto;
+      max-height: 42px;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      color: #3e3948;
+      font-size: 14px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 18px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      font-size: 14px;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn.primary {
+      background: var(--violet);
+      color: var(--white);
+    }
+
+    .btn.secondary {
+      background: var(--white);
+      color: var(--ink);
+      border-color: var(--line);
+    }
+
+    .btn.ghost {
+      color: var(--muted);
+    }
+
+    .hero {
+      position: relative;
+      padding: 78px 0 0;
+    }
+
+    .hero-panel {
+      position: relative;
+      min-height: 545px;
+      padding: 70px 32px 46px;
+      overflow: hidden;
+      border-radius: 0 0 12px 12px;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(255, 255, 255, .94), rgba(255, 255, 255, .72) 28%, transparent 58%),
+        radial-gradient(circle at 12px 12px, rgba(255, 255, 255, .52) 1.2px, transparent 1.8px),
+        linear-gradient(180deg, #ffffff 0%, #f7f3ff 28%, #b9a8ff 100%);
+      background-size: auto, 18px 18px, auto;
+      border: 1px solid #eee9ff;
+    }
+
+    .motion-card {
+      position: absolute;
+      z-index: 1;
+      width: 190px;
+      padding: 14px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, .72);
+      border: 1px solid rgba(255, 255, 255, .86);
+      box-shadow: 0 16px 28px rgba(79, 54, 150, .12);
+      backdrop-filter: blur(10px);
+      animation: float-card 7s ease-in-out infinite;
+    }
+
+    .motion-card.one {
+      left: 42px;
+      top: 118px;
+    }
+
+    .motion-card.two {
+      right: 44px;
+      top: 132px;
+      animation-delay: -2.4s;
+    }
+
+    .motion-card.three {
+      right: 122px;
+      bottom: 128px;
+      animation-delay: -4.2s;
+    }
+
+    .motion-card small {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .motion-card strong {
+      display: block;
+      font-size: 22px;
+      line-height: 1;
+      letter-spacing: -.03em;
+      margin-bottom: 10px;
+    }
+
+    .motion-bar {
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(108, 76, 255, .12);
+      overflow: hidden;
+    }
+
+    .motion-bar span {
+      display: block;
+      width: 58%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--violet), #a45cff);
+      animation: load-bar 3.8s ease-in-out infinite;
+    }
+
+    .hero-orb {
+      position: absolute;
+      left: 50%;
+      bottom: 104px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(108, 76, 255, .32), rgba(164, 92, 255, 0) 68%);
+      transform: translateX(-50%);
+      filter: blur(2px);
+      animation: pulse-orb 5s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes float-card {
+      0%, 100% {
+        transform: translate3d(0, 0, 0);
+      }
+      50% {
+        transform: translate3d(0, -16px, 0);
+      }
+    }
+
+    @keyframes load-bar {
+      0%, 100% {
+        width: 38%;
+      }
+      50% {
+        width: 86%;
+      }
+    }
+
+    @keyframes pulse-orb {
+      0%, 100% {
+        opacity: .42;
+        transform: translateX(-50%) scale(.9);
+      }
+      50% {
+        opacity: .78;
+        transform: translateX(-50%) scale(1.08);
+      }
+    }
+
+    .hero-copy {
+      width: min(760px, 100%);
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin: 22px 0 16px;
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: .96;
+      letter-spacing: -.035em;
+      text-wrap: balance;
+    }
+
+    .hero-copy p {
+      width: min(640px, 100%);
+      margin: 0 auto 26px;
+      color: #5f596d;
+      font-size: 17px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .image-showcase {
+      padding: clamp(54px, 7vw, 86px) 0 0;
+    }
+
+    .showcase-layout {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(0, 1.15fr);
+      gap: clamp(28px, 5vw, 70px);
+      align-items: center;
+    }
+
+    .showcase-frame {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: #f7f4ff;
+      min-height: 420px;
+      box-shadow: 0 22px 46px rgba(38, 28, 70, .12);
+    }
+
+    .showcase-frame img {
+      display: block;
+      width: 100%;
+      height: min(54vw, 560px);
+      min-height: 420px;
+      object-fit: cover;
+    }
+
+    .showcase-copy {
+      max-width: 520px;
+    }
+
+    .showcase-copy strong {
+      display: block;
+      font-size: clamp(38px, 5.8vw, 70px);
+      line-height: .98;
+      letter-spacing: -.04em;
+      margin-bottom: 18px;
+      text-wrap: balance;
+    }
+
+    .showcase-copy span {
+      display: block;
+      color: #5f596d;
+      font-size: 18px;
+      line-height: 1.55;
+      max-width: 34rem;
+    }
+
+    .stats {
+      width: min(880px, calc(100% - 40px));
+      margin: 52px auto 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      background: rgba(255, 255, 255, .88);
+      border: 1px solid rgba(255, 255, 255, .92);
+      border-radius: 12px;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 18px 36px rgba(76, 54, 156, .12);
+      backdrop-filter: blur(8px);
+    }
+
+    .stat {
+      padding: 28px 20px;
+      text-align: center;
+      min-width: 0;
+    }
+
+    .stat + .stat {
+      border-left: 1px solid var(--line);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: clamp(28px, 4vw, 40px);
+      line-height: 1;
+      letter-spacing: -.03em;
+      margin-bottom: 8px;
+    }
+
+    .stat span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .section {
+      padding: clamp(70px, 9vw, 112px) 0;
+    }
+
+    .section.soft {
+      background: #fbf9ff;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+      gap: clamp(40px, 8vw, 92px);
+      align-items: start;
+    }
+
+    .label {
+      color: var(--violet);
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    h2 {
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.02;
+      letter-spacing: -.035em;
+      margin-bottom: 18px;
+      text-wrap: balance;
+    }
+
+    .lead {
+      color: #625c70;
+      font-size: 17px;
+      max-width: 64ch;
+    }
+
+    .service-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .service-list.compact {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0 24px;
+    }
+
+    .service-item {
+      display: grid;
+      grid-template-columns: 54px minmax(0, 1fr);
+      gap: 20px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .service-item:first-child {
+      border-top: 1px solid var(--line);
+    }
+
+    .service-number {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      background: var(--soft);
+      color: var(--violet);
+      font-weight: 900;
+    }
+
+    .service-item h3 {
+      font-size: 23px;
+      line-height: 1.1;
+      margin-bottom: 8px;
+      letter-spacing: -.02em;
+    }
+
+    .service-item p,
+    .timeline p,
+    .product-card p,
+    .price-card p,
+    .feature p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 36px;
+    }
+
+    .product-card,
+    .price-card,
+    .contact-card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--white);
+    }
+
+    .product-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 230px;
+      gap: 20px;
+      padding: 26px;
+      overflow: hidden;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: #4d36c8;
+      background: var(--soft);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .product-card h3 {
+      font-size: 31px;
+      line-height: 1;
+      letter-spacing: -.03em;
+      margin-bottom: 10px;
+    }
+
+    .checks {
+      display: grid;
+      gap: 9px;
+      margin: 22px 0 0;
+      padding: 0;
+      list-style: none;
+      color: #383242;
+      font-size: 14px;
+    }
+
+    .checks li {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .check {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      display: inline-grid;
+      place-items: center;
+      flex: 0 0 auto;
+      background: rgba(35, 178, 109, .12);
+      color: var(--success);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .mini-dashboard {
+      align-self: stretch;
+      min-height: 270px;
+      border-radius: 12px;
+      padding: 18px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, .86), rgba(255, 255, 255, .68)),
+        linear-gradient(135deg, #efeaff, #c6b9ff);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .mini-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #514865;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--success);
+      box-shadow: 0 0 0 5px rgba(35, 178, 109, .12);
+    }
+
+    .mini-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .mini-metric {
+      background: rgba(255, 255, 255, .82);
+      border: 1px solid rgba(255, 255, 255, .9);
+      border-radius: 10px;
+      padding: 14px;
+    }
+
+    .mini-metric strong {
+      display: block;
+      font-size: 25px;
+      line-height: 1;
+      letter-spacing: -.03em;
+      margin-bottom: 6px;
+    }
+
+    .mini-metric span {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 0;
+    }
+
+    .timeline-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 48px minmax(0, 1fr);
+      gap: 20px;
+      padding-bottom: 32px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: 23px;
+      top: 48px;
+      bottom: 0;
+      width: 1px;
+      background: var(--line);
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-item:last-child::before {
+      display: none;
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      color: var(--violet);
+      font-weight: 900;
+      z-index: 1;
+    }
+
+    .date {
+      color: var(--violet);
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .timeline h3 {
+      font-size: 21px;
+      margin-bottom: 6px;
+      letter-spacing: -.02em;
+    }
+
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 34px;
+    }
+
+    .price-card {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      min-height: 330px;
+    }
+
+    .price-card.featured {
+      border-color: rgba(108, 76, 255, .34);
+      background: linear-gradient(180deg, #ffffff, #f8f5ff);
+      box-shadow: var(--shadow);
+    }
+
+    .price-card h3 {
+      font-size: 22px;
+      margin: 8px 0 12px;
+      letter-spacing: -.02em;
+    }
+
+    .price {
+      font-size: 34px;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -.04em;
+      margin-bottom: 6px;
+    }
+
+    .price small {
+      font-size: 13px;
+      letter-spacing: 0;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .price-card .btn {
+      width: 100%;
+      margin-top: auto;
+    }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 34px;
+    }
+
+    .catalog-card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--white);
+      padding: 24px;
+    }
+
+    .catalog-card h3 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 24px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      letter-spacing: -.025em;
+    }
+
+    .catalog-card h3 span {
+      min-width: 44px;
+      width: 44px;
+      height: 36px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 10px;
+      color: var(--violet);
+      background: var(--soft);
+      font-size: 18px;
+      flex: 0 0 auto;
+    }
+
+    .price-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    .price-table th,
+    .price-table td {
+      text-align: left;
+      padding: 12px 0;
+      border-top: 1px solid var(--line);
+      vertical-align: top;
+    }
+
+    .price-table th {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .price-table td:last-child,
+    .price-table th:last-child {
+      text-align: right;
+      color: #3f2db7;
+      font-weight: 800;
+      white-space: nowrap;
+      padding-left: 16px;
+    }
+
+    .package-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .package-card {
+      border: 1px solid rgba(108, 76, 255, .22);
+      border-radius: 12px;
+      background: linear-gradient(180deg, #ffffff, #f8f5ff);
+      padding: 24px;
+    }
+
+    .package-card h3 {
+      font-size: 24px;
+      line-height: 1.05;
+      letter-spacing: -.025em;
+      margin-bottom: 10px;
+    }
+
+    .package-price {
+      color: #3f2db7;
+      font-weight: 900;
+      font-size: 22px;
+      margin-bottom: 18px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 34px;
+    }
+
+    .feature {
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .feature h3 {
+      font-size: 20px;
+      letter-spacing: -.02em;
+      margin-bottom: 8px;
+    }
+
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .contact-card {
+      padding: 28px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .contact-list a,
+    .contact-list div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+      color: #3f394a;
+      font-weight: 700;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      min-height: 48px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 0 14px;
+      font: inherit;
+      color: var(--ink);
+      background: #fff;
+      outline: none;
+    }
+
+    textarea {
+      min-height: 128px;
+      padding-top: 13px;
+      resize: vertical;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: rgba(108, 76, 255, .55);
+      box-shadow: 0 0 0 4px rgba(108, 76, 255, .1);
+    }
+
+    .footer {
+      padding: 32px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .footer .shell {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 980px) {
+      .page {
+        margin: 0;
+        width: 100%;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .two-col,
+      .contact-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .product-grid,
+      .price-grid,
+      .features,
+      .catalog-grid,
+      .package-grid,
+      .service-list.compact {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .product-card {
+        grid-template-columns: 1fr;
+      }
+
+      .showcase-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .motion-card {
+        display: none;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .shell {
+        width: min(calc(100% - 28px), var(--max));
+      }
+
+      .nav {
+        min-height: 64px;
+      }
+
+      .nav-actions .ghost {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 34px;
+      }
+
+      .hero-panel {
+        min-height: auto;
+        padding: 48px 14px 24px;
+      }
+
+      .hero-orb {
+        width: 120px;
+        height: 120px;
+        bottom: 210px;
+      }
+
+      .showcase-frame {
+        min-height: 360px;
+      }
+
+      .showcase-frame img {
+        height: 460px;
+        min-height: 360px;
+      }
+
+      .showcase-copy strong {
+        font-size: clamp(36px, 12vw, 52px);
+      }
+
+      h1 {
+        font-size: clamp(38px, 13vw, 58px);
+      }
+
+      .stats,
+      .product-grid,
+      .price-grid,
+      .features,
+      .catalog-grid,
+      .package-grid,
+      .service-list.compact {
+        grid-template-columns: 1fr;
+      }
+
+      .stat + .stat {
+        border-left: 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .stat {
+        padding: 22px 18px;
+      }
+
+      .section {
+        padding: 64px 0;
+      }
+
+      .service-item {
+        grid-template-columns: 44px minmax(0, 1fr);
+        gap: 14px;
+      }
+
+      .price-card {
+        min-height: auto;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
 </head>
 <body>
-
-<!-- ========================================
-     SVG ICON SPRITE
-     ======================================== -->
-<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
-  <defs>
-    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
-    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
-    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3 12h18M12 3c2.5 3 4 6 4 9s-1.5 6-4 9c-2.5-3-4-6-4-9s1.5-6 4-9z" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
-
-    <symbol id="i-box" viewBox="0 0 24 24"><path d="M21 8l-9-5-9 5v8l9 5 9-5V8z M3 8l9 5 9-5 M12 13v10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-window" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
-    <symbol id="i-cog" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 0 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 0 1-4 0v-.1A1.7 1.7 0 0 0 9 19.4a1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 0 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 0 1 0-4h.1A1.7 1.7 0 0 0 4.6 9a1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 0 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 0 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 0 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 0 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-
-    <symbol id="i-bottle" viewBox="0 0 24 24"><path d="M10 2h4v4a4 4 0 0 1 2 3.5V20a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V9.5A4 4 0 0 1 10 6V2z M10 12h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-store" viewBox="0 0 24 24"><path d="M3 9l1.5-5h15L21 9 M3 9v11a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V9 M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0 M9 21v-6h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-glass" viewBox="0 0 24 24"><path d="M5 3h14l-2 9a5 5 0 0 1-10 0L5 3z M12 17v4 M8 21h8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-coffee" viewBox="0 0 24 24"><path d="M17 8h1a3 3 0 0 1 0 6h-1 M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z M7 3v3 M11 3v3 M15 3v3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3v6M12 15v6M3 12h6M15 12h6M5.5 5.5l4 4M14.5 14.5l4 4M5.5 18.5l4-4M14.5 9.5l4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
-    <symbol id="i-dumbbell" viewBox="0 0 24 24"><path d="M6.5 6.5l11 11 M2 11l3-3 4 4-3 3-4-4z M13 16l4-4 3 3-4 4-3-3z M3 13l-1 1 M21 11l1-1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M6 7h12l-1 14H7L6 7z M9 7V5a3 3 0 0 1 6 0v2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-
-    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
-    <symbol id="i-phone" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 19h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
-    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9 M10 21a2 2 0 0 0 4 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18 M7 14l4-4 4 4 5-7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M2 21c0-3.5 3-6 7-6s7 2.5 7 6 M16 8a3 3 0 0 1 0 6 M22 21c0-3-2-5-5-5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
-    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 11V8a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
-    <symbol id="i-flag" viewBox="0 0 24 24"><path d="M4 22V4 M4 4h13l-2 4 2 4H4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-12.5 6.6L3 21l2.4-5.5A8 8 0 1 1 21 12z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-
-    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
-    <symbol id="i-repeat" viewBox="0 0 24 24"><path d="M17 2l4 4-4 4 M3 11V9a3 3 0 0 1 3-3h15 M7 22l-4-4 4-4 M21 13v2a3 3 0 0 1-3 3H3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-
-    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3 7l9 7 9-7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></symbol>
-    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M20.5 12a8.5 8.5 0 0 1-12.7 7.4L3 21l1.7-4.6A8.5 8.5 0 1 1 20.5 12z M9 9.5c0-.5.3-1 .7-1.2.4-.2.9-.1 1.2.2l.7 1c.2.3.2.7 0 1l-.4.5c-.2.2-.2.5 0 .7.5.9 1.2 1.6 2.1 2.1.3.2.5.2.7 0l.5-.4c.3-.2.7-.2 1 0l1 .7c.3.3.4.8.2 1.2-.2.4-.7.7-1.2.7-3.4 0-6.5-3-6.5-6.5z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-
-    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 8h.01M11 12h1v5h1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2l3 7 7 .5-5.5 4.7L18 22l-6-3.5L6 22l1.5-7.8L2 9.5 9 9l3-7z"/></symbol>
-  </defs>
-</svg>
-
-<!-- ========================================
-     NAVBAR
-     ======================================== -->
-<nav class="nav" id="nav">
-  <a href="#" class="nav-logo" aria-label="Ennef">ennef<span class="brand-dot">.</span></a>
-  <ul class="nav-links" role="menubar">
-    <li><a href="#services" data-i18n="nav-services">Servicios</a></li>
-    <li><a href="#products" data-i18n="nav-products">Productos</a></li>
-    <li><a href="#process" data-i18n="nav-process">Proceso</a></li>
-    <li><a href="#pricing" data-i18n="nav-pricing">Precios</a></li>
-    <li><a href="#trust" data-i18n="nav-industries">Industrias</a></li>
-  </ul>
-  <div class="nav-right">
-    <button class="lang-toggle" id="langToggle" aria-label="Change language">
-      <span class="dot"></span>
-      <span class="lang-label">EN</span>
-    </button>
-    <a href="#contact" class="nav-links" style="display:inline-flex" role="none">
-      <span class="nav-cta" data-i18n="nav-cta">Hablar con el equipo</span>
-    </a>
-    <button class="hamburger" id="hamburger" aria-label="Open menu">
-      <svg class="icon"><use href="#i-menu"/></svg>
-    </button>
-  </div>
-</nav>
-
-<!-- Mobile menu -->
-<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-  <button class="mobile-close" id="mobileClose" aria-label="Close menu">
-    <svg class="icon"><use href="#i-close"/></svg>
-  </button>
-  <a href="#services" data-i18n="nav-services">Servicios</a>
-  <a href="#products" data-i18n="nav-products">Productos</a>
-  <a href="#process" data-i18n="nav-process">Proceso</a>
-  <a href="#pricing" data-i18n="nav-pricing">Precios</a>
-  <a href="#trust" data-i18n="nav-industries">Industrias</a>
-  <a href="#contact" class="mm-cta" data-i18n="nav-cta">Hablar con el equipo</a>
-</div>
-
-<!-- ========================================
-     HERO
-     ======================================== -->
-<header class="hero">
-  <div class="hero-mesh"></div>
-  <div class="hero-shapes" aria-hidden="true">
-    <div class="hero-shape s1"></div>
-    <div class="hero-shape s2"></div>
-    <div class="hero-shape s3"></div>
-  </div>
-  <div class="hero-inner">
-    <div>
-      <div class="eyebrow anim" data-i18n="hero-eyebrow">Empresa Tech · Santo Domingo, RD</div>
-      <h1 class="hero-h1 anim">
-        <span data-i18n="hero-h1-1">Construimos la tecnología</span><br>
-        <span data-i18n="hero-h1-2">que hace crecer</span> <span class="accent" data-i18n="hero-h1-accent">tu negocio.</span>
-      </h1>
-      <p class="hero-p anim" data-i18n-html="hero-p">
-        Sistemas de <strong>inventario y POS</strong>, <strong>páginas web profesionales</strong> y <strong>soluciones tech a medida</strong> para negocios en República Dominicana.
-      </p>
-      <div class="hero-btns anim">
-        <a href="#contact" class="btn btn-primary">
-          <span data-i18n="hero-btn1">Ver servicios</span>
-          <svg class="icon"><use href="#i-arrow-right"/></svg>
-        </a>
-        <a href="https://wa.me/18297471943?text=Hola,%20quiero%20saber%20más%20sobre%20los%20servicios%20de%20Ennef." target="_blank" rel="noopener" class="btn btn-ghost-dark">
-          <svg class="icon"><use href="#i-chat"/></svg>
-          <span data-i18n="hero-btn2">Hablar con el equipo</span>
-        </a>
-      </div>
-      <div class="hero-meta anim">
-        <div class="hero-meta-item">
-          <div class="v"><span data-count="30" data-suffix="+">0+</span></div>
-          <div class="l" data-i18n="hero-stat1-l">Proyectos entregados</div>
-        </div>
-        <div class="hero-meta-item">
-          <div class="v"><span data-count="3">0</span></div>
-          <div class="l" data-i18n="hero-stat2-l">Años de experiencia</div>
-        </div>
-        <div class="hero-meta-item">
-          <div class="v"><span style="color:var(--accent)">&lt;24h</span></div>
-          <div class="l" data-i18n="hero-stat3-l">Tiempo de respuesta</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="hero-visual anim">
-      <div class="hv-card hv-card-1">
-        <div class="hv-label">
-          <span data-i18n="hv-card1-l">Ennef Stock · Inventario</span>
-          <span class="hv-status"><span class="hv-dot"></span>Live</span>
-        </div>
-        <div class="hv-row">
-          <div>
-            <div class="hv-title" data-i18n="hv-card1-t">Productos</div>
-            <div class="hv-sub" data-i18n="hv-card1-s">Actualizado hace 2 min</div>
-          </div>
-          <div class="hv-num">1,248</div>
-        </div>
-        <div class="hv-bars">
-          <div class="hv-bar" style="height:30%"></div>
-          <div class="hv-bar" style="height:55%"></div>
-          <div class="hv-bar" style="height:42%"></div>
-          <div class="hv-bar hot" style="height:78%"></div>
-          <div class="hv-bar" style="height:62%"></div>
-          <div class="hv-bar" style="height:48%"></div>
-          <div class="hv-bar hot" style="height:88%"></div>
-          <div class="hv-bar" style="height:68%"></div>
-        </div>
-      </div>
-
-      <div class="hv-card hv-card-2">
-        <div class="hv-label">
-          <span data-i18n="hv-card2-l">Ventas hoy</span>
-          <span class="hv-status">RD$</span>
-        </div>
-        <div class="hv-row">
-          <div class="hv-num">42,580</div>
-        </div>
-        <div class="hv-sub" data-i18n="hv-card2-s">+18% vs ayer</div>
-      </div>
-
-      <div class="hv-card hv-card-3">
-        <div class="hv-label">
-          <span data-i18n="hv-card3-l">Ennef Noir · Turno noche</span>
-        </div>
-        <div class="hv-row">
-          <div>
-            <div class="hv-title" data-i18n="hv-card3-t">Activo</div>
-            <div class="hv-sub" data-i18n="hv-card3-s">63 productos bajo control</div>
-          </div>
-          <span class="hv-status"><span class="hv-dot"></span></span>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
-
-<!-- ========================================
-     LOGO / TRUST STRIP
-     ======================================== -->
-<div class="logos">
-  <div class="logos-inner">
-    <div class="logos-label" data-i18n="logos-label">Confianza de negocios en RD</div>
-    <div class="logos-row">
-      <span>Ennef Stock</span>
-      <span>Ennef Noir</span>
-      <span>EnnefWeb</span>
-      <span>EnnefLabs</span>
-    </div>
-  </div>
-</div>
-
-<!-- ========================================
-     SERVICES
-     ======================================== -->
-<section id="services">
-  <div class="container">
-    <div class="s-head reveal">
-      <div class="eyebrow on-light" data-i18n="srv-eyebrow">Servicios</div>
-      <h2 class="s-title">
-        <span data-i18n="srv-title-1">Tres especialidades,</span>
-        <span class="accent" data-i18n="srv-title-accent">un solo equipo.</span>
-      </h2>
-      <p class="s-desc" data-i18n="srv-desc">Todo lo que tu negocio necesita en tecnología — diseñado, construido y soportado por un equipo dominicano.</p>
-    </div>
-
-    <div class="srv-grid">
-      <article class="srv-card feat reveal">
-        <div class="srv-num">01 / 03</div>
-        <div class="srv-ico-wrap">
-          <svg class="icon icon-lg"><use href="#i-box"/></svg>
-        </div>
-        <h3 class="srv-name" data-i18n="srv1-name">Sistemas de Inventario</h3>
-        <p class="srv-desc" data-i18n="srv1-desc">Control de stock en tiempo real, alertas automáticas, reportes y dashboards. Para retail, bares, restaurantes y más.</p>
-        <a href="#products" class="srv-link">
-          <span data-i18n="srv1-link">Ver productos</span>
-          <svg class="icon"><use href="#i-arrow-right"/></svg>
-        </a>
-      </article>
-
-      <article class="srv-card reveal d1">
-        <div class="srv-num">02 / 03</div>
-        <div class="srv-ico-wrap">
-          <svg class="icon icon-lg"><use href="#i-window"/></svg>
-        </div>
-        <h3 class="srv-name" data-i18n="srv2-name">Páginas Web Profesionales</h3>
-        <p class="srv-desc" data-i18n="srv2-desc">Sitios rápidos, modernos y orientados a convertir. Corporativos, e-commerce, portafolios. Bilingüe si lo necesitas.</p>
-        <a href="#contact" class="srv-link">
-          <span data-i18n="srv2-link">Solicitar cotización</span>
-          <svg class="icon"><use href="#i-arrow-right"/></svg>
-        </a>
-      </article>
-
-      <article class="srv-card reveal d2">
-        <div class="srv-num">03 / 03</div>
-        <div class="srv-ico-wrap">
-          <svg class="icon icon-lg"><use href="#i-cog"/></svg>
-        </div>
-        <h3 class="srv-name" data-i18n="srv3-name">Soluciones Tech a Medida</h3>
-        <p class="srv-desc" data-i18n="srv3-desc">Automatizaciones, dashboards, integraciones con APIs y herramientas internas. Si tienes un problema técnico, lo resolvemos.</p>
-        <a href="#contact" class="srv-link">
-          <span data-i18n="srv3-link">Cuéntanos tu proyecto</span>
-          <svg class="icon"><use href="#i-arrow-right"/></svg>
-        </a>
-      </article>
-    </div>
-  </div>
-</section>
-
-
-<!-- ========================================
-     PRODUCTS
-     ======================================== -->
-<section id="products">
-  <div class="container">
-    <div class="s-head reveal">
-      <div class="eyebrow on-light" data-i18n="prod-eyebrow">Productos propios</div>
-      <h2 class="s-title">
-        <span data-i18n="prod-title-1">Nuestro</span>
-        <span class="accent" data-i18n="prod-title-accent">ecosistema.</span>
-      </h2>
-      <p class="s-desc" data-i18n="prod-desc">Dos sistemas construidos por nosotros, listos para tu negocio hoy mismo.</p>
-    </div>
-
-    <div class="prod-grid">
-
-      <article class="prod-card stock reveal">
-        <div class="prod-tag"><span class="pt-mark"></span><span data-i18n="stock-tag">Ennef Stock</span></div>
-        <h3 class="prod-name" data-i18n="stock-name">Control de Inventario</h3>
-        <div class="prod-sub" data-i18n="stock-sub">Para negocios con productos físicos</div>
-        <p class="prod-desc" data-i18n="stock-desc">Sistema completo de gestión de inventario. Fácil de usar, potente en datos, accesible desde cualquier dispositivo.</p>
-        <div class="prod-feats">
-          <div class="prod-feat"><div class="prod-feat-check"><svg class="icon"><use href="#i-check"/></svg></div><span data-i18n="stock-f1">Stock en tiempo real</span></div>
-          <div class="prod-feat"><div class="prod-feat-check"><svg class="icon"><use href="#i-check"/></svg></div><span data-i18n="stock-f2">Alertas automáticas de inventario bajo</span></div>
-          <div class="prod-feat"><div class="prod-feat-check"><svg class="icon"><use href="#i-check"/></svg></div><span data-i18n="stock-f3">Dashboard de estadísticas y reportes</span></div>
-          <div class="prod-feat"><div class="prod-feat-check"><svg class="icon"><use href="#i-check"/></svg></div><span data-i18n="stock-f4">Acceso desde celular, tablet o PC</span></div>
-          <div class="prod-feat"><div class="prod-feat-check"><svg class="icon"><use href="#i-check"/></svg></div><span data-i18n="stock-f5">Multi-usuario y multi-sucursal</span></div>
-        </div>
-        <a href="https://stockapp.ennefrd.com" target="_blank" rel="noopener" class="btn btn-ink">
-          <span data-i18n="stock-cta">Ir a EnnefStock</span>
-          <svg class="icon"><use href="#i-arrow-right"/></svg>
-        </a>
-
-        <div class="prod-dash">
-          <div class="prod-dash-bar">
-            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-            <span class="ttl">stock.ennefrd.com</span>
-          </div>
-          <div class="prod-dash-body">
-            <div class="pd-stat">
-              <div class="pd-stat-n">1,248</div>
-              <div class="pd-stat-l" data-i18n="pd-l1">Productos</div>
-            </div>
-            <div class="pd-stat">
-              <div class="pd-stat-n">RD$842K</div>
-              <div class="pd-stat-l" data-i18n="pd-l2">Valor Stock</div>
-            </div>
-            <div class="pd-stat">
-              <div class="pd-stat-n">12</div>
-              <div class="pd-stat-l" data-i18n="pd-l3">Stock Bajo</div>
-            </div>
-            <div class="pd-chart">
-              <div class="pd-bar" style="height:40%;background:var(--paper-2)"></div>
-              <div class="pd-bar" style="height:60%;background:var(--paper-2)"></div>
-              <div class="pd-bar" style="height:75%;background:var(--accent-3)"></div>
-              <div class="pd-bar" style="height:55%;background:var(--paper-2)"></div>
-              <div class="pd-bar" style="height:85%;background:var(--accent)"></div>
-              <div class="pd-bar" style="height:65%;background:var(--paper-2)"></div>
-              <div class="pd-bar" style="height:90%;background:var(--accent)"></div>
-              <div class="pd-bar" style="height:70%;background:var(--paper-2)"></div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article class="prod-card noir reveal d1">
-        <div class="prod-tag"><span class="pt-mark"></span><span data-i18n="noir-tag">Ennef Noir</span></div>
-        <h3 class="prod-name" data-i18n="noir-name">Inventario para Bares</h3>
-        <div class="prod-sub" data-i18n="noir-sub">Especializado para la industria nocturna</div>
-        <p class="prod-desc" data-i18n="noir-desc">Control de inventario diseñado para bares, licorerías y establecimientos nocturnos. Botellas, tragos y mermas bajo control.</p>
-        <div class="prod-feats">
-          <div class="prod-feat"><div class="prod-feat-check"><svg class="icon"><use href="#i-check"/></svg></div><span data-i18n="noir-f1">Gestión de botellas y licores</span></div>
-          <div class="prod-feat"><div class="prod-feat-check"><svg class="icon"><use href="#i-check"/></svg></div><span data-i18n="noir-f2">Control de mermas y desperdicios</span></div>
-          <div class="prod-feat"><div class="prod-feat-check"><svg class="icon"><use href="#i-check"/></svg></div><span data-i18n="noir-f3">Turnos de noche integrados</span></div>
-          <div class="prod-feat"><div class="prod-feat-check"><svg class="icon"><use href="#i-check"/></svg></div><span data-i18n="noir-f4">Alertas de reposición urgente</span></div>
-          <div class="prod-feat"><div class="prod-feat-check"><svg class="icon"><use href="#i-check"/></svg></div><span data-i18n="noir-f5">Historial de consumo por fecha</span></div>
-        </div>
-        <a href="https://wa.me/18297471943?text=Hola,%20quiero%20una%20demo%20de%20Ennef%20Noir." target="_blank" rel="noopener" class="btn btn-ink">
-          <span data-i18n="noir-cta">Solicitar demo</span>
-          <svg class="icon"><use href="#i-arrow-right"/></svg>
-        </a>
-
-        <div class="prod-dash">
-          <div class="prod-dash-bar">
-            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-            <span class="ttl">noir.ennefrd.com</span>
-          </div>
-          <div class="prod-dash-body">
-            <div class="pd-stat">
-              <div class="pd-stat-n">312</div>
-              <div class="pd-stat-l" data-i18n="pd-l4">Botellas</div>
-            </div>
-            <div class="pd-stat">
-              <div class="pd-stat-n">8</div>
-              <div class="pd-stat-l" data-i18n="pd-l5">Reponer</div>
-            </div>
-            <div class="pd-stat">
-              <div class="pd-stat-n">2</div>
-              <div class="pd-stat-l" data-i18n="pd-l6">Agotado</div>
-            </div>
-            <div class="pd-chart">
-              <div class="pd-bar" style="height:30%;background:var(--paper-2)"></div>
-              <div class="pd-bar" style="height:50%;background:var(--paper-2)"></div>
-              <div class="pd-bar" style="height:65%;background:var(--ink-3);opacity:.5"></div>
-              <div class="pd-bar" style="height:85%;background:var(--ink-3)"></div>
-              <div class="pd-bar" style="height:70%;background:var(--paper-2)"></div>
-              <div class="pd-bar" style="height:95%;background:var(--ink)"></div>
-              <div class="pd-bar" style="height:80%;background:var(--ink-3)"></div>
-              <div class="pd-bar" style="height:55%;background:var(--paper-2)"></div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ========================================
-     MANIFESTO — big-statement breaker
-     ======================================== -->
-<section class="manifesto" aria-label="Manifiesto Ennef">
-  <div class="manifesto-grid" aria-hidden="true"></div>
-  <div class="manifesto-inner">
-    <div class="manifesto-lbl reveal" data-i18n="man-lbl">Manifiesto · 003</div>
-    <h2 class="manifesto-h reveal d1">
-      <span data-i18n="man-1">Construimos software</span>
-      <em data-i18n="man-2">que se queda corto</em>
-      <span data-i18n="man-3">solo cuando tu negocio</span>
-      <span class="ink-strike" data-i18n="man-4">crece demasiado rápido.</span>
-    </h2>
-    <div class="manifesto-foot reveal d2">
-      <div class="col">
-        <div class="col-lbl" data-i18n="man-c1-l">Filosofía</div>
-        <div class="col-v" data-i18n="man-c1-v">Si lo entendemos, lo diseñamos. Si lo diseñamos, lo construimos. Si lo construimos, lo soportamos.</div>
-      </div>
-      <div class="col">
-        <div class="col-lbl" data-i18n="man-c2-l">Dónde estamos</div>
-        <div class="col-v">Santo Domingo, República Dominicana</div>
-      </div>
-      <div class="signature">
-        <span class="pulse"></span>
-        <span data-i18n="man-sig">Equipo Ennef</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========================================
-     INDUSTRIES
-     ======================================== -->
-<section id="industries">
-  <div class="container">
-    <div class="s-head reveal">
-      <div class="eyebrow on-light" data-i18n="ind-eyebrow">Industrias</div>
-      <h2 class="s-title">
-        <span data-i18n="ind-title-1">Diseñado para</span>
-        <span class="accent" data-i18n="ind-title-accent">negocios reales.</span>
-      </h2>
-      <p class="s-desc" data-i18n="ind-desc">Trabajamos con todo tipo de negocio en República Dominicana. Si tienes un reto tech, lo resolvemos.</p>
-    </div>
-
-    <div class="ind-grid">
-      <article class="ind-card reveal">
-        <div class="ind-ico-wrap"><svg class="icon icon-lg"><use href="#i-store"/></svg></div>
-        <div><h3 class="ind-t" data-i18n="ind1-t">Tiendas y colmados</h3><p class="ind-d" data-i18n="ind1-d">Control de stock, caja diaria y ventas rápidas para negocios de barrio.</p></div>
-      </article>
-      <article class="ind-card reveal d1">
-        <div class="ind-ico-wrap"><svg class="icon icon-lg"><use href="#i-glass"/></svg></div>
-        <div><h3 class="ind-t" data-i18n="ind2-t">Bares y licorerías</h3><p class="ind-d" data-i18n="ind2-d">Gestión de botellas, mermas y turnos nocturnos con Ennef Noir.</p></div>
-      </article>
-      <article class="ind-card reveal d2">
-        <div class="ind-ico-wrap"><svg class="icon icon-lg"><use href="#i-coffee"/></svg></div>
-        <div><h3 class="ind-t" data-i18n="ind3-t">Restaurantes y cafés</h3><p class="ind-d" data-i18n="ind3-d">POS en mesa o mostrador con control de ingredientes e insumos.</p></div>
-      </article>
-      <article class="ind-card reveal">
-        <div class="ind-ico-wrap"><svg class="icon icon-lg"><use href="#i-sparkle"/></svg></div>
-        <div><h3 class="ind-t" data-i18n="ind4-t">Salones y spas</h3><p class="ind-d" data-i18n="ind4-d">Inventario de productos, citas y cobros en un solo lugar.</p></div>
-      </article>
-      <article class="ind-card reveal d1">
-        <div class="ind-ico-wrap"><svg class="icon icon-lg"><use href="#i-dumbbell"/></svg></div>
-        <div><h3 class="ind-t" data-i18n="ind5-t">Gimnasios y deportes</h3><p class="ind-d" data-i18n="ind5-d">Control de membresías, productos y pagos mensuales.</p></div>
-      </article>
-      <article class="ind-card reveal d2">
-        <div class="ind-ico-wrap"><svg class="icon icon-lg"><use href="#i-bag"/></svg></div>
-        <div><h3 class="ind-t" data-i18n="ind6-t">Retail y boutiques</h3><p class="ind-d" data-i18n="ind6-d">Tallas, variantes, múltiples sucursales y reportes de temporada.</p></div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ========================================
-     BENEFITS
-     ======================================== -->
-<section id="benefits">
-  <div class="container">
-    <div class="s-head reveal">
-      <div class="eyebrow" data-i18n="ben-eyebrow">Beneficios</div>
-      <h2 class="s-title">
-        <span data-i18n="ben-title-1">Todo lo que necesitas para</span>
-        <span class="accent" data-i18n="ben-title-accent">operar sin caos.</span>
-      </h2>
-      <p class="s-desc" data-i18n="ben-desc">Un sistema pensado para que ganes tiempo, dinero y control desde el primer día.</p>
-    </div>
-    <div class="ben-grid">
-      <article class="ben-card reveal">
-        <div class="ben-ico-wrap"><svg class="icon icon-lg"><use href="#i-bolt"/></svg></div>
-        <h3 class="ben-t" data-i18n="ben1-t">Velocidad real</h3>
-        <p class="ben-d" data-i18n="ben1-d">Cobra en segundos. Sin pantallas lentas ni cierres de sesión constantes.</p>
-      </article>
-      <article class="ben-card reveal d1">
-        <div class="ben-ico-wrap"><svg class="icon icon-lg"><use href="#i-phone"/></svg></div>
-        <h3 class="ben-t" data-i18n="ben2-t">Desde el celular</h3>
-        <p class="ben-d" data-i18n="ben2-d">Revisa ventas, stock y reportes desde donde estés, sin instalar nada.</p>
-      </article>
-      <article class="ben-card reveal d2">
-        <div class="ben-ico-wrap"><svg class="icon icon-lg"><use href="#i-bell"/></svg></div>
-        <h3 class="ben-t" data-i18n="ben3-t">Alertas automáticas</h3>
-        <p class="ben-d" data-i18n="ben3-d">Te avisamos cuando un producto está por agotarse antes de que sea problema.</p>
-      </article>
-      <article class="ben-card reveal d3">
-        <div class="ben-ico-wrap"><svg class="icon icon-lg"><use href="#i-chart"/></svg></div>
-        <h3 class="ben-t" data-i18n="ben4-t">Reportes claros</h3>
-        <p class="ben-d" data-i18n="ben4-d">Ve qué vende más, qué días son mejores y cuánto ganaste hoy.</p>
-      </article>
-      <article class="ben-card reveal">
-        <div class="ben-ico-wrap"><svg class="icon icon-lg"><use href="#i-users"/></svg></div>
-        <h3 class="ben-t" data-i18n="ben5-t">Multi-usuario</h3>
-        <p class="ben-d" data-i18n="ben5-d">Cada empleado con su acceso. Tú controlas quién ve qué.</p>
-      </article>
-      <article class="ben-card reveal d1">
-        <div class="ben-ico-wrap"><svg class="icon icon-lg"><use href="#i-lock"/></svg></div>
-        <h3 class="ben-t" data-i18n="ben6-t">Datos seguros</h3>
-        <p class="ben-d" data-i18n="ben6-d">Tu información en la nube, respaldada y accesible solo para ti.</p>
-      </article>
-      <article class="ben-card reveal d2">
-        <div class="ben-ico-wrap"><svg class="icon icon-lg"><use href="#i-flag"/></svg></div>
-        <h3 class="ben-t" data-i18n="ben7-t">Hecho para RD</h3>
-        <p class="ben-d" data-i18n="ben7-d">Precios en DOP y USD. Soporte local. Equipo que entiende tu mercado.</p>
-      </article>
-      <article class="ben-card reveal d3">
-        <div class="ben-ico-wrap"><svg class="icon icon-lg"><use href="#i-chat"/></svg></div>
-        <h3 class="ben-t" data-i18n="ben8-t">Soporte humano</h3>
-        <p class="ben-d" data-i18n="ben8-d">Sin bots. Alguien real te responde por WhatsApp en menos de 24h.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-
-<!-- ========================================
-     SECTION STRIP — marquee between sections
-     ======================================== -->
-<div class="section-strip" aria-hidden="true">
-  <div class="section-strip-track">
-    <span>
-      Inventario&nbsp;<em>en tiempo real</em>
-      <span class="accent-dot"></span>
-      Websites&nbsp;<em>que convierten</em>
-      <span class="accent-dot"></span>
-      Tech&nbsp;<em>a la medida</em>
-      <span class="accent-dot"></span>
-      Soporte&nbsp;<em>humano 24h</em>
-      <span class="accent-dot"></span>
-      Hecho&nbsp;<em>en RD</em>
-      <span class="accent-dot"></span>
-    </span>
-    <span aria-hidden="true">
-      Inventario&nbsp;<em>en tiempo real</em>
-      <span class="accent-dot"></span>
-      Websites&nbsp;<em>que convierten</em>
-      <span class="accent-dot"></span>
-      Tech&nbsp;<em>a la medida</em>
-      <span class="accent-dot"></span>
-      Soporte&nbsp;<em>humano 24h</em>
-      <span class="accent-dot"></span>
-      Hecho&nbsp;<em>en RD</em>
-      <span class="accent-dot"></span>
-    </span>
-  </div>
-</div>
-
-<!-- ========================================
-     PROCESS
-     ======================================== -->
-<section id="process">
-  <div class="container">
-    <div class="s-head reveal">
-      <div class="eyebrow on-light" data-i18n="proc-eyebrow">Proceso</div>
-      <h2 class="s-title">
-        <span data-i18n="proc-title-1">Así</span>
-        <span class="accent" data-i18n="proc-title-accent">trabajamos juntos.</span>
-      </h2>
-      <p class="s-desc" data-i18n="proc-desc">Simple, transparente y sin sorpresas. Cuatro pasos hasta poner tu solución en marcha.</p>
-    </div>
-
-    <div class="proc-grid">
-      <article class="proc-card reveal">
-        <div class="proc-num">01 / 04</div>
-        <div class="proc-line"></div>
-        <h3 class="proc-name" data-i18n="proc1-n">Conversación inicial</h3>
-        <p class="proc-desc" data-i18n="proc1-d">Nos cuentas qué necesitas. Sin compromisos. Analizamos el problema juntos.</p>
-        <span class="proc-dur" data-i18n="proc1-dur">Día 1</span>
-      </article>
-      <article class="proc-card reveal d1">
-        <div class="proc-num">02 / 04</div>
-        <div class="proc-line"></div>
-        <h3 class="proc-name" data-i18n="proc2-n">Propuesta y cotización</h3>
-        <p class="proc-desc" data-i18n="proc2-d">Te enviamos una propuesta detallada con alcance, tiempo y precio. Sin letra pequeña.</p>
-        <span class="proc-dur" data-i18n="proc2-dur">1–2 días</span>
-      </article>
-      <article class="proc-card reveal d2">
-        <div class="proc-num">03 / 04</div>
-        <div class="proc-line"></div>
-        <h3 class="proc-name" data-i18n="proc3-n">Diseño y desarrollo</h3>
-        <p class="proc-desc" data-i18n="proc3-d">Construimos con actualizaciones constantes. Tú apruebas cada etapa antes de continuar.</p>
-        <span class="proc-dur" data-i18n="proc3-dur">Semana 1–4</span>
-      </article>
-      <article class="proc-card reveal d3">
-        <div class="proc-num">04 / 04</div>
-        <div class="proc-line"></div>
-        <h3 class="proc-name" data-i18n="proc4-n">Entrega y soporte</h3>
-        <p class="proc-desc" data-i18n="proc4-d">Lanzamos, te capacitamos y nos quedamos disponibles. Soporte incluido siempre.</p>
-        <span class="proc-dur" data-i18n="proc4-dur">Continuo</span>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ========================================
-     PRICING
-     ======================================== -->
-<section id="pricing">
-  <div class="container">
-    <div class="s-head reveal">
-      <div class="eyebrow on-light" data-i18n="price-eyebrow">Precios</div>
-      <h2 class="s-title">
-        <span data-i18n="price-title-1">Planes</span>
-        <span class="accent" data-i18n="price-title-accent">transparentes.</span>
-      </h2>
-      <p class="s-desc" data-i18n="price-desc">Precios en pesos dominicanos primero, con la conversión aproximada a USD. Sin letra pequeña ni sorpresas.</p>
-    </div>
-
-    <!-- Inventory plans -->
-    <div class="price-group reveal">
-      <div class="price-group-head">
-        <h3 class="price-group-title" data-i18n="price-grp1">Sistemas de Inventario</h3>
-        <span class="price-group-meta" data-i18n="price-grp1-meta">Mensual</span>
-      </div>
-      <div class="price-grid-4">
-
-        <div class="price-card">
-          <span class="price-badge launch" data-i18n="badge-launch">Oferta de lanzamiento</span>
-          <div class="price-product" data-i18n="product-stock">Ennef Stock</div>
-          <div class="price-plan" data-i18n="plan-stock-starter">Plan Starter</div>
-          <div class="price-amount-row">
-            <span class="price-currency">RD$</span>
-            <span class="price-amount">1,500</span>
-            <span class="price-unit" data-i18n="unit-month">/ mes</span>
-          </div>
-          <div class="price-usd"><span data-i18n="approx">Aprox.</span> USD $25</div>
-          <div class="price-divider"></div>
-          <div class="price-feats">
-            <div class="price-feat"><span class="pf-check"><svg class="icon"><use href="#i-check"/></svg></span><span data-i18n="pf-s1">2 usuarios</span></div>
-            <div class="price-feat"><span class="pf-check"><svg class="icon"><use href="#i-check"/></svg></span><span data-i18n="pf-s2">1 sucursal</span></div>
-            <div class="price-feat"><span class="pf-check"><svg class="icon"><use href="#i-check"/></svg></span><span data-i18n="pf-s3">300 productos</span></div>
-            <div class="price-feat"><span class="pf-check"><svg class="icon"><use href="#i-check"/></svg></span><span data-i18n="pf-s4">Soporte incluido</span></div>
-          </div>
-          <a href="https://wa.me/18297471943?text=Hola,%20quiero%20EnnefStock%20Plan%20Starter%20(RD$1,500/mes)." target="_blank" rel="noopener" class="price-btn">
-            <svg class="icon"><use href="#i-whatsapp"/></svg>
-            <span data-i18n="price-cta-wa">Cotizar por WhatsApp</span>
-          </a>
-        </div>
-
-        <div class="price-card popular">
-          <span class="price-badge" data-i18n="badge-best">Más popular</span>
-          <div class="price-product" data-i18n="product-stock">Ennef Stock</div>
-          <div class="price-plan" data-i18n="plan-stock-grow">Plan Grow</div>
-          <div class="price-amount-row">
-            <span class="price-currency">RD$</span>
-            <span class="price-amount">2,700</span>
-            <span class="price-unit" data-i18n="unit-month">/ mes</span>
-          </div>
-          <div class="price-usd"><span data-i18n="approx">Aprox.</span> USD $45</div>
-          <div class="price-divider"></div>
-          <div class="price-feats">
-            <div class="price-feat"><span class="pf-check"><svg class="icon"><use href="#i-check"/></svg></span><span data-i18n="pf-g1">5 usuarios</span></div>
-            <div class="price-feat"><span class="pf-check"><svg class="icon"><use href="#i-check"/></svg></span><span data-i18n="pf-g2">2 sucursales</span></div>
-            <div class="price-feat"><span class="pf-check"><svg class="icon"><use href="#i-check"/></svg></span><span data-i18n="pf-g3">1,000 productos</span></div>
-            <div class="price-feat"><span class="pf-check"><svg class="icon"><use href="#i-check"/></svg></span><span data-i18n="pf-g4">Soporte prioritario</span></div>
-          </div>
-          <a href="https://wa.me/18297471943?text=Hola,%20quiero%20EnnefStock%20Plan%20Grow%20(RD$2,700/mes)." target="_blank" rel="noopener" class="price-btn">
-            <svg class="icon"><use href="#i-whatsapp"/></svg>
-            <span data-i18n="price-cta-wa">Cotizar por WhatsApp</span>
-          </a>
-        </div>
-
-        <div class="price-card">
-          <span class="price-badge launch" data-i18n="badge-launch">Oferta de lanzamiento</span>
-          <div class="price-product" data-i18n="product-noir">Ennef Noir</div>
-          <div class="price-plan" data-i18n="plan-noir-bar">Plan Bar</div>
-          <div class="price-amount-row">
-            <span class="price-currency">RD$</span>
-            <span class="price-amount">1,200</span>
-            <span class="price-unit" data-i18n="unit-month">/ mes</span>
-          </div>
-          <div class="price-usd"><span data-i18n="approx">Aprox.</span> USD $20</div>
-          <div class="price-divider"></div>
-          <div class="price-feats">
-            <div class="price-feat"><span class="pf-check"><svg class="icon"><use href="#i-check"/></svg></span><span data-i18n="pf-b1">2 usuarios</span></div>
-            <div class="price-feat"><span class="pf-check"><svg class="icon"><use href="#i-check"/></svg></span><span data-i18n="pf-b2">1 bar</span></div>
-            <div class="price-feat"><span class="pf-check"><svg class="icon"><use href="#i-check"/></svg></span><span data-i18n="pf-b3">Control de botellas</span></div>
-            <div class="price-feat"><span class="pf-check"><svg class="icon"><use href="#i-check"/></svg></span><span data-i18n="pf-b4">Soporte incluido</span></div>
-          </div>
-          <a href="https://wa.me/18297471943?text=Hola,%20quiero%20Ennef%20Noir%20Plan%20Bar%20(RD$1,200/mes)." target="_blank" rel="noopener" class="price-btn">
-            <svg class="icon"><use href="#i-whatsapp"/></svg>
-            <span data-i18n="price-cta-wa">Cotizar por WhatsApp</span>
-          </a>
-        </div>
-
-        <div class="price-card">
-          <div class="price-product" data-i18n="product-noir">Ennef Noir</div>
-          <div class="price-plan" data-i18n="plan-noir-pro">Plan Bar Pro</div>
-          <div class="price-amount-row">
-            <span class="price-currency">RD$</span>
-            <span class="price-amount">2,100</span>
-            <span class="price-unit" data-i18n="unit-month">/ mes</span>
-          </div>
-          <div class="price-usd"><span data-i18n="approx">Aprox.</span> USD $35</div>
-          <div class="price-divider"></div>
-          <div class="price-feats">
-            <div class="price-feat"><span class="pf-check"><svg class="icon"><use href="#i-check"/></svg></span><span data-i18n="pf-bp1">5 usuarios</span></div>
-            <div class="price-feat"><span class="pf-check"><svg class="icon"><use href="#i-check"/></svg></span><span data-i18n="pf-bp2">Múltiples turnos</span></div>
-            <div class="price-feat"><span class="pf-check"><svg class="icon"><use href="#i-check"/></svg></span><span data-i18n="pf-bp3">Reportes avanzados</span></div>
-            <div class="price-feat"><span class="pf-check"><svg class="icon"><use href="#i-check"/></svg></span><span data-i18n="pf-bp4">Soporte prioritario</span></div>
-          </div>
-          <a href="https://wa.me/18297471943?text=Hola,%20quiero%20Ennef%20Noir%20Plan%20Bar%20Pro%20(RD$2,100/mes)." target="_blank" rel="noopener" class="price-btn">
-            <svg class="icon"><use href="#i-whatsapp"/></svg>
-            <span data-i18n="price-cta-wa">Cotizar por WhatsApp</span>
-          </a>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Web plans -->
-    <div class="price-group reveal">
-      <div class="price-group-head">
-        <h3 class="price-group-title" data-i18n="price-grp2">Páginas Web</h3>
-        <span class="price-group-meta" data-i18n="price-grp2-meta">Pago único</span>
-      </div>
-      <div class="price-grid-3">
-
-        <div class="price-card">
-          <div class="price-product" data-i18n="product-web">Web Profesional</div>
-          <div class="price-plan" data-i18n="plan-web-landing">Landing Page</div>
-          <div class="price-amount-row">
-            <span class="price-currency">RD$</span>
-            <span class="price-amount">9,000</span>
-            <span class="price-unit" data-i18n="unit-once">pago único</span>
-          </div>
-          <div class="price-usd"><span data-i18n="approx">Aprox.</span> USD $150</div>
-          <div class="price-divider"></div>
-          <div class="price-feats">
-            <div class="price-feat"><span class="pf-check"><svg class="icon"><use href="#i-check"/></svg></span><span data-i18n="wf-l1">Diseño moderno</span></div>
-            <div class="price-feat"><span class="pf-check"><svg class="icon"><use href="#i-check"/></svg></span><span data-i18n="wf-l2">1 página optimizada</span></div>
-            <div class="price-feat"><span class="pf-check"><svg class="icon"><use href="#i-check"/></svg></span><span data-i18n="wf-l3">Formulario de contacto</span></div>
-            <div class="price-feat"><span class="pf-check"><svg class="icon"><use href="#i-check"/></svg></span><span data-i18n="wf-l4">Entrega en 5 días</span></div>
-          </div>
-          <a href="https://wa.me/18297471943?text=Hola,%20quiero%20cotizar%20una%20Landing%20Page%20(RD$9,000)." target="_blank" rel="noopener" class="price-btn">
-            <svg class="icon"><use href="#i-whatsapp"/></svg>
-            <span data-i18n="price-cta-wa">Cotizar por WhatsApp</span>
-          </a>
-        </div>
-
-        <div class="price-card popular">
-          <span class="price-badge" data-i18n="badge-best">Más popular</span>
-          <div class="price-product" data-i18n="product-web">Web Profesional</div>
-          <div class="price-plan" data-i18n="plan-web-corp">Web Corporativa</div>
-          <div class="price-amount-row">
-            <span class="price-currency">RD$</span>
-            <span class="price-amount">27,000</span>
-            <span class="price-unit" data-i18n="unit-once">pago único</span>
-          </div>
-          <div class="price-usd"><span data-i18n="approx">Aprox.</span> USD $450</div>
-          <div class="price-divider"></div>
-          <div class="price-feats">
-            <div class="price-feat"><span class="pf-check"><svg class="icon"><use href="#i-check"/></svg></span><span data-i18n="wf-c1">Hasta 5 páginas</span></div>
-            <div class="price-feat"><span class="pf-check"><svg class="icon"><use href="#i-check"/></svg></span><span data-i18n="wf-c2">Diseño bilingüe</span></div>
-            <div class="price-feat"><span class="pf-check"><svg class="icon"><use href="#i-check"/></svg></span><span data-i18n="wf-c3">SEO incluido</span></div>
-            <div class="price-feat"><span class="pf-check"><svg class="icon"><use href="#i-check"/></svg></span><span data-i18n="wf-c4">Entrega en 2 semanas</span></div>
-          </div>
-          <a href="https://wa.me/18297471943?text=Hola,%20quiero%20cotizar%20una%20Web%20Corporativa%20(RD$27,000)." target="_blank" rel="noopener" class="price-btn">
-            <svg class="icon"><use href="#i-whatsapp"/></svg>
-            <span data-i18n="price-cta-wa">Cotizar por WhatsApp</span>
-          </a>
-        </div>
-
-        <div class="price-card">
-          <div class="price-product" data-i18n="product-web">Web Profesional</div>
-          <div class="price-plan" data-i18n="plan-web-ecom">E-commerce</div>
-          <div class="price-amount-row">
-            <span class="price-currency">RD$</span>
-            <span class="price-amount">51,000</span>
-            <span class="price-unit" data-i18n="unit-once">pago único</span>
-          </div>
-          <div class="price-usd"><span data-i18n="approx">Aprox.</span> USD $850</div>
-          <div class="price-divider"></div>
-          <div class="price-feats">
-            <div class="price-feat"><span class="pf-check"><svg class="icon"><use href="#i-check"/></svg></span><span data-i18n="wf-e1">Tienda online completa</span></div>
-            <div class="price-feat"><span class="pf-check"><svg class="icon"><use href="#i-check"/></svg></span><span data-i18n="wf-e2">Pasarela de pagos</span></div>
-            <div class="price-feat"><span class="pf-check"><svg class="icon"><use href="#i-check"/></svg></span><span data-i18n="wf-e3">Panel de administración</span></div>
-            <div class="price-feat"><span class="pf-check"><svg class="icon"><use href="#i-check"/></svg></span><span data-i18n="wf-e4">Entrega en 3–4 semanas</span></div>
-          </div>
-          <a href="https://wa.me/18297471943?text=Hola,%20quiero%20cotizar%20un%20E-commerce%20(RD$51,000)." target="_blank" rel="noopener" class="price-btn">
-            <svg class="icon"><use href="#i-whatsapp"/></svg>
-            <span data-i18n="price-cta-wa">Cotizar por WhatsApp</span>
-          </a>
-        </div>
-
-      </div>
-      <p class="price-note">
-        <svg class="icon"><use href="#i-info"/></svg>
-        <span data-i18n="price-maint">Mantenimiento mensual disponible desde RD$1,800 (Aprox. USD $30).</span>
-      </p>
-    </div>
-
-    <div class="price-exchange-note reveal">
-      <svg class="icon icon-lg"><use href="#i-info"/></svg>
-      <p data-i18n="price-fx">Los valores en USD son aproximados y pueden variar según la tasa de cambio del día. La facturación se realiza en pesos dominicanos (DOP).</p>
-    </div>
-  </div>
-</section>
-
-
-<!-- ========================================
-     TRUST / TESTIMONIALS
-     ======================================== -->
-<section id="trust">
-  <div class="container">
-    <div class="trust-layout">
-      <div class="reveal">
-        <div class="eyebrow on-light" data-i18n="trust-eyebrow">¿Por qué Ennef?</div>
-        <h2 class="s-title">
-          <span data-i18n="trust-title-1">Construido para generar</span>
-          <span class="accent" data-i18n="trust-title-accent">confianza.</span>
-        </h2>
-        <p class="s-desc" data-i18n="trust-desc">No somos una agencia genérica. Somos un equipo tech dominicano que entiende tu mercado y se queda contigo a largo plazo.</p>
-
-        <div class="trust-points">
-          <div class="trust-point">
-            <div class="trust-point-ico"><svg class="icon"><use href="#i-shield"/></svg></div>
-            <div>
-              <div class="trust-point-t" data-i18n="trust-p1-t">Datos seguros</div>
-              <div class="trust-point-d" data-i18n="trust-p1-d">Tu información protegida con los más altos estándares de seguridad y respaldos diarios.</div>
-            </div>
-          </div>
-          <div class="trust-point">
-            <div class="trust-point-ico"><svg class="icon"><use href="#i-clock"/></svg></div>
-            <div>
-              <div class="trust-point-t" data-i18n="trust-p2-t">Respuesta en 24h</div>
-              <div class="trust-point-d" data-i18n="trust-p2-d">Soporte humano por WhatsApp. Sin bots. Sin tickets perdidos.</div>
-            </div>
-          </div>
-          <div class="trust-point">
-            <div class="trust-point-ico"><svg class="icon"><use href="#i-flag"/></svg></div>
-            <div>
-              <div class="trust-point-t" data-i18n="trust-p3-t">Hecho en RD</div>
-              <div class="trust-point-d" data-i18n="trust-p3-d">Equipo local en Santo Domingo. Precios en DOP. Cero barreras de idioma o moneda.</div>
-            </div>
-          </div>
-          <div class="trust-point">
-            <div class="trust-point-ico"><svg class="icon"><use href="#i-repeat"/></svg></div>
-            <div>
-              <div class="trust-point-t" data-i18n="trust-p4-t">Soporte continuo</div>
-              <div class="trust-point-d" data-i18n="trust-p4-d">No desaparecemos al entregar. Acompañamos tu proyecto a largo plazo.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testim-stack">
-        <article class="testim-card reveal d1">
-          <div class="testim-stars">
-            <svg class="icon"><use href="#i-star"/></svg>
-            <svg class="icon"><use href="#i-star"/></svg>
-            <svg class="icon"><use href="#i-star"/></svg>
-            <svg class="icon"><use href="#i-star"/></svg>
-            <svg class="icon"><use href="#i-star"/></svg>
-          </div>
-          <p class="testim-q" data-i18n="testim1-q">"Antes perdíamos botellas todas las semanas. Con Ennef Noir el control es total — sé exactamente qué entra, qué sale y qué falta."</p>
-          <div class="testim-author">
-            <div class="testim-avatar">CM</div>
-            <div>
-              <div class="testim-name" data-i18n="testim1-n">Carlos M.</div>
-              <div class="testim-biz" data-i18n="testim1-b">Propietario, Bar Lounge</div>
-            </div>
-          </div>
-        </article>
-
-        <article class="testim-card reveal d2">
-          <div class="testim-stars">
-            <svg class="icon"><use href="#i-star"/></svg>
-            <svg class="icon"><use href="#i-star"/></svg>
-            <svg class="icon"><use href="#i-star"/></svg>
-            <svg class="icon"><use href="#i-star"/></svg>
-            <svg class="icon"><use href="#i-star"/></svg>
-          </div>
-          <p class="testim-q" data-i18n="testim2-q">"Implementaron EnnefStock en menos de una semana. Soporte rápido, sistema rápido, y mi equipo lo entendió en un día."</p>
-          <div class="testim-author">
-            <div class="testim-avatar">SR</div>
-            <div>
-              <div class="testim-name" data-i18n="testim2-n">Sofía R.</div>
-              <div class="testim-biz" data-i18n="testim2-b">Gerente, Boutique RD</div>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========================================
-     CONTACT
-     ======================================== -->
-<section id="contact">
-  <div class="container">
-    <div class="contact-wrap reveal">
-      <div>
-        <div class="eyebrow on-light" data-i18n="ct-eyebrow">Contacto</div>
-        <h2 class="ct-title">
-          <span data-i18n="ct-title-1">¿Tienes un proyecto</span>
-          <span class="accent" data-i18n="ct-title-accent">en mente?</span>
-        </h2>
-        <p class="ct-desc" data-i18n="ct-desc">Cuéntanos qué necesitas y te respondemos con una propuesta concreta en menos de 24 horas.</p>
-
-        <div class="ct-chips">
-          <div class="ct-chip"><svg class="icon"><use href="#i-box"/></svg><span data-i18n="chip1">Sistema de Inventario</span></div>
-          <div class="ct-chip"><svg class="icon"><use href="#i-window"/></svg><span data-i18n="chip2">Página Web</span></div>
-          <div class="ct-chip"><svg class="icon"><use href="#i-cog"/></svg><span data-i18n="chip3">Solución Tech</span></div>
-          <div class="ct-chip"><svg class="icon"><use href="#i-glass"/></svg><span data-i18n="chip4">Inventario para Bar</span></div>
-        </div>
-
-        <div class="ct-channels">
-          <a href="https://wa.me/18297471943" target="_blank" rel="noopener" class="ct-channel">
-            <div class="ct-channel-ico"><svg class="icon"><use href="#i-whatsapp"/></svg></div>
-            <div>
-              <div class="ct-channel-lbl" data-i18n="ct-ch1-l">WhatsApp</div>
-              <div class="ct-channel-val" data-i18n="ct-ch1-v">+1 (829) 747-1943</div>
-            </div>
-          </a>
-          <a href="mailto:ventas@ennefrd.com" class="ct-channel">
-            <div class="ct-channel-ico"><svg class="icon"><use href="#i-mail"/></svg></div>
-            <div>
-              <div class="ct-channel-lbl" data-i18n="ct-ch2-l">Email</div>
-              <div class="ct-channel-val" data-i18n="ct-ch2-v">ventas@ennefrd.com</div>
-            </div>
-          </a>
-          <a href="https://instagram.com/ennefrd" target="_blank" rel="noopener" class="ct-channel">
-            <div class="ct-channel-ico"><svg class="icon"><use href="#i-instagram"/></svg></div>
-            <div>
-              <div class="ct-channel-lbl" data-i18n="ct-ch3-l">Instagram</div>
-              <div class="ct-channel-val" data-i18n="ct-ch3-v">@ennefrd</div>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <form class="form" id="contactForm">
-        <div class="form-row">
-          <div class="field">
-            <label for="f-name" data-i18n="form-name">Nombre</label>
-            <input id="f-name" type="text" data-i18n-ph="form-name-ph" placeholder="Tu nombre completo" required />
-          </div>
-          <div class="field">
-            <label for="f-email" data-i18n="form-email">Correo electrónico</label>
-            <input id="f-email" type="email" data-i18n-ph="form-email-ph" placeholder="tu@correo.com" required />
-          </div>
-        </div>
-        <div class="field">
-          <label for="f-service" data-i18n="form-service">¿Qué necesitas?</label>
-          <select id="f-service" required>
-            <option value="" data-i18n="opt0">Selecciona un servicio</option>
-            <option data-i18n="opt1">Sistema de Inventario (Ennef Stock)</option>
-            <option data-i18n="opt2">Inventario para Bar (Ennef Noir)</option>
-            <option data-i18n="opt3">Página Web</option>
-            <option data-i18n="opt4">Solución Tech a Medida</option>
-            <option data-i18n="opt5">No sé exactamente — necesito orientación</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="f-msg" data-i18n="form-project">Cuéntanos tu proyecto</label>
-          <textarea id="f-msg" data-i18n-ph="form-project-ph" placeholder="Describe brevemente lo que necesitas. Mientras más detalles, mejor podemos ayudarte." required></textarea>
-        </div>
-        <button type="submit" class="form-submit">
-          <span class="form-btn-label" data-i18n="form-btn">Enviar mensaje</span>
-          <svg class="icon"><use href="#i-arrow-right"/></svg>
-        </button>
-        <p class="form-note">
-          <svg class="icon"><use href="#i-lock"/></svg>
-          <span data-i18n="form-note">Tu información es privada y no será compartida con terceros.</span>
-        </p>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- ========================================
-     FINAL CTA
-     ======================================== -->
-<section id="final-cta">
-  <div class="fcta-inner">
-    <h2 class="fcta-title reveal">
-      <span data-i18n="fcta-title-1">Tu negocio merece</span><br>
-      <span class="accent" data-i18n="fcta-title-accent">tecnología de verdad.</span>
-    </h2>
-    <p class="fcta-desc reveal d1" data-i18n="fcta-desc">Inventario, websites, soluciones tech. Un solo equipo dominicano para todo lo que necesitas.</p>
-    <div class="fcta-btns reveal d2">
-      <a href="https://wa.me/18297471943?text=Hola,%20quiero%20empezar%20un%20proyecto%20con%20Ennef." target="_blank" rel="noopener" class="btn btn-primary">
-        <svg class="icon"><use href="#i-whatsapp"/></svg>
-        <span data-i18n="fcta-btn1">Empezar proyecto</span>
+  <div class="page">
+    <header class="shell nav">
+      <a class="brand" href="#top" aria-label="Ennef inicio">
+        <img class="brand-logo" src="logo-ennef-crop.png" alt="Ennef Stock">
       </a>
-      <a href="#services" class="btn btn-ghost-dark">
-        <span data-i18n="fcta-btn2">Ver servicios</span>
-        <svg class="icon"><use href="#i-arrow-right"/></svg>
-      </a>
-    </div>
-  </div>
-</section>
+      <nav class="nav-links" aria-label="Principal">
+        <a href="#servicios">Servicios</a>
+        <a href="#productos">Productos</a>
+        <a href="#precios">Precios</a>
+        <a href="#proceso">Proceso</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn ghost" href="#precios">Ver planes</a>
+        <a class="btn primary" href="#contacto">Empezar</a>
+      </div>
+    </header>
 
-<!-- ========================================
-     FOOTER
-     ======================================== -->
-<footer>
-  <div class="f-inner">
-    <div class="f-top">
-      <div class="f-brand">
-        <div class="f-logo">ennef<span class="brand-dot">.</span></div>
-        <p class="f-tagline" data-i18n="f-tagline">Empresa tech dominicana. Sistemas de inventario, páginas web y soluciones digitales a medida.</p>
-        <div class="f-social">
-          <a href="https://wa.me/18297471943" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="icon"><use href="#i-whatsapp"/></svg></a>
-          <a href="https://instagram.com/ennefrd" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon"><use href="#i-instagram"/></svg></a>
-          <a href="mailto:ventas@ennefrd.com" aria-label="Email"><svg class="icon"><use href="#i-mail"/></svg></a>
+    <main id="top">
+      <section class="hero shell" aria-labelledby="hero-title">
+        <div class="hero-panel">
+          <div class="hero-orb" aria-hidden="true"></div>
+          <div class="motion-card one" aria-hidden="true">
+            <small>Automatización</small>
+            <strong>WhatsApp IA</strong>
+            <div class="motion-bar"><span></span></div>
+          </div>
+          <div class="motion-card two" aria-hidden="true">
+            <small>Operación</small>
+            <strong>Flujo listo</strong>
+            <div class="motion-bar"><span></span></div>
+          </div>
+          <div class="motion-card three" aria-hidden="true">
+            <small>Inventario</small>
+            <strong>Stock al día</strong>
+            <div class="motion-bar"><span></span></div>
+          </div>
+          <div class="hero-copy">
+            <h1 id="hero-title">Tecnología que impulsa tu negocio.</h1>
+            <p>Construimos sistemas de inventario, páginas web profesionales y soluciones tech a medida para empresas en República Dominicana y el Caribe.</p>
+            <div class="hero-actions">
+              <a class="btn primary" href="#servicios">Ver servicios</a>
+              <a class="btn secondary" href="#contacto">Hablar con el equipo</a>
+            </div>
+          </div>
+
+          <div class="stats" aria-label="Metricas de Ennef">
+            <div class="stat">
+              <strong>24h</strong>
+              <span>Tiempo promedio de respuesta</span>
+            </div>
+            <div class="stat">
+              <strong>8</strong>
+              <span>Areas tech para negocios</span>
+            </div>
+            <div class="stat">
+              <strong>2</strong>
+              <span>Productos propios activos</span>
+            </div>
+            <div class="stat">
+              <strong>RD</strong>
+              <span>Equipo local en Santo Domingo</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="image-showcase shell" aria-label="Trabajo digital Ennef">
+        <div class="showcase-layout">
+          <div class="showcase-copy">
+            <strong>Diseñamos sistemas que se sienten claros desde el primer día.</strong>
+            <span>Web, automatización, inventario, presupuestos y soporte técnico para negocios que quieren operar mejor.</span>
+          </div>
+          <div class="showcase-frame">
+            <img src="ennef-workspace.png" alt="Persona trabajando en una página web profesional desde una laptop">
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="servicios">
+        <div class="shell two-col">
+          <div>
+            <div class="label">Servicios</div>
+            <h2>Todo lo que tu negocio necesita en tecnología.</h2>
+            <p class="lead">Un catálogo completo para lanzar, automatizar y mejorar la presencia digital de tu negocio con un solo equipo.</p>
+          </div>
+          <div class="service-list compact">
+            <article class="service-item">
+              <div class="service-number">01</div>
+              <div>
+                <h3>Automatización e IA</h3>
+                <p>Chatbots, flujos de WhatsApp, Instagram, correos, reservas y formularios para ahorrar tiempo operativo.</p>
+              </div>
+            </article>
+            <article class="service-item">
+              <div class="service-number">02</div>
+              <div>
+                <h3>Desarrollo web</h3>
+                <p>Landing pages, páginas empresariales, tiendas online, portafolios, blogs, directorios y paneles administrativos.</p>
+              </div>
+            </article>
+            <article class="service-item">
+              <div class="service-number">03</div>
+              <div>
+                <h3>Aplicaciones</h3>
+                <p>MVPs, publicación en Google Play y mantenimiento mensual para productos digitales en crecimiento.</p>
+              </div>
+            </article>
+            <article class="service-item">
+              <div class="service-number">04</div>
+              <div>
+                <h3>Sistemas empresariales</h3>
+                <p>POS, inventario, citas, clientes, reservas y sistemas personalizados para operaciones internas.</p>
+              </div>
+            </article>
+            <article class="service-item">
+              <div class="service-number">05</div>
+              <div>
+                <h3>Branding y diseño</h3>
+                <p>Logotipos, identidad visual, manuales de marca, catálogos, menús digitales, flyers y piezas corporativas.</p>
+              </div>
+            </article>
+            <article class="service-item">
+              <div class="service-number">06</div>
+              <div>
+                <h3>Redes, soporte y marketing</h3>
+                <p>Contenido para redes, configuraciones técnicas, mantenimiento web, Meta Business, Google Business y email marketing.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section soft" id="productos">
+        <div class="shell">
+          <div class="two-col">
+            <div>
+              <div class="label">Productos propios</div>
+              <h2>Nuestro ecosistema para operar con mas control.</h2>
+            </div>
+            <p class="lead">Herramientas construidas por Ennef, listas para negocios que necesitan claridad diaria en inventario, ventas y procesos.</p>
+          </div>
+
+          <div class="product-grid">
+            <article class="product-card">
+              <div>
+                <span class="tag">✦ Ennef Stock</span>
+                <h3>Control de inventario</h3>
+                <p>Para negocios con productos físicos: fácil de usar, potente en datos y accesible desde celular, tablet o PC.</p>
+                <ul class="checks">
+                  <li><span class="check">✓</span> Stock en tiempo real</li>
+                  <li><span class="check">✓</span> Alertas de inventario bajo</li>
+                  <li><span class="check">✓</span> Dashboard y reportes</li>
+                  <li><span class="check">✓</span> Multi-usuario y multi-sucursal</li>
+                </ul>
+              </div>
+              <div class="mini-dashboard" aria-label="Vista previa de Ennef Stock">
+                <div class="mini-top"><span>ennef-stock</span><span class="dot"></span></div>
+                <div class="mini-metrics">
+                  <div class="mini-metric"><strong>248</strong><span>Productos</span></div>
+                  <div class="mini-metric"><strong>$94k</strong><span>Valor stock</span></div>
+                  <div class="mini-metric"><strong>14</strong><span>Stock bajo</span></div>
+                  <div class="mini-metric"><strong>5</strong><span>Sucursales</span></div>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div>
+                <span class="tag">✦ Sistemas a medida</span>
+                <h3>Herramientas internas</h3>
+                <p>Construimos paneles, automatizaciones, plantillas y sistemas personalizados según el flujo real de tu negocio.</p>
+                <ul class="checks">
+                  <li><span class="check">✓</span> Paneles administrativos</li>
+                  <li><span class="check">✓</span> Automatizaciones internas</li>
+                  <li><span class="check">✓</span> Formularios y reportes</li>
+                  <li><span class="check">✓</span> Presupuestos en Excel</li>
+                </ul>
+              </div>
+              <div class="mini-dashboard" aria-label="Vista previa de sistemas a medida">
+                <div class="mini-top"><span>soluciones-ennef</span><span class="dot"></span></div>
+                <div class="mini-metrics">
+                  <div class="mini-metric"><strong>12</strong><span>Flujos</span></div>
+                  <div class="mini-metric"><strong>8</strong><span>Reportes</span></div>
+                  <div class="mini-metric"><strong>24h</strong><span>Soporte</span></div>
+                  <div class="mini-metric"><strong>100%</strong><span>A medida</span></div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="proceso">
+        <div class="shell two-col">
+          <div>
+            <div class="label">Proceso</div>
+            <h2>De la idea al lanzamiento sin sorpresas.</h2>
+            <p class="lead">Trabajamos con alcance claro, actualizaciones constantes y soporte después de entregar.</p>
+          </div>
+          <div class="timeline">
+            <article class="timeline-item">
+              <div class="icon">1</div>
+              <div>
+                <div class="date">Día 1</div>
+                <h3>Conversacion inicial</h3>
+                <p>Nos cuentas que necesitas. Analizamos el problema juntos y aterrizamos prioridades.</p>
+              </div>
+            </article>
+            <article class="timeline-item">
+              <div class="icon">2</div>
+              <div>
+                <div class="date">1-2 días</div>
+                <h3>Propuesta y cotización</h3>
+                <p>Te enviamos una propuesta concreta con alcance, tiempo y precio. Sin letra pequeña.</p>
+              </div>
+            </article>
+            <article class="timeline-item">
+              <div class="icon">3</div>
+              <div>
+                <div class="date">Semana 1-4</div>
+                <h3>Diseño y desarrollo</h3>
+                <p>Construimos con revisiones claras. Tu apruebas cada etapa antes de continuar.</p>
+              </div>
+            </article>
+            <article class="timeline-item">
+              <div class="icon">4</div>
+              <div>
+                <div class="date">Ongoing</div>
+                <h3>Entrega y soporte</h3>
+                <p>Lanzamos, te capacitamos y nos quedamos disponibles para acompañar tu operación.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section soft" id="precios">
+        <div class="shell">
+          <div class="two-col">
+            <div>
+              <div class="label">Precios</div>
+              <h2>Servicios claros para cotizar sin vueltas.</h2>
+            </div>
+            <p class="lead">Precios base en pesos dominicanos. Los proyectos personalizados se cotizan según alcance, integraciones y tiempos de entrega.</p>
+          </div>
+
+          <div class="catalog-grid">
+            <article class="catalog-card">
+              <h3><span>AI</span> Automatización e IA</h3>
+              <table class="price-table">
+                <thead><tr><th>Servicio</th><th>Precio</th></tr></thead>
+                <tbody>
+                  <tr><td>Chatbot para WhatsApp</td><td>Desde RD$8,000</td></tr>
+                  <tr><td>Automatización de Instagram</td><td>Desde RD$7,000</td></tr>
+                  <tr><td>Automatización de correos</td><td>Desde RD$6,000</td></tr>
+                  <tr><td>Automatización de reservas</td><td>Desde RD$10,000</td></tr>
+                  <tr><td>Automatización de formularios</td><td>Desde RD$7,000</td></tr>
+                  <tr><td>Automatización personalizada</td><td>Cotización</td></tr>
+                </tbody>
+              </table>
+            </article>
+
+            <article class="catalog-card">
+              <h3><span>WEB</span> Desarrollo Web</h3>
+              <table class="price-table">
+                <thead><tr><th>Servicio</th><th>Precio</th></tr></thead>
+                <tbody>
+                  <tr><td>Landing Page</td><td>Desde RD$10,000</td></tr>
+                  <tr><td>Página web empresarial</td><td>Desde RD$20,000</td></tr>
+                  <tr><td>Tienda online</td><td>Desde RD$35,000</td></tr>
+                  <tr><td>Portafolio profesional</td><td>Desde RD$12,000</td></tr>
+                  <tr><td>Blog corporativo</td><td>Desde RD$15,000</td></tr>
+                  <tr><td>Directorio web</td><td>Desde RD$35,000</td></tr>
+                  <tr><td>Panel administrativo</td><td>Desde RD$20,000</td></tr>
+                </tbody>
+              </table>
+            </article>
+
+            <article class="catalog-card">
+              <h3><span>APP</span> Desarrollo de Aplicaciones</h3>
+              <table class="price-table">
+                <thead><tr><th>Servicio</th><th>Precio</th></tr></thead>
+                <tbody>
+                  <tr><td>MVP (Aplicación básica)</td><td>Desde RD$60,000</td></tr>
+                  <tr><td>Publicación en Google Play</td><td>RD$5,000</td></tr>
+                  <tr><td>Mantenimiento mensual</td><td>Desde RD$3,500</td></tr>
+                </tbody>
+              </table>
+            </article>
+
+            <article class="catalog-card">
+              <h3><span>POS</span> Sistemas Empresariales</h3>
+              <table class="price-table">
+                <thead><tr><th>Servicio</th><th>Precio</th></tr></thead>
+                <tbody>
+                  <tr><td>Sistema POS</td><td>Desde RD$40,000</td></tr>
+                  <tr><td>Sistema de inventario</td><td>Desde RD$30,000</td></tr>
+                  <tr><td>Sistema de citas</td><td>Desde RD$25,000</td></tr>
+                  <tr><td>Plantillas de presupuestos en Excel</td><td>Desde RD$500</td></tr>
+                  <tr><td>Sistema de reservas</td><td>Desde RD$30,000</td></tr>
+                  <tr><td>Sistema personalizado</td><td>Cotización</td></tr>
+                </tbody>
+              </table>
+            </article>
+
+            <article class="catalog-card">
+              <h3><span>BR</span> Branding y Diseño</h3>
+              <table class="price-table">
+                <thead><tr><th>Servicio</th><th>Precio</th></tr></thead>
+                <tbody>
+                  <tr><td>Diseño de logotipo</td><td>RD$4,000</td></tr>
+                  <tr><td>Rediseño de logotipo</td><td>RD$3,000</td></tr>
+                  <tr><td>Manual de marca</td><td>RD$6,000</td></tr>
+                  <tr><td>Identidad visual</td><td>RD$10,000</td></tr>
+                  <tr><td>Kit para redes sociales</td><td>RD$3,000</td></tr>
+                  <tr><td>Tarjeta de presentacion digital</td><td>RD$1,200</td></tr>
+                  <tr><td>Firma de correo corporativa</td><td>RD$1,000</td></tr>
+                  <tr><td>Flyer digital</td><td>RD$1,500</td></tr>
+                  <tr><td>Brochure digital</td><td>RD$3,000</td></tr>
+                  <tr><td>Catálogo digital</td><td>Desde RD$6,000</td></tr>
+                  <tr><td>Menú digital</td><td>RD$3,500</td></tr>
+                  <tr><td>Banner publicitario</td><td>RD$1,000</td></tr>
+                  <tr><td>Presentacion corporativa</td><td>Desde RD$4,000</td></tr>
+                  <tr><td>Plantillas editables para Canva</td><td>Desde RD$3,000</td></tr>
+                </tbody>
+              </table>
+            </article>
+
+            <article class="catalog-card">
+              <h3><span>SM</span> Redes Sociales</h3>
+              <table class="price-table">
+                <thead><tr><th>Servicio</th><th>Precio</th></tr></thead>
+                <tbody>
+                  <tr><td>Diseño de post</td><td>RD$500</td></tr>
+                  <tr><td>Carrusel</td><td>RD$1,200</td></tr>
+                  <tr><td>Story</td><td>RD$300</td></tr>
+                  <tr><td>Portada para Facebook</td><td>RD$800</td></tr>
+                  <tr><td>Banner para LinkedIn</td><td>RD$800</td></tr>
+                  <tr><td>Banner para YouTube</td><td>RD$1,000</td></tr>
+                  <tr><td>Miniatura para YouTube</td><td>RD$700</td></tr>
+                  <tr><td>Calendario de contenido</td><td>RD$2,000</td></tr>
+                  <tr><td>Caption + hashtags</td><td>RD$250</td></tr>
+                  <tr><td>Optimizacion de perfil</td><td>RD$2,000</td></tr>
+                </tbody>
+              </table>
+            </article>
+
+            <article class="catalog-card">
+              <h3><span>IT</span> Soporte Tecnologico</h3>
+              <table class="price-table">
+                <thead><tr><th>Servicio</th><th>Precio</th></tr></thead>
+                <tbody>
+                  <tr><td>Configuración de dominio</td><td>RD$1,500</td></tr>
+                  <tr><td>Configuración de hosting</td><td>RD$2,000</td></tr>
+                  <tr><td>Configuración de correo empresarial</td><td>RD$2,000</td></tr>
+                  <tr><td>Migración de página web</td><td>Desde RD$6,000</td></tr>
+                  <tr><td>Mantenimiento web mensual</td><td>Desde RD$3,000</td></tr>
+                </tbody>
+              </table>
+            </article>
+
+            <article class="catalog-card">
+              <h3><span>MKT</span> Marketing Digital</h3>
+              <table class="price-table">
+                <thead><tr><th>Servicio</th><th>Precio</th></tr></thead>
+                <tbody>
+                  <tr><td>Auditoría de presencia digital</td><td>RD$3,500</td></tr>
+                  <tr><td>Configuración de Meta Business</td><td>RD$3,000</td></tr>
+                  <tr><td>Configuración de Google Business</td><td>RD$2,500</td></tr>
+                  <tr><td>Email Marketing</td><td>Desde RD$6,000</td></tr>
+                </tbody>
+              </table>
+            </article>
+          </div>
+
+          <div class="section" style="padding-bottom:0;">
+            <div class="label">Paquetes</div>
+            <h2>Opciones listas para arrancar.</h2>
+            <div class="package-grid">
+              <article class="package-card">
+                <h3>Emprendedor</h3>
+                <div class="package-price">RD$22,000</div>
+                <ul class="checks">
+                  <li><span class="check">✓</span> Diseño de logotipo</li>
+                  <li><span class="check">✓</span> Landing Page</li>
+                  <li><span class="check">✓</span> 12 diseños para redes sociales</li>
+                  <li><span class="check">✓</span> Configuración de Meta Business</li>
+                </ul>
+              </article>
+              <article class="package-card">
+                <h3>Negocio en Crecimiento</h3>
+                <div class="package-price">RD$40,000</div>
+                <ul class="checks">
+                  <li><span class="check">✓</span> Branding completo</li>
+                  <li><span class="check">✓</span> Página web empresarial</li>
+                  <li><span class="check">✓</span> 20 diseños para redes sociales</li>
+                  <li><span class="check">✓</span> Automatización básica</li>
+                </ul>
+              </article>
+              <article class="package-card">
+                <h3>Empresa Digital</h3>
+                <div class="package-price">Desde RD$75,000</div>
+                <ul class="checks">
+                  <li><span class="check">✓</span> Branding completo</li>
+                  <li><span class="check">✓</span> Página web personalizada</li>
+                  <li><span class="check">✓</span> Sistema o automatización</li>
+                  <li><span class="check">✓</span> Soporte inicial</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="shell">
+          <div class="two-col">
+            <div>
+              <div class="label">Por que Ennef</div>
+              <h2>Construido para generar confianza.</h2>
+            </div>
+            <p class="lead">No somos una agencia genérica. Somos un equipo especializado en soluciones reales para negocios reales.</p>
+          </div>
+          <div class="features">
+            <article class="feature">
+              <h3>Datos seguros</h3>
+              <p>Tu informacion siempre protegida con estandares modernos de seguridad.</p>
+            </article>
+            <article class="feature">
+              <h3>Respuesta en 24h</h3>
+              <p>Soporte humano y rápido, sin vueltas innecesarias.</p>
+            </article>
+            <article class="feature">
+              <h3>Hecho en RD</h3>
+              <p>Equipo local que entiende el contexto dominicano y sus operaciones.</p>
+            </article>
+            <article class="feature">
+              <h3>Soporte continuo</h3>
+              <p>Acompañamos tu proyecto a largo plazo después del lanzamiento.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section soft" id="contacto">
+        <div class="shell contact-wrap">
+          <div class="contact-card">
+            <div class="label">Contacto</div>
+            <h2>¿Tienes un proyecto en mente?</h2>
+            <p class="lead">Cuéntanos qué necesitas y te respondemos con una propuesta concreta en menos de 24 horas.</p>
+            <div class="contact-list">
+              <a href="https://wa.me/" target="_blank" rel="noreferrer">WhatsApp <span>Escríbenos directo</span></a>
+              <a href="https://www.instagram.com/ennef.rd" target="_blank" rel="noreferrer">Instagram <span>@ennef.rd</span></a>
+              <div>Email <span>nayeliflorangel@gmail.com</span></div>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <form>
+              <input type="text" name="nombre" placeholder="Nombre" aria-label="Nombre">
+              <input type="email" name="email" placeholder="Correo electrónico" aria-label="Correo electrónico">
+              <select name="servicio" aria-label="¿Qué necesitas?">
+                <option>Selecciona un servicio</option>
+                <option>Sistema de Inventario (Ennef Stock)</option>
+                <option>Plantillas de presupuestos en Excel</option>
+                <option>Página Web</option>
+                <option>Solución Tech a Medida</option>
+                <option>No sé exactamente - necesito orientación</option>
+              </select>
+              <textarea name="mensaje" placeholder="Cuéntanos tu proyecto" aria-label="Cuéntanos tu proyecto"></textarea>
+              <button class="btn primary" type="submit">Enviar mensaje</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="shell">
+        <div class="brand">
+          <img class="brand-logo" src="logo-ennef-crop.png" alt="Ennef Stock">
+        </div>
+        <span>© 2026 Ennef · Santo Domingo, República Dominicana</span>
+        <div class="footer-links">
+          <a href="#servicios">Servicios</a>
+          <a href="#productos">Productos</a>
+          <a href="#contacto">Contacto</a>
         </div>
       </div>
-      <div>
-        <div class="f-col-title" data-i18n="f-col-services">Servicios</div>
-        <ul class="f-col-links">
-          <li><a href="#products" data-i18n="f-link-stock">Ennef Stock</a></li>
-          <li><a href="#products" data-i18n="f-link-noir">Ennef Noir</a></li>
-          <li><a href="#services" data-i18n="f-link-web">Páginas Web</a></li>
-          <li><a href="#services" data-i18n="f-link-tech">Tech a medida</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="f-col-title" data-i18n="f-col-company">Empresa</div>
-        <ul class="f-col-links">
-          <li><a href="#process" data-i18n="f-link-process">Proceso</a></li>
-          <li><a href="#pricing" data-i18n="f-link-pricing">Precios</a></li>
-          <li><a href="#trust" data-i18n="f-link-trust">Por qué nosotros</a></li>
-          <li><a href="#industries" data-i18n="f-link-industries">Industrias</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="f-col-title" data-i18n="f-col-contact">Contacto</div>
-        <ul class="f-col-links">
-          <li><a href="mailto:ventas@ennefrd.com">ventas@ennefrd.com</a></li>
-          <li><a href="https://wa.me/18297471943" target="_blank" rel="noopener">+1 (829) 747-1943</a></li>
-          <li><a href="https://instagram.com/ennefrd" target="_blank" rel="noopener">@ennefrd</a></li>
-          <li>Santo Domingo, RD</li>
-        </ul>
-      </div>
-    </div>
-    <div class="f-bottom">
-      <div class="f-copy" data-i18n="f-copy">© 2025 Ennef. Todos los derechos reservados. Santo Domingo, República Dominicana.</div>
-      <div class="f-legal">
-        <a href="#" data-i18n="f-legal1">Privacidad</a>
-        <a href="#" data-i18n="f-legal2">Términos</a>
-      </div>
-    </div>
+    </footer>
   </div>
-</footer>
-
-<!-- ========================================
-     MODAL
-     ======================================== -->
-<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true">
-  <div class="modal">
-    <div class="modal-ico"><svg class="icon"><use href="#i-check"/></svg></div>
-    <div class="modal-title" data-i18n="modal-title">¡Mensaje recibido!</div>
-    <p class="modal-desc" data-i18n-html="modal-desc">Gracias por contactarnos. Nos pondremos en contacto contigo en <strong>menos de 24 horas</strong>.</p>
-    <button class="btn btn-ink" id="modalBtn">
-      <span data-i18n="modal-btn">Entendido</span>
-    </button>
-  </div>
-</div>
-
-<!-- ========================================
-     FLOATING WHATSAPP
-     ======================================== -->
-<a href="https://wa.me/18297471943?text=Hola,%20quiero%20empezar%20un%20proyecto%20con%20Ennef." target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp">
-  <svg class="icon"><use href="#i-whatsapp"/></svg>
-  <span class="wa-float-label" data-i18n="wa-float">WhatsApp</span>
-</a>
-
-<script src="script.js"></script>
-<script src="tweaks.js"></script>
 </body>
 </html>
