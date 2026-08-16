@@ -33,7 +33,7 @@
   "url": "https://ennefrd.com",
   "logo": "https://ennefrd.com/logo.png",
   "description": "Empresa tech dominicana especializada en sistemas de inventario, desarrollo web y soluciones digitales a medida.",
-  "email": "ventas@ennefrd.com",
+  "email": "ennefrd@gmail.com",
   "telephone": "+18297471943",
   "address": {
     "@type": "PostalAddress",
@@ -1195,12 +1195,12 @@ footer {
             <div class="ct-ch-val">@ennef.rd</div>
           </div>
         </div>
-        <a href="mailto:ventas@ennefrd.com" style="text-decoration:none;color:inherit;">
+        <a href="mailto:ennefrd@gmail.com" style="text-decoration:none;color:inherit;">
           <div class="ct-ch">
             <div class="ct-ch-ico">✉️</div>
             <div>
               <div class="ct-ch-lbl">Email</div>
-              <div class="ct-ch-val">ventas@ennefrd.com</div>
+              <div class="ct-ch-val">ennefrd@gmail.com</div>
             </div>
           </div>
         </a>
@@ -1620,10 +1620,14 @@ function submitForm(e) {
     message: document.getElementById('f-msg').value.trim()
   };
 
-  fetch('https://formspree.io/f/xojbqqrz', {
+  fetch('https://formsubmit.co/ajax/ennefrd@gmail.com', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-    body: JSON.stringify(data)
+    body: JSON.stringify({
+      _subject: 'Nuevo request de producto desde Ennef',
+      _captcha: 'false',
+      ...data
+    })
   })
   .then(r => {
     if (r.ok) {

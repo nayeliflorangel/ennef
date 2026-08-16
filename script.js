@@ -123,7 +123,7 @@ const T = {
     'ct-desc':'Cuéntanos qué necesitas y te respondemos con una propuesta concreta en menos de 24 horas.',
     'chip1':'Sistema de Inventario','chip2':'Página Web','chip3':'Solución Tech','chip4':'Inventario para Bar',
     'ct-ch1-l':'WhatsApp','ct-ch1-v':'+1 (829) 747-1943',
-    'ct-ch2-l':'Email','ct-ch2-v':'ventas@ennefrd.com',
+    'ct-ch2-l':'Email','ct-ch2-v':'ennefrd@gmail.com',
     'ct-ch3-l':'Instagram','ct-ch3-v':'@ennefrd',
 
     'form-name':'Nombre','form-name-ph':'Tu nombre completo',
@@ -272,7 +272,7 @@ const T = {
     'ct-desc':'Tell us what you need and we\'ll respond with a concrete proposal in less than 24 hours.',
     'chip1':'Inventory System','chip2':'Website','chip3':'Tech Solution','chip4':'Bar Inventory',
     'ct-ch1-l':'WhatsApp','ct-ch1-v':'+1 (829) 747-1943',
-    'ct-ch2-l':'Email','ct-ch2-v':'ventas@ennefrd.com',
+    'ct-ch2-l':'Email','ct-ch2-v':'ennefrd@gmail.com',
     'ct-ch3-l':'Instagram','ct-ch3-v':'@ennefrd',
 
     'form-name':'Name','form-name-ph':'Your full name',
@@ -351,10 +351,14 @@ function submitForm(e) {
     message: document.getElementById('f-msg').value.trim()
   };
 
-  fetch('https://formspree.io/f/xojbqqrz', {
+  fetch('https://formsubmit.co/ajax/ennefrd@gmail.com', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-    body: JSON.stringify(data)
+    body: JSON.stringify({
+      _subject: 'Nuevo request de producto desde Ennef',
+      _captcha: 'false',
+      ...data
+    })
   })
   .then(r => {
     if (r.ok) {
