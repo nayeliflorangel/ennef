@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ennef - Tecnología para tu negocio</title>
   <meta name="description" content="Sistemas de inventario, páginas web profesionales y soluciones tech para negocios en República Dominicana.">
+  <meta property="og:title" content="Ennef - Tecnología para tu negocio">
+  <meta property="og:description" content="Páginas web, automatizaciones, branding y sistemas para negocios en República Dominicana.">
+  <meta property="og:image" content="https://ennefrd.com/ennef-thumbnail-web.jpg">
+  <meta property="og:url" content="https://ennefrd.com/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ennef - Tecnología para tu negocio">
+  <meta name="twitter:description" content="Páginas web, automatizaciones, branding y sistemas para negocios en República Dominicana.">
+  <meta name="twitter:image" content="https://ennefrd.com/ennef-thumbnail-web.jpg">
+  <link rel="icon" type="image/png" href="favicon.png">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z92DLK2X8Y"></script>
   <script>
@@ -715,6 +724,67 @@
       margin-top: auto;
     }
 
+    .featured-prices {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 34px;
+    }
+
+    .featured-price {
+      border: 1px solid rgba(108, 76, 255, .18);
+      border-radius: 12px;
+      background: var(--white);
+      padding: 22px;
+      min-height: 212px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .featured-price.primary-offer {
+      background: linear-gradient(180deg, #ffffff, #f7f3ff);
+      border-color: rgba(108, 76, 255, .34);
+    }
+
+    .featured-price span {
+      color: var(--violet);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .featured-price h3 {
+      font-size: 24px;
+      line-height: 1.08;
+      letter-spacing: -.025em;
+      margin-bottom: 12px;
+    }
+
+    .featured-price p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .featured-price strong {
+      margin-top: auto;
+      color: #3f2db7;
+      font-size: 20px;
+      line-height: 1.1;
+    }
+
+    .full-catalog {
+      margin-top: 24px;
+      border-top: 1px solid var(--line);
+      padding-top: 22px;
+    }
+
+    .full-catalog summary {
+      cursor: pointer;
+      color: var(--violet);
+      font-weight: 700;
+      list-style-position: inside;
+    }
+
     .catalog-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -926,6 +996,7 @@
 
       .product-grid,
       .price-grid,
+      .featured-prices,
       .features,
       .catalog-grid,
       .package-grid,
@@ -994,6 +1065,7 @@
       .stats,
       .product-grid,
       .price-grid,
+      .featured-prices,
       .features,
       .catalog-grid,
       .package-grid,
@@ -1039,7 +1111,7 @@
   <div class="page">
     <header class="shell nav">
       <a class="brand" href="#top" aria-label="Ennef inicio">
-        <img class="brand-logo" src="logo-ennef-crop.png" alt="Ennef Stock">
+        <img class="brand-logo" src="ennef-logo-web.jpg" alt="Ennef">
       </a>
       <nav class="nav-links" aria-label="Principal">
         <a href="#servicios">Servicios</a>
@@ -1050,7 +1122,7 @@
       </nav>
       <div class="nav-actions">
         <a class="btn ghost" href="#precios">Ver planes</a>
-        <a class="btn primary" href="#contacto">Empezar</a>
+        <a class="btn primary" href="#contacto">Cotizar</a>
       </div>
     </header>
 
@@ -1077,19 +1149,19 @@
             <h1 id="hero-title">Tecnología que impulsa tu negocio.</h1>
             <p>Construimos sistemas de inventario, páginas web profesionales y soluciones tech a medida para empresas en República Dominicana y el Caribe.</p>
             <div class="hero-actions">
-              <a class="btn primary" href="#servicios">Ver servicios</a>
-              <a class="btn secondary" href="#contacto">Hablar con el equipo</a>
+              <a class="btn primary" href="#contacto">Cotizar mi proyecto</a>
+              <a class="btn secondary" href="https://wa.me/18297471943" target="_blank" rel="noreferrer">Hablar por WhatsApp</a>
             </div>
           </div>
 
-          <div class="stats" aria-label="Metricas de Ennef">
+          <div class="stats" aria-label="Métricas de Ennef">
             <div class="stat">
               <strong>24h</strong>
               <span>Tiempo promedio de respuesta</span>
             </div>
             <div class="stat">
               <strong>8</strong>
-              <span>Areas tech para negocios</span>
+              <span>Áreas tech para negocios</span>
             </div>
             <div class="stat">
               <strong>2</strong>
@@ -1110,7 +1182,10 @@
             <span>Web, automatización, inventario, presupuestos y soporte técnico para negocios que quieren operar mejor.</span>
           </div>
           <div class="showcase-frame">
-            <img src="ennef-workspace.png" alt="Persona trabajando en una página web profesional desde una laptop">
+            <picture>
+              <source srcset="ennef-workspace-optimized.jpg" type="image/jpeg">
+              <img src="ennef-workspace.png" alt="Persona trabajando en una página web profesional desde una laptop">
+            </picture>
           </div>
         </div>
       </section>
@@ -1174,7 +1249,7 @@
           <div class="two-col">
             <div>
               <div class="label">Productos propios</div>
-              <h2>Nuestro ecosistema para operar con mas control.</h2>
+              <h2>Nuestro ecosistema para operar con más control.</h2>
             </div>
             <p class="lead">Herramientas construidas por Ennef, listas para negocios que necesitan claridad diaria en inventario, ventas y procesos.</p>
           </div>
@@ -1241,8 +1316,8 @@
               <div class="icon">1</div>
               <div>
                 <div class="date">Día 1</div>
-                <h3>Conversacion inicial</h3>
-                <p>Nos cuentas que necesitas. Analizamos el problema juntos y aterrizamos prioridades.</p>
+                <h3>Conversación inicial</h3>
+                <p>Nos cuentas qué necesitas. Analizamos el problema juntos y aterrizamos prioridades.</p>
               </div>
             </article>
             <article class="timeline-item">
@@ -1258,13 +1333,13 @@
               <div>
                 <div class="date">Semana 1-4</div>
                 <h3>Diseño y desarrollo</h3>
-                <p>Construimos con revisiones claras. Tu apruebas cada etapa antes de continuar.</p>
+                <p>Construimos con revisiones claras. Tú apruebas cada etapa antes de continuar.</p>
               </div>
             </article>
             <article class="timeline-item">
               <div class="icon">4</div>
               <div>
-                <div class="date">Ongoing</div>
+                <div class="date">Acompañamiento</div>
                 <h3>Entrega y soporte</h3>
                 <p>Lanzamos, te capacitamos y nos quedamos disponibles para acompañar tu operación.</p>
               </div>
@@ -1278,12 +1353,41 @@
           <div class="two-col">
             <div>
               <div class="label">Precios</div>
-              <h2>Servicios claros para cotizar sin vueltas.</h2>
+              <h2>Servicios principales para cotizar sin vueltas.</h2>
             </div>
-            <p class="lead">Precios base en pesos dominicanos. Los proyectos personalizados se cotizan según alcance, integraciones y tiempos de entrega.</p>
+            <p class="lead">Estos son los puntos de partida más comunes. El catálogo completo queda disponible abajo para revisar servicios específicos.</p>
           </div>
 
-          <div class="catalog-grid">
+          <div class="featured-prices">
+            <article class="featured-price primary-offer">
+              <span>Web</span>
+              <h3>Landing page profesional</h3>
+              <p>Una página clara para presentar, vender y recibir clientes.</p>
+              <strong>Desde RD$10,000</strong>
+            </article>
+            <article class="featured-price">
+              <span>Automatización</span>
+              <h3>Chatbot para WhatsApp</h3>
+              <p>Respuestas, flujo inicial y atención básica automatizada.</p>
+              <strong>Desde RD$8,000</strong>
+            </article>
+            <article class="featured-price">
+              <span>Sistemas</span>
+              <h3>Inventario o POS</h3>
+              <p>Control de productos, ventas y operación diaria.</p>
+              <strong>Desde RD$30,000</strong>
+            </article>
+            <article class="featured-price">
+              <span>Branding</span>
+              <h3>Identidad visual</h3>
+              <p>Logo, línea gráfica y piezas base para redes.</p>
+              <strong>Desde RD$10,000</strong>
+            </article>
+          </div>
+
+          <details class="full-catalog">
+            <summary>Ver catálogo completo de servicios y precios</summary>
+            <div class="catalog-grid">
             <article class="catalog-card">
               <h3><span>AI</span> Automatización e IA</h3>
               <table class="price-table">
@@ -1352,14 +1456,14 @@
                   <tr><td>Manual de marca</td><td>RD$6,000</td></tr>
                   <tr><td>Identidad visual</td><td>RD$10,000</td></tr>
                   <tr><td>Kit para redes sociales</td><td>RD$3,000</td></tr>
-                  <tr><td>Tarjeta de presentacion digital</td><td>RD$1,200</td></tr>
+                  <tr><td>Tarjeta de presentación digital</td><td>RD$1,200</td></tr>
                   <tr><td>Firma de correo corporativa</td><td>RD$1,000</td></tr>
                   <tr><td>Flyer digital</td><td>RD$1,500</td></tr>
                   <tr><td>Brochure digital</td><td>RD$3,000</td></tr>
                   <tr><td>Catálogo digital</td><td>Desde RD$6,000</td></tr>
                   <tr><td>Menú digital</td><td>RD$3,500</td></tr>
                   <tr><td>Banner publicitario</td><td>RD$1,000</td></tr>
-                  <tr><td>Presentacion corporativa</td><td>Desde RD$4,000</td></tr>
+                  <tr><td>Presentación corporativa</td><td>Desde RD$4,000</td></tr>
                   <tr><td>Plantillas editables para Canva</td><td>Desde RD$3,000</td></tr>
                 </tbody>
               </table>
@@ -1379,13 +1483,13 @@
                   <tr><td>Miniatura para YouTube</td><td>RD$700</td></tr>
                   <tr><td>Calendario de contenido</td><td>RD$2,000</td></tr>
                   <tr><td>Caption + hashtags</td><td>RD$250</td></tr>
-                  <tr><td>Optimizacion de perfil</td><td>RD$2,000</td></tr>
+                  <tr><td>Optimización de perfil</td><td>RD$2,000</td></tr>
                 </tbody>
               </table>
             </article>
 
             <article class="catalog-card">
-              <h3><span>IT</span> Soporte Tecnologico</h3>
+              <h3><span>IT</span> Soporte Tecnológico</h3>
               <table class="price-table">
                 <thead><tr><th>Servicio</th><th>Precio</th></tr></thead>
                 <tbody>
@@ -1410,7 +1514,8 @@
                 </tbody>
               </table>
             </article>
-          </div>
+            </div>
+          </details>
 
           <div class="section" style="padding-bottom:0;">
             <div class="label">Paquetes</div>
@@ -1455,7 +1560,7 @@
         <div class="shell">
           <div class="two-col">
             <div>
-              <div class="label">Por que Ennef</div>
+              <div class="label">Por qué Ennef</div>
               <h2>Construido para generar confianza.</h2>
             </div>
             <p class="lead">No somos una agencia genérica. Somos un equipo especializado en soluciones reales para negocios reales.</p>
@@ -1463,7 +1568,7 @@
           <div class="features">
             <article class="feature">
               <h3>Datos seguros</h3>
-              <p>Tu informacion siempre protegida con estandares modernos de seguridad.</p>
+              <p>Tu información siempre protegida con estándares modernos de seguridad.</p>
             </article>
             <article class="feature">
               <h3>Respuesta en 24h</h3>
@@ -1488,7 +1593,7 @@
             <h2>¿Tienes un proyecto en mente?</h2>
             <p class="lead">Cuéntanos qué necesitas y te respondemos con una propuesta concreta en menos de 24 horas.</p>
             <div class="contact-list">
-              <a href="https://wa.me/" target="_blank" rel="noreferrer">WhatsApp <span>Escríbenos directo</span></a>
+              <a href="https://wa.me/18297471943" target="_blank" rel="noreferrer">WhatsApp <span>Escríbenos directo</span></a>
               <a href="https://www.instagram.com/ennef.rd" target="_blank" rel="noreferrer">Instagram <span>@ennef.rd</span></a>
               <div>Email <span>ennefrd@gmail.com</span></div>
             </div>
@@ -1496,7 +1601,7 @@
 
           <div class="contact-card">
             <form id="contactForm" action="https://formsubmit.co/ennefrd@gmail.com" method="POST">
-              <input type="hidden" name="_subject" value="Nuevo request de producto desde Ennef">
+              <input type="hidden" name="_subject" value="Nueva solicitud de cotización desde Ennef">
               <input type="hidden" name="_captcha" value="false">
               <input type="text" name="nombre" placeholder="Nombre" aria-label="Nombre" required>
               <input type="email" name="email" placeholder="Correo electrónico" aria-label="Correo electrónico" required>
@@ -1504,12 +1609,12 @@
                 <option>Selecciona un servicio</option>
                 <option>Sistema de Inventario (Ennef Stock)</option>
                 <option>Plantillas de presupuestos en Excel</option>
-                <option>Página Web</option>
+                <option>Página web</option>
                 <option>Solución Tech a Medida</option>
                 <option>No sé exactamente - necesito orientación</option>
               </select>
               <textarea name="mensaje" placeholder="Cuéntanos tu proyecto" aria-label="Cuéntanos tu proyecto" required></textarea>
-              <button class="btn primary" type="submit">Enviar mensaje</button>
+              <button class="btn primary" type="submit">Solicitar cotización</button>
             </form>
           </div>
         </div>
@@ -1519,13 +1624,14 @@
     <footer class="footer">
       <div class="shell">
         <div class="brand">
-          <img class="brand-logo" src="logo-ennef-crop.png" alt="Ennef Stock">
+          <img class="brand-logo" src="ennef-logo-web.jpg" alt="Ennef">
         </div>
         <span>© 2026 Ennef · Santo Domingo, República Dominicana</span>
         <div class="footer-links">
           <a href="#servicios">Servicios</a>
           <a href="#productos">Productos</a>
           <a href="#contacto">Contacto</a>
+          <a href="privacidad.html">Privacidad</a>
         </div>
       </div>
     </footer>
