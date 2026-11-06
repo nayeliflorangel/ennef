@@ -152,13 +152,35 @@
 
     <section class="contact" id="contacto"><div class="wrap contact-box">
       <div class="contact-copy"><span class="eyebrow" style="color:#c69cff">Hablemos</span><h2>Tu próxima gran idea empieza aquí.</h2><p>Cuéntanos qué necesitas y te respondemos con una propuesta clara en menos de 24 horas.</p><div class="links"><a href="https://wa.me/18297471943" target="_blank" rel="noreferrer">WhatsApp ↗</a><a href="https://www.instagram.com/ennef.rd/" target="_blank" rel="noreferrer">Instagram @ennef.rd ↗</a><a href="mailto:ennefrd@gmail.com">ennefrd@gmail.com</a></div></div>
-      <form class="form" onsubmit="sendQuote(event)"><div class="field"><label for="name">Nombre</label><input id="name" required placeholder="Tu nombre"></div><div class="field"><label for="business">Negocio</label><input id="business" placeholder="Nombre del negocio"></div><div class="field full"><label for="service">¿Qué necesitas?</label><select id="service" required><option value="">Selecciona un servicio</option><option>Página web</option><option>Sistema o aplicación</option><option>Automatización</option><option>Branding y diseño</option><option>Soporte tecnológico</option><option>Otro</option></select></div><div class="field full"><label for="message">Háblanos del proyecto</label><textarea id="message" rows="4" placeholder="Quiero una página para..."></textarea></div><button class="btn btn-primary" type="submit">Solicitar cotización</button><span class="note">Al enviar, abriremos WhatsApp con tu solicitud lista.</span></form>
+      <form class="form" onsubmit="sendQuote(event)"><div class="field"><label for="name">Nombre</label><input id="name" name="name" maxlength="100" required placeholder="Tu nombre"></div><div class="field"><label for="business">Negocio</label><input id="business" name="business" maxlength="160" placeholder="Nombre del negocio"></div><div class="field full"><label for="email">Tu correo</label><input id="email" name="email" type="email" maxlength="254" autocomplete="email" required></div><div class="field full"><label for="service">¿Qué necesitas?</label><select id="service" name="service" required><option value="">Selecciona un servicio</option><option>Página web</option><option>Sistema o aplicación</option><option>Automatización</option><option>Branding y diseño</option><option>Soporte tecnológico</option><option>Otro</option></select></div><div class="field full"><label for="message">Háblanos del proyecto</label><textarea id="message" name="message" maxlength="4000" rows="4" placeholder="Quiero una página para..."></textarea></div><button class="btn btn-primary" type="submit">Solicitar cotización</button><span class="note" role="status">Te responderemos al correo que indiques.</span></form>
     </div></section>
   </main>
 
   <footer><div class="wrap footer"><a class="brand" href="#inicio">ennef<span>.</span></a><span>© 2026 Ennef · Santo Domingo, RD</span><a href="mailto:ennefrd@gmail.com">Contacto</a><a href="privacidad.html">Privacidad</a></div></footer>
   <script>
-    function sendQuote(event){event.preventDefault();const n=document.getElementById('name').value.trim();const b=document.getElementById('business').value.trim();const s=document.getElementById('service').value;const m=document.getElementById('message').value.trim();const text=`Hola Ennef, soy ${n}${b?` de ${b}`:''}. Me interesa: ${s}.${m?`%0A%0A${m}`:''}`;window.open(`https://wa.me/18297471943?text=${encodeURIComponent(text).replace(/%250A/g,'%0A')}`,'_blank','noopener')}
+    async function sendQuote(event) {
+      event.preventDefault();
+      const form = event.currentTarget;
+      const button = form.querySelector('button[type="submit"]');
+      const status = form.querySelector('[role="status"]');
+      if (button.disabled) return;
+      button.disabled = true;
+      status.textContent = 'Enviando tu solicitud…';
+      try {
+        const response = await fetch('https://ennefrd-cotizaciones.vercel.app/api/quote', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(Object.fromEntries(new FormData(form)))
+        });
+        if (!response.ok || !(await response.json()).sent) throw new Error();
+        form.reset();
+        status.textContent = 'Solicitud enviada. Te responderemos por correo.';
+      } catch {
+        status.textContent = 'No pudimos confirmar el envío. Conservamos tus datos para que puedas volver a intentarlo.';
+      } finally {
+        button.disabled = false;
+      }
+    }
   </script>
 </body>
 </html>
